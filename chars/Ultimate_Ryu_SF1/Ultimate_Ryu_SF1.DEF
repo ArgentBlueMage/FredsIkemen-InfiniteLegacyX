@@ -1,0 +1,34 @@
+
+
+[Info]
+name ="Ultimate_Ryu_SF1"
+displayname ="Ryu"
+versiondate =8,16,2024
+mugenversion =1.0
+author ="ELECTR0"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite =Ultimate_Ryu_SF1.sff
+anim =Ultimate_Ryu_SF1.air
+sound =Ultimate_Ryu_SF1.snd
+cmd =Ultimate_Ryu_SF1.cmd
+cns =Ultimate_Ryu_SF1.cns
+stcommon =common1.cns
+st =Ultimate_Ryu_SF1.cns
+pal1=SF1.act
+pal2=Champion.act
+pal3=Turbo.act
+pal4=SF2.act
+pal5=Super1.act
+pal6=Red.act
+pal7=Evil.act
+pal8=EvilPurple.act
+pal9=EvilRed.act
+pal10=EvilRedPurple.act
+pal11=Evil.act
+pal12=EvilBlue.act
+
+[Arcade]
+intro.storyboard =RYU_Ultimate_intro.def
+ending.storyboard =RYU_Ultimate_Ending.def

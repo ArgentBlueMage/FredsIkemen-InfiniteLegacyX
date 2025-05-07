@@ -1,0 +1,138 @@
+;オプション
+[Statedef 9999]
+;==============================================================================
+;Option
+;==============================================================================
+;----------------------------------------------------------|行動有無|
+[State -3,気絶(させる)]
+type = varset
+triggerall = !ishelper
+Trigger1 = 1
+v = 36
+value = 1;0..OFF 1..ON(default)
+
+[State -3,脱衣(する)]
+type = varset
+triggerall = !ishelper
+Trigger1 = 1
+v = 37
+value = 1;0..OFF 1..ON(default)
+
+;--------------------------------------------------------------------------|AI|
+[State -3,AIレベル];AI level
+type = varset
+triggerall = !ishelper
+Trigger1 = 1
+v = 38
+value = 5;AIのレベル設定が出来ます(1:Easy 2:normal 3:MVS 4:HARD 5:CRAZY(default) 6:KOMBAT)
+
+[State -3,AI常時起動];AI run everytime
+type = varset
+triggerall = !ishelper
+Trigger1 = 1
+v = 39
+value = 0;1以上でAI常時起動
+
+;---------------------------------------------------------
+[State 5900];Intro for special
+type = ChangeState
+triggerall = prevstateno != 100191
+triggerall = (teammode = single && roundno=1)||teammode=turns
+triggerall = !(teammode = simul)
+trigger1 = enemy(0),stateno != 192
+trigger1 = enemy(0),animexist(18000)
+trigger1 = enemy(0),authorname = "iwakick"
+trigger1 = enemy(0),name = "SilverSamurai"
+value = 100191
+;---------------------------------------------------------
+
+[State 9999, ステート変更]
+type     = ChangeState
+trigger1 = !RoundsExisted
+value    = 190
+
+[State 9999, ステート変更]
+type     = ChangeState
+trigger1 = 1
+value    = 0
+
+;==============================================================================
+;END
+;==============================================================================
+;---------------------------------------------------------------------------
+[Statedef 100191]; VS iwakick
+type = L
+ctrl = 0
+velset = 0,0
+anim = 0
+
+[state a]
+type = varset
+trigger1 = enemy,authorname = "iwakick"
+trigger1 = enemy,name = "silversamurai"
+trigger1 = sysvar(0) = 0
+sysvar(0) = 181
+
+[state a]
+type = varset
+trigger1 = enemy,authorname = "iwakick"
+trigger1 = enemy,name = "silversamurai"
+trigger1 = sysvar(1) = 0
+sysvar(1) = 0
+
+[state a]
+type = varset
+trigger1 = enemy,authorname = "iwakick"
+trigger1 = enemy,name = "silversamurai"
+trigger1 = sysvar(2) = 0
+sysvar(2) = 0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[state 191]
+type = hitby
+trigger1 = numenemy
+trigger1 = enemy,authorname = "iwakick"
+value = S, HT
+
+[State 191, 3]
+type = ChangeState
+trigger1 = roundno = 1
+trigger1 = time = 31
+value = 190
+
+[State 191, 3]
+type = ChangeState
+trigger1 = roundno > 1
+trigger1 = time = 31
+value = 5900
+
+;---------------------------------------------------------------------------
+[Statedef 100192]; VS iwakick helper
+type = L
+ctrl = 0
+velset = 0,0
+anim = 0
+
+[state 191]
+type = hitby
+trigger1 = numenemy
+trigger1 = enemy,authorname = "iwakick"
+value = S, HT
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[State 191, 3]
+type = destroyself
+triggerall = ishelper
+trigger1 = roundstate > 1
+trigger2 = root,alive = 0
+;---------------------------------------------------------------------------
+

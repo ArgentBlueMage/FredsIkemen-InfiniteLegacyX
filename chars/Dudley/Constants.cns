@@ -1,0 +1,435 @@
+; _______________________________________
+;| Dudley by Dick Buckus & Mr.Ansatsuken |
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+;---------------------- Integer variable list ----------------------
+
+;var(0)		GetHit Var					:= 40, 132 - AIR GUARD (guarding), 155 - AGUARDHIT2 (knocked away), 5080 - HITL_SHAKE, 5081 - HITL_SLIDE, 5100 - HIT_BOUNCE (hit ground), 5110 - HIT_LIEDOWN, 765, 766 - ---Success---, 8600
+;var(3)		High Jum or Low Jump type	:= 40
+;var(5)		Special Cancel Check		:= -3
+;var(6)		Super Cancel Check 			:= -3
+;var(11)	Hyper/Max Cancel Check    	:= -3
+;var(12)	Spark X position			:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(13)	Spark Y position
+;var(15)	Juggle Count				:= -2, 1030 - EX Machine Gun Blow
+;var(16)	Juggle Check				:= -2, 1030 - EX Machine Gun Blow
+;var(17)	Hit / Combo Count			:= 900 - Custom Combo, 905 - Custom Combo Air, -2
+;var(18)	Unguardable AssertSpecial	:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, -2
+;var(20)	Custom Combo Time    		:= 3010 - Rolling Thunder, 900 - Custom Combo, 905 - Custom Combo Air, -2
+;var(22)	Super Cancel Flag			:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, -3
+;var(23)	Hyper / Max Cancel Flag     := 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, -3
+;var(24)	Max Mode Power Set    		:= 770 - Max Mode
+;var(25)	EX Flash FX check    		:= -3, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1110 - EX Cross-Counter - Start, 1180 - EX Ducking, 1230 - EX Short Swing Blow
+;var(26)	No Walk After Parry    		:= 760 - Standing Parry, 761 - Crouch Parry, -3
+;var(27)	EX Machine Gun Hit Count    := -2, 1030 - EX Machine Gun Blow
+;var(29)	Counter Hit Flag    		:= -2
+;var(30)	Sparks' hit Flag	    	:= -2
+;var(31)	???							:= -2
+;var(32)	???							:= -2
+;var(33)	Hit Spark Type				:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, -2, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(34)	Guard Spark Type 			:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, -2, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(35)	???							:= -2
+;var(36)	???							:= -2
+;var(43)	PlayAnim Time Offset    	:= 200 - Standing Light Punch, 220 - Standing Strong Punch, 240 - Standing Medium Kick, 400 - Crouching Light Punch, 600 - Jump Light Punch
+;var(53)	Max Mode Timer    			:= 770 - Max Mode, -2, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1110 - EX Cross-Counter - Start, 1180 - EX Ducking, 1230 - EX Short Swing Blow
+;var(57)	Intro Vehicle Check    		:= 5900 - Initialize Start Round
+
+;---------------------- Float variable list ----------------------
+
+;fvar(5)	Corner Push					:= 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, 900 - Custom Combo, 905 - Custom Combo Air, -3
+;fvar(8)	R.Thunder TargetBind X pos  := 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder
+;fvar(9)	R.Thunder TargetBind Y pos  := 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder
+
+;fvar(10)	Damage Dampener Multiplier	:= -2
+;fvar(11)	Damage Dampener				:= -2
+;fvar(14)	MaxMode life tracker		:= -2
+
+;===================<CONSTANTS>================
+
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 50
+liedown.time = 60
+airjuggle = 15
+sparkno = S8010
+guard.sparkno = 40
+KO.echo = 0
+volume = 255
+IntPersistIndex = 60
+FloatPersistIndex = 40
+
+[Size]
+xscale = 0.925
+yscale = 1.01
+ground.back = 15
+ground.front = 16 
+air.back = 15
+air.front = 15
+height = 60
+attack.dist = 160
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 7, -93
+mid.pos = -1, -60
+shadowoffset = -1
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd = 4.25
+walk.back = -3.5333
+run.fwd = 6.75,0
+run.back=-6.375,-3
+jump.neu = 0, -9
+jump.fwd= 3.875 
+jump.back = -4.25
+runJump.fwd = 6.5,-10.25
+runJump.back = -6.375,-10.25
+airjump.neu=0,-9.1     
+airjump.back = -2.8
+airjump.fwd = 2.8
+
+
+[Movement]
+airJump.num=0
+airJump.height=0
+yaccel = .5 
+stand.friction=0.85
+crouch.friction=0.82
+stand.friction.threshold=1.0
+crouch.friction.threshold=1.0
+air.gethit.groundLevel=25
+air.gethit.groundRecover.ground.threshold=-20
+air.gethit.groundRecover.groundLevel=10
+air.gethit.airRecover.threshold=-1
+air.gethit.airRecover.yAccel=0.35
+air.gethit.trip.groundLevel=15
+down.bounce.offset=0, 20
+down.bounce.yAccel=0.4
+down.bounce.groundLevel=12
+down.friction.threshold=0.5
+
+[Quotes]
+;Win Quotes
+victory0 = "Fight like a gentleman... Live like a gentleman!"
+victory1 = "A punching bag that can bleed is not a suitable rival for me."
+victory2 = "Even a spectator needs to be sharp to comprehend the grace of boxing!"
+victory3 = "Not very articulated, are you? Work on your movements, chap!"
+victory4 = "To win with prestige and glory is a sensation like no other!"
+victory5 = "A champion does not achieve victory when fueled by anger."
+victory6 = "Despite your manners, I like your style. Let me buy you a drink..."
+victory7 = "Learn to fight with class! Self-respect breeds discipline!"
+victory8 = "No matter how many times we fight, I'll always pound your limy hide."
+victory9 = "To err is human, but to win is noble."
+victory10 = "I put the kettle on, but you couldn't even last through tea time!"
+victory11 = "You're down already? The spectators are demanding their shillings back."
+victory12 = "Shall I awaken you with the waters of the Thames River?"
+victory13 = "Another uncouth lout falls between my knuckles and the street."
+victory14 = "Good show, but it just isn't in your blood."
+victory15 = "Cowards die often, or so it is said."
+victory16 = "This was my finest hour!"
+victory17 = "It seems the grace of victory doesn't love you."
+victory18 = "The British spirit is an indomitable spirit!"
+victory19 = "There is a difference between refined strength and uncouth violence."
+victory20 = "Down for the count!"
+victory21 = "You have no dignity!"
+victory22 = "Boxing is the most refined of the fighting arts."
+victory23 = "I like you. Please allow me to buy you a pint."
+victory24 = "I'm afraid that fine roses are as rare as respectable fighters."
+victory25 = "I believe it's tea time now. Please excuse me..."
+victory26 = "That was an exciting match. You have my gratitude."
+victory27 = "There isn't much variety in your routine, is there?"
+victory28 = "You aren't ready to face me just yet. \nContact me once you've trained harder."
+victory29 = "There is no shortcut to perfection. \nHard training is the only way."
+
+;WIn Quotes (Corkscrew Blow / Corkscrew Cross) 
+victory30 = "Corkscrew!! It has the devastating power of a hurricane!"
+victory31 = "The Corkscrew was a perfect finisher... \nI did not think you could withstand it!"
+
+;Win Quotes (Rocket Uppercut)
+victory32 = "Rocket Uppercut!! It strikes the heavens in unequaled glory!"
+victory33 = "The End!! What a stylish victory!"
+
+;Win Quotes (Rolling Thunder)
+victory34 = "Rolling Thunder... Did you ever think it could end so dramatically?"
+victory35 = "Now you have seen the power, devastation, and fury of the Rolling Thunder!"
+
+
+;Win Quote vs. Abel
+;"What a polite young man. I have high hopes for you!"
+victory36 = "While your throws are quite formidable, don't think i'd let you get in so easily."
+
+;Win Quote vs. Adon
+victory37 = "Until you display some dignity, I'm afraid I cannot take you seriously."
+
+;Win Quote vs. Akuma
+;"You are powerful and spirited, but what might be you fighting for?"
+victory38 = "Demonic foes make for an exciting bout, that's for certain!"
+victory39 = "You have quite an overwhelming sense about you. \nTo be expected from one who has dedicated himself to the fight."
+
+;Win Quote vs. Alex
+victory40 = "Ah, I just can't stand ill-mannered goons who ignore grooming!"
+victory41 = "Your attacks are strong, but unpolished... Are you really determined to win?"
+
+;Win Quote vs. Alisa
+victory42 = "Though irregular, your moves definitely had a pattern. \nYou're simply too mechani...ah, my apologies. That was rude of me."
+;
+;;Win Quote vs. Asuka
+;"I say, you're a bit rough but I see plenty of potential. Work hard, young miss!"
+
+;Win Quote vs. Balrog
+victory43 = "I knew when I first laid eyes upon you that you aren't much of a boxer."
+victory44 = "I think it is time for you to hang up your gloves for good."
+victory45 = "You are an utter embarrassment to the great sport of boxing. \nI refuse to even call you a boxer."
+
+;Win Quote vs. M. Bison
+;"Did you think I would be intimidated by you? So sorry to disappoint!"
+victory46 = "Gutter thrash like you will never be capable of ruling the world."
+
+;Win Quote vs. Blanka
+;"Even instincts can be honed and improved upon."
+victory47 = "If you would on work on adding a bit of class to your repertoire, you would have unlimited potential."
+
+;Win Quote vs. Cammy
+victory48 = "How lovely to see another Brit in this tournament! Thank you for the match!"
+;"Had I been a bit slower I might have lost. Your moves are very commendable."
+
+;Win Quote vs. Chun-Li
+;"You have my gratitude for showing me your incredible moves, detective!"
+victory49 = "Your kicks are beautiful, really quite splendid. \nI am thorougly impressed, inspector."
+
+;Win Quote vs. Cody
+;"If you hunger for it, the world can be yours. You just have to want it!"
+victory50 = "For a man with your talents, it's a shame you choose to waste them living like a scoundrel."
+
+;Win Quote vs. C. Viper
+victory51 = "Does using an alias in a situation such as this not strike you as a bit rude?"
+
+;Win Quote vs. Dan
+victory52 = "I cannot hold back - even against a bloke like you."
+
+;Win Quote vs. Decapre
+victory53 = "You resemble a girl I know. But you conduct yourself quite differently."
+
+;Win Quote vs. Dee Jay
+victory54 = "Unless you intend to lose, you should keep the dancing to a minimum, sir."
+
+;Win Quote vs. Dhalsim
+;"Our metaphysical views may differ, but I like the cut of your jib, sir!"
+victory55 = "The mystery of Yoga... It is truly quite fascinating."
+
+;Win Quote vs. Dudley
+victory56 = "You dared to piss me off. Was it boldness, or stupidity?"
+victory57 = "Only a fool would try to anger me as you have. Leave my presence at once!"
+victory58 = "An excelent chance for some instrospective training! \nMy gratitude for the experience."
+
+;Win Quote vs. El Fuerte
+victory59 = "With all due apologies, I tend to stick to a rather unadventurous diet."
+
+;Win Quote vs. Elena
+;"Pardon me for my violent behaviour, lady."
+;"I will not be easy on you just because you are a lady. \nI see your pride and I will not insult it."
+victory60 = "What a well behaved young lady you are. \nAccept my gratitude for a pleasant time."
+victory61 = "Miss, perhaps you should exercise more caution in the future? \nSometimes you are too... exposed."
+
+;Win Quote vs. Fei Long
+victory62 = "You may be a professional actor, but you have a long way to go as a fighter."
+
+;Win Quote vs. Gen
+victory63 = "Terribly sorry to pummel an elder like that, sir. Don't take it personally."
+
+;Win Quote vs. Gill
+victory64 = "You think too much of your own power. \nYour opinion of strength is not the only one!"
+
+;Win Quote vs. Gouken
+victory65 = "Your fighting style reminds me of a gentleman by the name of Ryu."
+
+;Win Quote vs. Guile
+;"I can feel a sense of military precision in your style. We should do this again!"
+victory66 = "Techniques that rely on rigid logic are easy to figure out. \nPerhaps you forgot to account for this?"
+
+;Win Quote vs. Guy
+;"Boxing is a sweet science; speed alone cannot overcome it."
+victory67 = "Bushinryu was just as formidable as I'd heard."
+
+;Win Quote vs. Hakan
+victory68 = "Your technique is certainly... unique. No match for boxing, though, is it?"
+
+;Win Quote vs. Heihachi
+victory69 = "Such strenght at your tender old age... \nYou truly deserve your reputation as the King of the Iron Fist."
+
+;Win Quote vs. E. Honda
+victory70 = "Sumo is a respectable sport, but it simply cannot compare to boxing."
+
+;Win Quote vs. Hugo
+victory71 = "True confidence and pride count more towards victory than physical mass! \nRemember that!"
+;"It takes more than size to win a match, chap."
+;
+;;Win Quote vs. Hworang
+;"Your attacks are quite simplistic. You have no chance of winning as you are now."
+
+;Win Quote vs. Ibuki
+victory72 = "Not a bad go of things. I enjoyed it, Samurai Lass!"
+victory73 = "Madame, your ninja style is quite entertaining, but your ostentatious style won't help you win."
+;"You appear to be a student. Was today a school holiday for you, dear?"
+;"If you not concentrate on your opponent, your moves will continue to miss their mark, lass."
+;
+;;Win Quote vs. Jack
+;"A programmed machine lacks the emotion and dedication requiered to best me in battle!"
+
+;Win Quote vs. Jin
+victory74 = "Looks like the Mishima Saibatsu is coming to an end. \nIf you wish to pick yourself back up, fight your way to the top!"
+
+;Win Quote vs. Juri
+victory75 = "I do believe I warned you, miss. I have no sympathy for evildoers!"
+victory76 = "I simply cannot fathon how you enjoy hurting others."
+;
+;;Win Quote vs. Kazuya
+;"I thought you'd be better than that. Sadly, I was dissapointed."
+
+;Win Quote vs. Ken
+;"My apologies, but I have no chance but to maul sissy men like you!"
+victory77 = "Fighting with style demands guts... Winning with style demands skill..."
+victory78 = "I'll admit that your fiery punches are not to be trifled with, Mr. Masters."
+victory79 = "Those flames you take such pride in shan't work on me. \nI suggest a new approach."
+
+;Win Quote vs. Lili
+victory80 = "Your parents must be worried sick about you. \nMr. Gotch, please prepare...hm? You have your own limousine?"
+
+;Win Quote vs. Makoto
+victory81 = "You may be young, but you have the spirit of a true warrior."
+;
+;;Win Quote vs. Marduck
+;"Did you think you would win if you just got close? Don't take boxing so lightly, chap."
+
+;Win Quote vs. Necro
+;"At first, you looked like a right good challenge. Looks can deceive, eh?"
+victory82 = "Your moves are deceptive at times, but it did nothing to affect my poise in battle."
+;
+;;Win Quote vs. Nina
+;"I don't need to take life to claim victory."
+;
+;;Win Quote vs. Ogre
+;"I won't loose so easily. My pride as a champion depends on it."
+
+;Win Quote vs. Oni
+victory83 = "I've fought in countless battles, but this is the first time I was ready to die."
+;
+;;Win Quote vs. Paul
+;"A fellow without a goal is truly a sad sight. \nYours may be lofty, but never give up on your dream, good fellow!"
+
+;Win Quote vs. Poison
+victory84 = "Mr. Gotch, please call an ambulance for the fallen young lady here."
+;
+;;Win Quote vs. Raven
+;"Quite the interesting arsenal you have. \nBut it couldn't quite compare to the elegance of boxing."
+
+;Win Quote vs. Rolento
+;"I cannot sympathize with your ideals. Perhaps you'll have luck elsewhere."
+victory85 = "My apologies, but I have no interest in a police-controlled state. \nMy loyalties are to the Queen."
+
+;Win Quote vs. Rose
+victory86 = "I've never encountered a fighter like you before, madam. What an honor!"
+;
+;;Win Quote vs. Rufus
+;"Your uncouth mouth has offended my gentleman's sensibilities."
+;"A gentleman should choose his words carefully. You are much too wordy for your own good."
+
+;Win Quote vs. Ryu
+;"Sad...the land of the Samurai must have fallen with you."
+victory87 = "Your bravery is admirable! Is that the way of a Japanese Bushido warrior?!"
+victory88 = "Victory is mine this time, Ryu! Let's spar again soon!"
+;"It was quite the honour to be able to ecxhange blows with you."
+
+;Win Quote vs. Oro
+;"On my honour, old man, I swear I didn't pull any punches!"
+victory89 = "I hope to be as spunky as you in my old age. Do you need a hand?"
+
+;Win Quote vs. Sagat
+;"What incredible prowess! I do hope we can match wits again one day!"
+victory90 = "It was an honour to cross fists with the legendary king. \nThank you for the excelent experience."
+
+;Win Quote vs. Sakura
+;"With a fighting spirit like yours, you are destined to go pro one day, miss!"
+victory91 = "A diamond in the rough... \nSomeday you may surpass me as a new generation of fighter."
+
+;Win Quote vs. Sean
+;"Such a greenhorn! You leave your temple wide open. Bad form!"
+victory92 = "You shouldn't worry yet! \nLack of experience is the reason for your poor performance."
+
+;Win Quote vs. Seth
+victory93 = "Did you think that data alone could make you strong? \nI'm afraid you are mistaken."
+;
+;;Win Quote vs. Steve
+;"This was our first bout, but you were as skilled as I've heard. \nLet us battle again someday."
+
+;Win Quote vs. T. Hawk
+victory94 = "I admire the sense of responsibility you embody, sir. Good show!"
+
+;Win Quote vs. Urien
+victory95 = "You're dented! Maybe the auto body people can help you!"
+
+;Win Quote vs. Vega
+;"You place too much emphasis on appearances, chap."
+victory96 = "With moves like that, you simply have no right to speak about beauty."
+;
+;;Win Quote vs. Xiaoyu
+;"Nice attacks, but you had far too many oppenings. Shall we do this again someday?"
+
+;Win Quote vs. Yang
+victory97 = "When it comes to lightning actions, the speed of boxing is unsurpassed."
+;"Even the slightest of errors can turn the tide of battle... \nI'm sure you know this by now."
+;"There is no sweeter science than boxing."
+;
+;;Win Quote vs. Yoshimitsu
+;"My straights were a lot faster than your sword. You cannot cut what you cannot hit."
+
+;Win Quote vs. Yun
+;"Speed, which you have, is necessary to win. But where is your power?"
+;"Your fighting skills are equal to... child's play."
+victory98 = "A gentleman should remove his hat before stepping into the ring."
+
+;Win Quote vs. Zangief
+victory99 = "You, sir, have made me rethink my views on the sport of professional wrestling."
+;"Your true strenght comes from strong beliefs. I have high hopes for you."
+
+
+;---------------------- Integer variable list ----------------------
+
+; var(0):= 40, 132 - AIR GUARD (guarding), 155 - AGUARDHIT2 (knocked away), 5080 - HITL_SHAKE, 5081 - HITL_SLIDE, 5100 - HIT_BOUNCE (hit ground), 5110 - HIT_LIEDOWN, 765, 766 - ---Success---, 8600
+; var(3):= 40
+; var(5):= -3
+; var(6):= -3
+;var(11):= -3
+;var(12):= 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(15):= -2, 1030 - EX Machine Gun Blow
+;var(16):= -2, 1030 - EX Machine Gun Blow
+;var(17):= -2
+;var(18):= -2, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder
+;var(20):= 3010 - Rolling Thunder
+;var(22):= -3, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross
+;var(23):= -3, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross
+;var(24):= 770 - Max Mode
+;var(25):= -3, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1110 - EX Cross-Counter - Start, 1180 - EX Ducking, 1230 - EX Short Swing Blow
+;var(26):= 760 - Standing Parry, 761 - Crouch Parry, -3
+;var(27):= -2, 1030 - EX Machine Gun Blow
+;var(29):= -2
+;var(30):= -2
+;var(31):= -2
+;var(32):= -2
+;var(33):= -2, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(34):= -2, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1115 - EX Cross-Counter - Strike, 1181 - EX Ducking Straight, 1182 - EX Ducking Upper, 1230 - EX Short Swing Blow, 200 - Standing Light Punch, 201 - Slipping Jab, 210 - Standing Medium Punch, 211 - Stomach Blow, 220 - Standing Strong Punch, 221 - Step Straight, 230 - Standing Light Kick, 240 - Standing Medium Kick, 241 - Lever Blow, 250 - Standing Strong Kick, 251 - Dart Shot, 400 - Crouching Light Punch, 410 - Crouching Medium Punch, 420 - Crouching Strong Punch, 425 - Strong Punch Target Combo, 430 - Crouching Light Kick, 440 - Crouch Medium Kick, 450 - Crouch Strong Kick, 600 - Jump Light Punch, 610 - Jump Medium Punch, 620 - Jump Strong Punch, 630 - Jump Light Kick, 640 - Jump Medium Kick, 650 - Jump Strong Kick, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross, 1000 - Light Machine Gun Blow, 1010 - Strong Machine Gun Blow, 1020 - Fierce Machine Gun Blow, 1050 - Light Jet Upper, 1060 - Strong Jet Upper, 1070 - Fierce Jet Upper, 1105 - Cross-Counter - Strike, 1151 - Ducking Straight, 1152 - Ducking Upper, 1200 - Light Short Swing Blow, 1210 - Strong Short Swing Blow, 1220 - Fierce Short Swing Blow
+;var(43):= 200 - Standing Light Punch, 220 - Standing Strong Punch, 240 - Standing Medium Kick, 400 - Crouching Light Punch, 600 - Jump Light Punch
+;var(53):= 770 - Max Mode, -2, 1030 - EX Machine Gun Blow, 1080 - EX Jet Upper, 1110 - EX Cross-Counter - Start, 1180 - EX Ducking, 1230 - EX Short Swing Blow
+;var(57):= 5900 - Initialize Start Round
+
+;---------------------- Float variable list ----------------------
+
+; fvar(5):= -3, 3000 - Corkscrew Blow, 3050 - Rocket Uppercut, 3055 - MAX Rocket Uppercut, 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder, 4100 - Corkscrew Cross
+; fvar(8):= 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder
+; fvar(9):= 3010 - Rolling Thunder, 3015 - MAX Rolling Thunder
+;fvar(10):= -2
+;fvar(11):= -2
+;fvar(14):= -2
+

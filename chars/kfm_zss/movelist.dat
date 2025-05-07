@@ -1,0 +1,15 @@
+<#f0f000>:Normals:</>
+Kung Fu Throw								^LP+^LK
+Kung Fu Blocking							^MP+^MK
+
+<#F0F000>:Special Moves:</>
+Kung Fu Palm_EX								_QDF^P
+Kung Fu Upper_EX							_DSF^P
+Kung Fu Blow_EX								_QDB^P
+Kung Fu Zankou_EX							_QDF^K
+Kung Fu Knee_EX								_XFF^K
+ <#BEBEBE>_!Extra kick						^K
+
+<#F0F000>:Super Moves:</>
+<#00FFFF>(1000)</>Triple Kung Fu Palm		_QDF_QDF^P
+<#00FFFF>(1000)</>Smash Kung Fu Upper		_QDB_QDB^P

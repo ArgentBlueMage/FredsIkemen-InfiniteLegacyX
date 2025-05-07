@@ -1,0 +1,52 @@
+;Warning!
+;This is a director's cut version of KFM-Ultra.
+;It includes cut content that some people might find offensive.
+;None of the content is meant for insulting anyone directly and it's meant only for comedic purposes.
+;If you're easily offended please refrain from using this character.
+
+;This character is not suitable for mugen 1.1b zoom stages
+;Some moves get deactivated in simul mode.
+[Info]
+name = "kfm-ultra"        
+displayname = "ULTRA Kung Fu Man"
+versiondate = 04,20,2069    
+mugenversion = 1.0; Never change it to 1.1 or else you'll experience some weird issues.
+author = "Synck"; Originally by Elecbyte
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12    
+
+[Files]
+;cmd     = Misc/kfm-ultra - Aggressive.cmd
+cmd     = Misc/kfm-ultra - Insano.cmd
+;cmd     = Misc/kfm-ultra - Impossible.cmd
+cns     = States/kfm-ultra.cns   
+st      = States/kfm-ultra.cns
+st2     = States/normals.cns   
+st3     = States/specials.cns
+st4     = States/hypers.cns
+st5     = States/hypers2.cns
+st6     = States/hypers3.cns
+st7     = States/helpme.cns
+st8     = States/helpme2.cns
+st9     = States/helpme3.cns
+stcommon = common1.cns 
+sprite  = Sprites/kfm-ultra.sff   
+anim    = Misc/kfm-ultra.air   
+sound   = Misc/kfm-ultra.snd
+pal1    = Pal/kfm-ultra.act  
+pal2    = Pal/PostalDude.act
+pal3    = Pal/terminal.act
+pal4    = Pal/Anprim.act
+pal5    = Pal/kfm_plutonia.act
+pal6    = Pal/made_with_exxxtra_love.act
+pal7    = Pal/nwordpass.act
+pal8    = Pal/AverageBiker.act  
+pal9    = Pal/ghosts_of_dos.act
+pal10   = Pal/welcome_back_to_brazil.act
+pal11   = Pal/Shitass.act
+pal12   = Pal/piss.act
+movelist = movelist.dat
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

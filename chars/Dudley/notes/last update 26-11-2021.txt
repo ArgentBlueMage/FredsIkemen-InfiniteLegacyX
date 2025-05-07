@@ -1,0 +1,9 @@
+added dampener vars to normals
+target combos + dampener TCs
+crouch HK no longer cancellable, but juggle with EX uppercut and rocket uppercut
+tweaked special uppercut and super uppercut anims based on 3s
+fixed dudley landing below the floor by 5 pixels on landing frames during rocket uppercut
+increased tempo of machinegun punches +3 on hit
+ex shortswing blow tweaks: shorter hitpause on first hit, decreased x velocity, increased yaccel
+ex ducking uppercut: higher y velocity, more yaccel
+corkscrew cross: S physics in custom state so that P2 is less "slidey" on icey

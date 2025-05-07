@@ -1,0 +1,60 @@
+;=========================================
+;Target Combos
+
+[State -1, Standing Medium Punch Target Combo]
+type=ChangeState
+value=210
+triggerall=!AILevel&&Roundstate=2&&statetype != A&&command != "holddown" && (command="y"||command="tgt.y") && movecontact
+trigger1=stateno=240&&animelemtime(8)<0
+trigger1=prevstateno=230&&prevstateno!=430
+trigger2=stateno=200&&animelemtime(4)<0
+trigger3=stateno=201&&animelemtime(4)<0
+
+[State -1, Standing High Punch Target Combo]
+type=ChangeState
+value=220
+triggerall=!AILevel&&Roundstate=2&&statetype != A&&command != "holddown"&& command="tgt.z" && movecontact
+trigger1=stateno=240&&prevstateno=241&&animelemtime(8)<0
+
+[State -1, Standing Medium Kick Target Combo]
+type=ChangeState
+value=240
+triggerall=!AILevel&&Roundstate=2&&statetype != A && (command="b"||command="tgt.b") && movecontact
+trigger1=stateno=230&&animelemtime(6)<0
+trigger2=stateno=210&&animelemtime(5)<0
+trigger2=prevstateno=200
+trigger2=prevstateno!=201
+trigger3=stateno=430&&animelemtime(4)<0
+trigger4=stateno=251&&animelemtime(9)<0
+
+[State -1, Standing High Kick Target Combo]
+type=ChangeState
+value=250
+triggerall=!AILevel&&Roundstate=2&&statetype != A&&command != "holddown"&& (command="c"||command="tgt.c") && movecontact
+trigger1=stateno=240&&prevstateno<200&&animelemtime(9)<0
+;trigger3=var(4)disabled
+
+[State -1, Crouching Medium Punch Target Combo]
+type=ChangeState
+value=410
+triggerall=!AILevel&&Roundstate=2&&statetype != A&&command= "holddown"&& command="tgt.y" && movecontact
+trigger1=stateno=430&&animelemtime(4)<0
+;trigger2=var(4)
+
+[State -1, Crouching Medium Punch Target Combo]
+type=ChangeState
+value=420
+triggerall=!AILevel&&Roundstate=2&&statetype != A&&command= "holddown"&& command="tgt.z" && movecontact
+trigger1=stateno=410&&animelemtime(5)<0
+trigger1=prevstateno=430
+;trigger2=var(4)
+
+[State -1, Standing High Punch Target Combo]
+type=ChangeState
+value=425
+triggerall=!AILevel&&Roundstate=2&&statetype != A && (command="z"||command="tgt.z") && movecontact
+trigger1=stateno=210&&animelemtime(5)<0
+trigger1=prevstateno=240
+trigger1=prevstateno!=200
+trigger1=prevstateno!=430
+trigger2=stateno=250&&prevstateno=240&&animelemtime(5)<0

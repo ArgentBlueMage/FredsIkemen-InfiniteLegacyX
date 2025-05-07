@@ -1,0 +1,51 @@
+                                    Terry XIII by Vyn
+                                      --------------
+
+--FEATURES--
+
+Perfect Guard
+Recovery Roll (hold back or fwd while on the ground)
+Hold Back while jumping: Air Guard
+HP+HK While Guarding: Zero Counter
+
+--CANCELLING--
+
+Normal attacks into stronger normal attacks
+Special moves into special moves
+Special Moves into Supers
+Supers into other equal or stronger supers
+
+BACK+HP: Launcher
+FWD+MK: Overhead
+
+--SYSTEM--
+
+Neutral PP: Forward Throw
+Neutral KK: Back throw
+PPP or KKK: Power charge
+LP+LK: Evade
+MP+MK: Ex-Skill
+HP+HK: Ex-Trigger
+
+--SPECIAL MOVES--
+
+QCF+P: Powerwave (Air)
+QCB+P: Burn knuckle (Air)
+QCF+K: Rising tackle
+QCB+K: Crack shoot (Air)
+
+--SUPERS--
+
+QCF+PP: Power geyser
+QDB+PP: Buster wolf 
+QCF+KK: Power dunk (lvl2)
+QCF,QCF+P: Trinity Geyser (lvl3)
+QCF,QCF+K: Legendary Hungry Wolf (lvl5)
+
+Credits:
+
+- SNK
+- K6666orochi
+- CozySquirtle
+- TotalDramaXtremist
+- sabockee

@@ -1,0 +1,28 @@
+;
+
+[Statedef 444]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+anim = 9741
+
+[State Frequency of the Counter "Message" (not implemented yet anyway)]
+type = ParentVarSet
+trigger1 = 1
+fvar(30) = 0.05 ; from 0 to 1
+ignorehitpause = 1
+
+[State Cut off the hitsound after opponent hits the ground?]
+type = ParentVarSet
+trigger1 = 1
+fvar(31) = 1 ; 0 or 1
+ignorehitpause = 1
+
+; DO NOT ABSOLUTELY MODIFY ANYTHING BELOW ;
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = roundstate = 2
+ignorehitpause = 1
+

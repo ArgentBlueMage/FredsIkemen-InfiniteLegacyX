@@ -1,0 +1,44 @@
+; ---- Created by Uno Tag Team Patcher ---- ;
+
+[Info]
+name ="Deadpool"
+displayname ="Deadpool"
+versiondate =04,23,2014
+mugenversion =1.0
+author ="Mr.Giang";+Infinite, need to put him here so the special intro can kick in :/
+pal.defaults =1,1,1,1
+localcoord   = 320, 240
+
+[Files]
+sprite =Deadpool.sff
+anim =DeadpoolAI/Deadpool.air
+sound =Deadpool.snd
+cmd =DeadpoolAI/Deadpool.cmd
+cns =Constants.cns
+stcommon =common1.cns
+st =DeadpoolAI/System2.cns
+st1=DeadpoolAI/Normal.cns
+st2=DeadpoolAI/Specials.cns
+st3=States\Supers.cns
+st4=DeadpoolAI/Helpers.cns
+st5=States\Customs.cns
+st6=config.txt
+st9=Deadpool_unotag\tag_system.cns
+
+[Palette Keymap]
+a  = 1
+b  = 1
+c  = 1
+x  = 1
+y  = 1
+z  = 1
+a2 = 1
+b2 = 1
+c2 = 1
+x2 = 1
+y2 = 1
+z2 = 1
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

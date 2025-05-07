@@ -1,0 +1,41 @@
+Hit Time Data Adjust. 1st value should be added to hittime or guardtime
+
+Stand lp,mp,hp
+Hit
+-9+6=3
++1+1=2
++6-5=1
+Guard
++3+0=3
++3-2=1
++4-5=-1
+
+Crouch lp,mp,hp
+Hit
+-2+3=1
++2+1=3
++6-4=2
+Guard
+-2+3=1
++3-1=2
++4-4=0
+
+Stand lk,mk,hk 
+Hit
++7-5=2
++8-6=2
++7-5=6
+Guard
++7-5=2
++6-6=0
++9-5=4
+
+Crouch lk,mk,hk 
+hit
+0=0
+0=0
+0=0
+Guard
+0=0
+-2-10=-12
++14-13=1

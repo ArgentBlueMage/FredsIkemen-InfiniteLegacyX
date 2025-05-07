@@ -1,0 +1,283 @@
+===============================================================================
+Project Codename "Exercise in futility": KFM-ULTRA v1.6 Director's Cut by Synck
+===============================================================================
+
+Changelog:
+
+06/12/2021
+
+- 2 new hypers have been added and one hyper got removed.
+- Bunch of removed stuff from old alpha versions of kfm-ultra has been restored
+- New intro for cheat mode has been added
+
+03/13/2021
+
+- AI Re-adjusted.
+- Minor issue with LvL3 Rules of nature hyper attack has been fixed.
+- Slight changes in readme have been applied.
+
+02/18/2021
+
+- Added new LH hyper attack. Check the list of hyper attacks.
+- Minor fixes
+
+12/26/2020
+
+- Sprites have been edited to resemble postal dude (color separation is also applied).
+- LvL2 Madness and LvL3 Rules of nature hypers have been sligthly edited.
+- Oponents no longer have invicibility when they get trapped in kfm-ultra's LvL2 Petition counter hyper.
+- 3 New hypers have been added (Check the list of hyper attacks).
+- Alpha counter has been added (Check the tech stuff section in this .txt file).
+- New portrait has been added.
+- New throw attack has been added (Check the tech stuff section in this .txt file).
+- AI has been updated.
+- New palettes have been added.
+- Width has been fixed on bunch of throws/throw hypers.
+- Bunch of bug fixes.
+
+10/25/2020
+- Few custom sprites which were using wrong color on few parts of kfm-ultra's body have been fixed.
+- AI has been updated. Check "Core Details" section for more info.
+- Low Health hypers' health limit has been changed from 69 to 100.
+
+09/30/2020
+- 2 new LH hypers have been added. Check the list of hyper attacks.
+
+08/27/2020
+- Heart attack timer has been reduced to 2000 ticks
+- LvL 2 hyper attack "Yo wanna do a fucking infinite" has been edited. Music stops and lifebars disappear once time card appears in that hyper.
+
+08/19/2020
+- Minor adjustments have been done to some explods.
+
+08/05/2020
+- Green heart icon's duration has been fixed.
+
+08/02/2020
+- Minor changes to 2 hypers attacks (LvL3 Duck hunt avgn style, LH Headshot)
+
+07/28/2020
+- Now the Postal 2 HUD works in TURNS mode
+
+07/27/2020
+- Fixed the flashing on the AVGN hyper
+- The voice volume has been increased a little
+- Check "Tech stuff" section for new info
+
+-------------
+Fair warning:
+-------------
+
+This is a director's cut version of KFM-Ultra. It includes cut content that some people might find offensive.
+None of the content is meant for insulting anyone directly and it's meant only for comedic purposes. 
+If you're easily offended please refrain from using this character.
+
+--------------
+Warning notes:
+--------------
+
+- Character is not suitable for all ages due to high rate of violence, gore, drug use and suggestive jokes.
+
+- Even if this is a mugen 1.0 character I recommend using mugen 1.1b due to lag which occurs in mugen 1.0 caused by character's bloated .sff and helper abuse.
+
+- Character doesn't work well on stages with moving floors.
+
+- If you downloaded this character from somewhere else you probably got an edited or outdated version of this character.
+
+-------------------
+Introduction notes:
+-------------------
+
+- This is basically an experimental character with crazy amount of moves and stuff. The character is mostly inspired by YTPs and Postal 2.
+
+-------------
+Core details:
+-------------
+
+Fight style: Anti-Pots (in other words, custom)
+
+AI: Very fucking hard (if you're not careful enough). There's no AI scaling depending on difficulty you choose in options menu. You can change AI settings in .def file. 
+
+3 AI settings are available:
+
+Aggressive - Items are not used, no power charge and no low health hypers.
+Insano (Default) - Items are used, power charge and low health hypers are not used.
+Impossible - Items , power charge and low health hypers are used.
+
+Health: 1000
+
+Power: 5 Stacks (5000)
+
+Number of buttons: 6+1
+
+Resolution: 240p Standard Screen. Not suitable for widescreen. Also the character is not compatible with mugen 1.1b zoom stages.
+
+Mode compatiblity: Single and Simul (Some hypers get deactivated in simul mode matches.)
+
+---------
+Movelist:
+---------
+
+-Basic stuff-
+
+x - Light Punch
+y - Medium Punch
+z - Heavy Punch
+a - Light Kick
+b - Medium Kick
+c - Heavy Kick
+start - Gun Taunt
+
+Usual combos: 
+
+- x,y,z (stand, crouch, air)
+- a,b,c (stand, crouch, air)
+- x,a,b,c (stand)
+- a,y,z (stand)
+- crouch (x), stand (x,a,b,c)
+- crouch (a), stand (a,b,c)
+
+- You can press any button to shoot while taunting. It's possible to do combos with taunt's second phase. After handgun you can cancel into shotgun then into Super shotgun or/then into AK47. After shotgun you can cancel into super shotgun or/then into AK47.
+
+-Tech Stuff-
+
+x+y - Dodge (Hold forward to do forward dodge roll; Hold back to do backward dodge roll)
+y+z - Counter/Alpha Counter (Takes half of one stack of powerbar energy. While guarding you can press y+z to do the alpha counter which takes half a stack of power)
+a+b - Kick Throw (Hold forward or backward to decide where to throw the opponent)
+b+c - Gun Throw (Hold forward or backward to decide where to throw the opponent)
+y+b - Powercharge (Fills only half of one stack of powerbar energy each time you use it. You can charge it up to three stacks of powerbar energy.)
+
+While knocked down you can press forward or back to do rolling recovery.
+
+-Items-
+
+x+a - Health (Crack) Pipe
+z+c - Catnip
+
+Note: Items are shown on Postal 2 HUD.
+
+Crack and Catnip explanation:
+
+- Press x+a to smoke a crack pipe. You get crack by having less than 420 of health. By using it you get your health restored to the maximum. The heart attack timer starts once you get into crack mode. When timer runs out you lose half of your current health. The heart on postal 2 hud is an indicator for crack addiction mode. Once it starts pumping faster it means that you're pretty close to get a heart attack. 
+
+- Press z+c to smoke catnip. You get catnip by filling all 5 stacks of powerbar. You get into slow mode in which you can cheese the enemies with various attacks until slow mode timer runs out. You cannot do hyper attacks in slow mode. You can use catnip as an antidote to cure your crack addiction (that means that crack mode timer restarts to zero permanently). You cannot use catnip in mirror matches. Also the gun projectiles' damage gets lowered down a bit in catnip mode.
+
+Crack and Catnip are not available in simul mode. Postal 2 HUD is also not present in simul mode as well.
+
+-Special moves-
+
+Note: The numbers in brackets represent the numbers of special attacks from this list which can be cancelled into.
+
+1. Kung Fu Palm - QCF_x (do QCF_x again to do one more) (2,3) 
+2. Kung Fu Upper - DP_x/y/z (You can chain into basically anything after waiting for opponent to get close to the ground from air. By default when it comes to timing it's special move number 13)
+3. Kung Fu Blow(s) - QCB_x (4)
+4. Kung Fu Zankou - QCF_a (2,5,6,8,9,10,11)
+5. Kung Fu Tiger Kick - DP_a (do DP_a again to do a kick) (after kick, 9)
+6. Kung Fu Dragon Kick - QCB_a (10)
+7. (AIR) Kung Fu Dragon Dive Kick - QCB_a
+8. Kung Fu Kicking - QCF_b (9,10,11,16)
+9. Kung Fu Cutter - DP_b (Can be done in air) (do DP_b again to do one more) (7)
+10. Rising Kung Fu Dragon Kick - QCB_b (Can be done in air) (9,11) (oh god...)
+11. Kung Fu Rollin Kick Upper - QCB_c (Can be done in air) (9)
+12. Shotgun - QCF_y
+13. Chainsaw - QCB_y (12,14)
+14. Triple Pistol Shot - QCF_z (14,12)
+15. BURN! - QCB_z (after doing it from long distance you can do basically any special after landing on the ground. Be sure to still have opponent in the air while doing that.)
+16. Dash Kick - QCF_c (17)
+17. Power kick - DP_c (9)
+
+-Hyper attacks- 
+
+Note: LH means low health hyper. You must have less than 100 of health in any round except round 1 in order to execute it.
+
+Most of the hyper attacks can be cancelled from specials. Go figure.
+
+1.LvL1 Super shotgun - 2xQCF_y
+2.LvL1 Oooh Drifto - 2xQCB_x
+3.LvL1 Rollin' - 2xQCB_a
+4.LvL1 Chaingunned - 2xQCB_y
+5.LvL1 Very Original Hyper Move - 2xQCF_x
+6.LvL1 100 hand slap with blast included - QCB,QCF_x
+7.LvL1 Random Bomb - QCB,QCF_y
+8.LvL1 AK47 Assault Rifle - 2xQCF_z
+9.LvL1 That guy with the gun - 2xQCB_Start
+10.LvL1 Burst Kick - 2xQCF_a (Hits OTG)
+11.LvL1 Burning Buster - 2xQCB_z
+12.LvL2 Shotgun dance - 2xQCB_x+y
+13.LvL2 Yo wanna do a fucking infinite? - 2xQCF_Start
+14.LvL2 Madness - QCB,QCF_x+y
+15.LvL2 Petition - 2xQCB_y+z
+16.LvL3 Nuclear Uppercut - QCF,QCB_y+b
+17.LvL3 Michael Rosen Sends You To Space - 2xQCF_x+a
+18.LvL3 Metal Gear Ray - QCB,QCF_x+a
+19.LvL3 That well known YTP Boom - 2xQCB_y+b
+20.LvL3 Rocket Launcher - 2xQCF_y+b
+21.LvL3 Duck Hunt AVGN Style - QCB,QCF_y+b
+22.LvL3 Brutalized by Angry German Kid - 2xQCB_x+a
+23.LvL3 Sniper Shot - QCF,QCB_x+a
+24.LvL3 Hard Pissing - 2xDown, x+a
+25.LH NES Zapper Finish - Start
+26.LH Headshot - 2xDown, Start
+27.LH AVGC Mental Breakdown - 2xQCB_b+c
+28.LH Rugal Magnets - 2xQCB_a+b
+29.LH JFK Crush - 2xQCF_b+c
+30.LH POV you're p2 - QCB,QCF_b+c
+31.LH Exodia Obliteration - 2xQCF_a+b
+32.LH Nein Eleven - 2xQCF_x+a (Same motion as LvL3 Michael Rosen Sends You To Space hyper)
+
+========
+Credits:
+========
+
+---------------
+Code reference:
+---------------
+
+POTS
+The_None
+DivineWolf
+Veanko
+
+-----------------
+Additional stuff:
+-----------------
+
+Dawn De Era (few sprites, bit of coding, palettes)
+CallMeMrA (Sprites)
+Heroes (Dirty kung fu man)
+G.o.D a.k.a AlexSin (Palettes)
+Dronk (Palettes, Beta testing)
+Jengra505 (Beta testing)
+Ra (DooM kfm sprites)
+Amidweiz (Palettes)
+JtheSalty (Small portrait, Palettes)
+YaiChan (Art)
+Eris Evergreen (Art)
+
+Check the "Bonus Content" folder for art.
+
+-----
+Misc.
+-----
+
+Elecbyte
+Running with Scissors
+Valve
+Capcom
+SNK
+Id
+RedKing920
+Michael Rosen
+SnapCube
+Mugen.net
+Toyota
+Studio Comet
+Studio Gallop
+Fred Durst
+James Rolfe
+Doug Walker
+Cochan91
+
+... and bunch of others I forgot.
+
+As always you can find my stuff on: https://synckmugencentral667.000webhostapp.com/

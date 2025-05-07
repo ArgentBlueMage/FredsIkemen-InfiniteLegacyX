@@ -1,0 +1,73 @@
+200 - jab
+old: 03 02 06
+new: 02 02 04
+adj: 02 02 06
+
+201 - fw.Jab
+old: 04 02 08
+new: 03 02 06
+adj: 02 02 06
+
+210 - strong
+old: 03 02 10
+new: 02 02 07
+adj: 03 03 07
+
+211 - fw.strong
+old: 08 05 10
+new: 06 05 07
+
+220 - fierce
+old: 07 03 17
+new: 05 03 13
+adj: 05 04 12
+
+221 - fw.fierce
+old: 15 05 16
+new: 11 05 12
+adj: 10 06 12
+
+230 - short
+old: 05 02 08
+new: 03 02 06
+
+240 - forward
+old: 05 03 13
+new: 03 03 10
+
+241 - close forward
+old: 05 03 13
+new: 03 03 10
+
+250 - roundhouse
+old: 05 03 12
+new: 03 03 09
+
+251 - fw.roundouse
+old: 12 04 16
+new: 09 04 12
+
+400 - cr.jab
+old: 03 01 09
+new: 02 01 07
+
+410 - cr.strong
+old: 04 02 09
+new: 03 02 07
+
+420 - cr.fierce
+old: 07 04 13
+new: 05 04 10
+
+430 - cr.short
+old: 04 01 10
+new: 03 02 07
+
+440 - cr.forward
+old: 09 03 22
+new: 06 03 16
+
+450 - cr.roundhouse
+old: 15 03 21
+new: 11 03 16
+

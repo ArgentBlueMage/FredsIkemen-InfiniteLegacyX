@@ -1,0 +1,46 @@
+; _______________________________________
+;| Dudley by Dick Buckus & Mr.Ansatsuken |
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+;====================<DEFINITION>====================
+[Info]
+name		= "Dudley"
+displayname	= "Dudley"
+versiondate	= 11,12,2021
+mugenversion	= 1.0
+author		= "DickBuckus";Edits by Mr. Ansatsuken, Mete, Gui007, Kenmasters2812, RagingRowen, you name it!
+pal.defaults	= 1,2,5,12
+localcoord=320,240
+
+[Files]
+cmd		= Command.cmd;;; CommandEasy.cmd
+cns		= Constants.cns
+st		= States\System.st
+st1		= States\Normal.st
+st2		= States\Specials.st
+st3		= States\Supers.st
+st4		= States\Helpers.st
+st5		= States\EX-Specials.st
+st6		= Config.txt
+stcommon = common1.cns
+sprite 		= Sprite.sff
+anim		= Anim.air
+sound		= Sound.snd
+ 
+
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 12
+b = 5
+c = 6
+x2 = 7 
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 4
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

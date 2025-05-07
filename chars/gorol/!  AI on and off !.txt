@@ -1,0 +1,30 @@
+ 
+You can turn Daimon's AI on and off. All you have to do is copy and paste the correct def file 
+
+into your mugen select file. Using notepad or wordpad. Remember the def file has to be the 
+
+same as the character file, and they have to be the same as the name you put into the mugen select 
+
+file. Follow the instructions below
+
+ 	                   
+                  Example: AI off 
+                           
+                           gorol   
+                           cvsryo
+                           cvshibiki
+                           cvsgouki
+
+
+                  Example: AI on 
+                           
+                           goroh  
+                           cvsryo
+                           cvshibiki
+                           cvsgouki   
+	         
+	         
+
+
+
+

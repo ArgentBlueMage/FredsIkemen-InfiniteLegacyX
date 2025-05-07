@@ -1,0 +1,367 @@
+[Info]
+name = "Dream"
+displayname = "Dream"
+author = "Rakíel"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -1200
+boundright = 1180
+boundhigh = -450
+boundlow = 0
+
+verticalfollow = .85
+floortension = 200
+tension = 200
+
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
+
+;Zoom is not yet supported in 3D stages.
+zoomout = .8
+
+;Field of view. 30 is good for photorealistic scenes, but feel free to tweak this to your preference.
+fov = 50
+
+yshift = -.3
+
+near = 0.1
+far = 10000
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -280
+p1starty = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 280
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -4000
+rightbound =  4000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 60
+screenright = 60
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 660
+
+autoturn = 1
+resetBG = 1
+
+localcoord = 1280, 720
+xscale = 1
+yscale = 1
+
+portraitscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/stage_music/Dream.mp3
+bgmvolume = 100
+
+;========================================================
+[BGdef]
+
+;Filename of 3D model file
+;Supported file types are gltf and glb; supported by most modern 3D model programs.
+;It is recommended to use PNG/JPEG/embedded image format for textures. Compressed dds textures are not supported.
+;Make sure the world origin of the model is at the camera starting point.
+model = Dream.glb
+
+;Filename of .sff file, required by spec (and for stage portraits)
+spr = Dream.sff
+
+;debugbg = 0
+
+;-------------------------------------
+; Model element definition; similar to [BG] blocks in 2D stages
+[Model]
+
+; X, Y, and Z coordinates of the model
+offset = 0,-3,-10
+
+; Scale of the model
+scale = 5, 5, 5
+
+;-------------------------------------
+; Leaves
+[Begin Action 18]
+18,0, 0,0, 10
+18,1, 0,0, 10
+18,2, 0,0, 10
+18,3, 0,0, 10
+18,4, 0,0, 10
+
+;-------------------------------------
+; Stage portrait data
+[Begin Action 9000]
+9000,1, 0,0,-1
+
+;------------------------------------------------------------------------------------
+[BG Leaves]
+type  = anim
+actionno = 18
+delta = 0.5, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.2
+layerno = 0
+sin.x = 10,100
+scalestart = 1,1
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 100,100
+delta = 1, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.2
+mask = 0
+layerno = 0
+sin.x = 8,130
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 300,50
+delta = 1, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.5
+layerno = 1
+sin.x = 10,100
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 200,-200
+delta = 1.5, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1
+mask = 1
+layerno = 1
+sin.x = -8,130
+scalestart = 3,3
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 120,20
+delta = 2, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,1.7
+mask = 1
+layerno = 1
+sin.x = -11,130
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 80,-150
+delta = 1, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.9
+layerno = 0
+sin.x = 6,200
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 320,-300
+delta = 0.5, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,.7
+mask = 1
+layerno = 0
+sin.x = -8,90
+scalestart = 1,1
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 5,-150
+delta = 1, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.2
+mask = 1
+layerno = 0
+sin.x = -6,70
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 450,500
+delta = 2, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.5
+layerno = 1
+sin.x = -14,180
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 380,-300
+delta = 3, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1
+mask = 1
+layerno = 1
+sin.x = -5,150
+scalestart = 3,3
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 420,-20
+delta = 2, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,1.4
+mask = 1
+layerno = 1
+sin.x = 11,200
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 480,-450
+delta = 1, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.4
+layerno = 0
+sin.x = 6,200
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = 1,500
+delta = 0.5, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,.8
+mask = 1
+layerno = 0
+sin.x = 4,70
+scalestart = 1,1
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -100,-250
+delta = 1, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,.7
+mask = 1
+layerno = 0
+sin.x = -8,88
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -200,10
+delta = 2, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.8
+layerno = 1
+sin.x = 11,200
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -300,2800
+delta = 3, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.4
+mask = 1
+layerno = 1
+sin.x = -5,150
+scalestart = 3,3
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -222,222
+delta = 2, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,1.8
+mask = 1
+layerno = 0
+sin.x = 11,200
+scalestart = 2,2
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -333,111
+delta = 1, 2
+mask = 1
+tile = 1,1
+tilespacing = 640,640
+velocity = -.1,1.1
+layerno = 0
+sin.x = 6,200
+scalestart = 1.5,1.5
+
+[BG Leaves]
+type  = anim
+actionno = 18
+start = -424,242
+delta = 0.5, 2
+tile = 1,1
+tilespacing = 640,640
+velocity = -.2,.5
+mask = 1
+layerno = 0
+sin.x = 4,70
+scalestart = 1,1

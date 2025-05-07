@@ -1,0 +1,58 @@
+; ---- Created by Uno Tag Team Patcher ---- ;
+
+
+
+
+
+
+
+            
+
+
+[Info]
+name         =       "Undyne"        
+displayname  =       "Undyne" 
+versiondate  =       09,30,2016  
+mugenversion =       1.0   
+author       =       "Mr. Giang"         
+pal.defaults = 1,1,1         
+
+
+
+
+
+
+            
+
+
+[Files]
+cmd     =undyne_unotag\MEGAX.cmd           
+cns     =undyne_unotag\MEGAX.cns           
+st      =undyne_unotag\MEGAX.cns 
+st1 = custom.cns
+st2 = basic.cns
+st3 = normal.cns
+st4 = special.cns
+st5 = EX.cns
+st6 = hyper.cns
+st7 = helper.cns
+stcommon = common1.cns      
+sprite  = MEGAX.sff          
+anim    = MEGAX.air           
+;
+sound   = MEGAX.snd           
+ai      = MEGAX.ai            
+            
+
+
+
+
+
+
+Pal1 = UNDYNE-X01.act
+
+
+
+
+
+st9=undyne_unotag\tag_system.cns

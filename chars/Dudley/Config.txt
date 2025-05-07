@@ -1,0 +1,101 @@
+;===============< INITIALIZE >===================
+;Initialize Start Round
+[Statedef 5900]
+type = S
+
+[State 5900, 3] ;Change palette
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1,palno
+ 
+;__________________________________________________________________________
+;==========================================================================
+;__________________________________________________________________________
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+value = 0
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+fvalue = 0
+ 
+;===========================<CAR INTRO AND HELICOPTER WIN POSE>=====================================
+;
+;		
+;
+;
+;	If you don't him to use the Car-Intro and Helicopter-Win Pose in CERTAIN stages 
+;	     (where it doesn't even make sense), 
+;
+; Here is where you select them!
+
+; Simply copy and paste either triggers
+;And change the trigger number to a number after it. (UP TO 20 TRIGGERS ARE ALLOWED)
+;Then, you would change the content within the quotes with the name of the Stage, found in the "[Info]" section of its .DEF file.
+;(NOT to be confused with the name of the .DEF File)
+;Example : trigger3 = StageVar(info.name) = "Name Of Stage"
+
+[State 5900, Car and Helicopter]
+type = varset
+trigger1 = stagevar(info.name) = "Unknown - Gill"
+trigger2 = stagevar(info.name) = "Unknown - Gill "
+trigger3 = stagevar(info.name) = "Gokuento Island"
+trigger4 = stagevar(info.name) = "Kiga Cave"
+trigger5 = stagevar(info.name) = "New York - Subway station - Alex"
+trigger7 = stagevar(info.name) = "Germany - Home Sweet Home - Hugo" || stagevar(info.name) = "Germany - Home, Sweet Home - Hugo"
+trigger8 = stagevar(info.name) = "Japan - Suzaku Castle Rooftop - Ryu"
+trigger9 = stagevar(info.name) = "New York - Subway station - Ken"
+trigger10 = stagevar(info.name) = "Subway station"
+trigger11 = stagevar(info.name) = "Home, Sweet Home"
+trigger12 = stagevar(info.name) = "Suzaku Castle Rooftop" || stagevar(info.name) = "Suzaku Castle"
+;trigger13 = stagevar(info.name) = "ANOTHER STAGE YOU WANT TO ADD"
+var(57) = 2
+
+[State 5900, Car and Helicopter]
+type = varset
+trigger1 = stagevar(info.name) = "SFIII2nd Impact - Oro Stage"
+trigger2 = stagevar(info.name) = "KOF'94 - Black Noah Stage"
+trigger3 = stagevar(info.name) = "KOF98 - China"
+var(57) = 2
+
+
+;[State 5900, Car and Helicopter]
+;type = varset
+;trigger1 = stagevar(info.name) = "The moon?"
+;trigger2 = stagevar(info.name) = "A TEMPLE!?"
+;trigger3 = stagevar(info.name) = "All that kind of stages."
+;trigger4 = stagevar(info.name) = "Just add them here, but first"
+;trigger5 = stagevar(info.name) = "REMOVE THE ";" THAT ARE BEFORE THESE LINES
+;trigger6 = stagevar(info.name) = "Before THESE lines, of course. Not the ones that are above or below."
+;var(57) = 2
+
+
+;[State 5900, Car and Helicopter]
+;type = varset
+;trigger1 = stagevar(info.name) = "etc"
+;var(57) = 2
+ 
+
+[State 5900, Pal Selector on];=================================================================
+type=helper;===================================================================================
+triggerall=var(27)&&!numhelper(256)&&!AILevel&&numenemy;=======================================
+trigger1=roundno=1&&matchno=1&&!(teammode=simul)&&!(enemy,teammode=simul);=====================
+trigger2=(teammode=turns);=====================================================================
+trigger2=!roundsexisted&&(enemy,roundsexisted);================================================
+;trigger3=!fvar(0);=============================================================================
+id=256;========================================================================================
+stateno=256;===================================================================================
+size.xScale=0.5;===============================================================================
+size.yScale=0.5;===============================================================================
+facing=facing;=================================================================================
+ownpal=1;======================================================================================
+[State 5901, End];=============================================================================
+type = changestate;==========================NOTHING TO DO HERE================================
+trigger1 = !time;==============================================================================
+value = ifelse(!roundsexisted, 190, 0);===========================================================
+
+;============================================================================
+
+;<stub>

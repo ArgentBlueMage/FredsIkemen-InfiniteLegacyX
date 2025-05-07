@@ -1,0 +1,2597 @@
+;Spinning Lariat
+[StateDef 1000]
+type = S
+physics = S
+moveType = A
+anim = 1000
+ctrl = 0
+velset = 0,0
+sprPriority = 1
+poweradd = 84 * !var(20)
+faceP2 = 1
+
+[State 1000, Button Detect]
+type = VarSet
+trigger1 = !Time
+var(10) = ifElse((command = "x" || command = "rlsx"), 0, ifElse((command = "y" || command = "rlsy"), 1, 2))
+
+[State 0, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = ifElse((P2MoveType = H || PrevStateNo = 750 || Random < 333), 2, ifElse(Random < 500, 1, 0))
+
+[State 1000, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,2
+channel = 0
+
+[State 1000, Swing]
+type = PlaySnd
+trigger1 = Animelem = 3 || Animelem = 6
+value = 1, 2
+channel = 1
+
+[State 1000, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(1) >= 0 && AnimElemTime(7) < 0
+x = ifelse(var(10)=2,4, ifelse(var(10)=1, 2, 0))
+
+[State 1000, VelStop]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 0
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1000, FX]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 1001
+ID = 1001
+postype = p1
+pos = -30,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1.5,1.15
+
+[State 1000, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = !Time
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * (ifElse(var(10) = 2, 120, ifElse(var(10), 90, 60)) * (ifElse(var(20), 1.1, 1))) < 7, 7, fvar(11) * (ifElse(var(10) = 2, 120, ifElse(var(10), 90, 60)) * (ifElse(var(20), 1.1, 1))))), 7
+priority = 4, hit
+animtype = Hard
+getpower = 70 * !var(20), 30 * !var(20)
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -5, -5
+air.velocity = -5, -5
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .5
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1000, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(7) >= 0
+movetype = I
+
+[State 1000, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Ex Spinning Lariat
+[StateDef 1005]
+type = S
+physics = S
+moveType = A
+anim = 1000
+ctrl = 0
+velset = 0,0
+sprPriority = 1
+poweradd = ifelse(var(20) > 0, 0, -500)
+faceP2 = 1
+
+[State 1005, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -500
+
+[State 1005, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1005, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1005, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 0, -87
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1005, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,2
+channel = 0
+
+[State 1005, Swing]
+type = PlaySnd
+trigger1 = Animelem = 3 || Animelem = 6
+value = 1, 2
+channel = 1
+
+[State 1005, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(1) >= 0 && AnimElemTime(7) < 0
+x = 4
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1005, FX]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 1001
+ID = 1001
+postype = p1
+pos = -30,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1.5,1.15
+
+[State 1005, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 3
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 5,15
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2
+air.velocity = -2, -2
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1005, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 6
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -3, -8
+air.velocity = -3, -8
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .35
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1005, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(7) >= 0
+movetype = I
+
+[State 1005, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Spinning Lariat Air
+[StateDef 1100]
+type = A
+physics = S
+moveType = A
+anim = 1100
+ctrl = 0
+sprPriority = 1
+poweradd = 84 * !var(20)
+faceP2 = 1
+
+[State 1000, Button Detect]
+type = VarSet
+trigger1 = !Time
+var(10) = ifElse((command = "x" || command = "rlsx"), 0, ifElse((command = "y" || command = "rlsy"), 1, 2))
+
+[State 0, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = ifElse((P2MoveType = H || PrevStateNo = 750 || Random < 333), 2, ifElse(Random < 500, 1, 0))
+
+[State 1000, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,2
+channel = 0
+
+[State 1000, Swing]
+type = PlaySnd
+trigger1 = Animelem = 3 || Animelem = 6
+value = 1, 2
+channel = 1
+
+;--------------------------------------------------
+
+[State 1100, StateTypeSet: Air, No Phys]
+type = StateTypeSet
+trigger1 = AnimElem = 1
+stateType = A
+physics = N
+
+[State 1100, Gravity]
+type = Gravity
+trigger1 = 1
+
+;--------------------------------------------------
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1000, FX]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 1001
+ID = 1001
+postype = p1
+pos = -30,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1.5,1.15
+
+[State 1000, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = !Time
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * (ifElse(var(10) = 2, 120, ifElse(var(10), 90, 60)) * (ifElse(var(20), 1.1, 1))) < 7, 7, fvar(11) * (ifElse(var(10) = 2, 120, ifElse(var(10), 90, 60)) * (ifElse(var(20), 1.1, 1))))), 7
+priority = 4, hit
+animtype = Hard
+getpower = 70 * !var(20), 30 * !var(20)
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -5, -5
+air.velocity = -5, -5
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .5
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1000, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(7) >= 0
+movetype = I
+
+[State 1000, End]
+type = ChangeState
+trigger1 = pos y > -vel y
+value = 47
+
+;Ex Spinning Lariat Air
+[StateDef 1105]
+type = A
+physics = S
+moveType = A
+anim = 1100
+ctrl = 0
+velset = 0,0
+sprPriority = 1
+poweradd = ifelse(var(20) > 0, 0, -500)
+faceP2 = 1
+
+[State 1105, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -500
+
+[State 1105, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1105, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1105, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 0, -87
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1105, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,2
+channel = 0
+
+[State 1105, Swing]
+type = PlaySnd
+trigger1 = Animelem = 3 || Animelem = 6
+value = 1, 2
+channel = 1
+
+[State 1105, StateTypeSet: Air, No Phys]
+type = StateTypeSet
+trigger1 = AnimElem = 1
+stateType = A
+physics = N
+
+[State 1105, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 0
+y = 0
+
+[State 2103, Gravity/Friction]
+type = VelAdd
+trigger1 = AnimElemTime(8) > 0
+x = 0
+y = .5
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1105, FX]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 1001
+ID = 1001
+postype = p1
+pos = -30,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1.5,1.15
+
+[State 1105, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 3
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 5,15
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2
+air.velocity = -2, -2
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1105, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 6
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * 70 < 7, 7, fvar(11) * 70)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 77), var(36) := -95
+air.animtype = Back
+fall.animtype = Back
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -3, -8
+air.velocity = -3, -8
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .35
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1105, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(7) >= 0
+movetype = I
+
+[State 1105, End]
+type = ChangeState
+trigger1 = pos y > -vel y
+value = 47
+
+;Violent Axe
+[Statedef 1050]
+type = S
+movetype = A
+physics = S
+anim = 1050
+ctrl = 0
+velset = 0,0
+poweradd = 70 * !var(20)
+sprpriority = 2
+facep2 = 1
+
+[State 0, Button Detect]
+type = VarSet
+trigger1 = !Time
+var(10) = ifElse((command = "x" || command = "rlsx"), 0, ifElse((command = "y" || command = "rlsy"), 1, 2))
+
+[State 0, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = ifElse((P2MoveType = H || PrevStateNo = 750 || Random < 333), 2, ifElse(Random < 500, 1, 0))
+
+[State 1050, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 500,0
+channel = 0
+
+[State 1050, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 12
+value = 500,1
+channel = 1
+
+[State 1050, Swing]
+type = PlaySnd
+trigger1 = Animelem = 12
+value = 1, 2
+channel = 2
+
+[State 1050, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(4) >= 0 && AnimElemTime(11) < 0
+x = ifelse(var(10)=2,10, ifelse(var(10)=1, 7, 4))
+
+[State 1050, VelSet]
+type = VelSet
+trigger1 = Animelem = 12
+x = 0
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1050, FX]
+type = Explod
+trigger1 = AnimElem = 12
+anim = 1051
+ID = 1051
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1050, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 3
+trigger1 = Animelem = 12
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * (ifElse(var(10) = 2, 80, ifElse(var(10), 70, 60)) * (ifElse(var(20), 1.1, 1))) < 7, 7, fvar(11) * (ifElse(var(10) = 2, 80, ifElse(var(10), 70, 60)) * (ifElse(var(20), 1.1, 1))))), 7
+priority = 4, hit
+animtype = Hard
+getpower = 70 * !var(20), 30 * !var(20)
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 60), var(36) := -109
+air.animtype = Up
+fall.animtype = Up
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2,-10
+air.velocity = -2, -10
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .4
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1050, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(13) >= 0
+movetype = I
+
+[State 1050, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Ex Violent Axe
+[Statedef 1055]
+type = S
+movetype = A
+physics = S
+anim = 1050
+ctrl = 0
+velset = 0,0
+poweradd = ifelse(var(20) > 0, 0, -500)
+sprpriority = 2
+facep2 = 1
+
+[State 1053, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -500
+
+[State 1053, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1053, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1053, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 10, -75
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1053, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 500,1
+channel = 0
+
+[State 1053, Swing]
+type = PlaySnd
+trigger1 = Animelem = 12
+value = 1, 2
+channel = 1
+
+[State 1053, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(4) >= 0 && AnimElemTime(11) < 0
+x = 10
+
+[State 1053, VelSet]
+type = VelSet
+trigger1 = Animelem = 12
+x = 0
+
+[State #, Resist Projectiles]
+type = NotHitBy
+trigger1 = Animelem = 1
+time = 14
+value = SCA
+
+[State 1053, FX]
+type = Explod
+trigger1 = AnimElem = 12
+anim = 1051
+ID = 1051
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1053, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 3
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 20 < 7, 7, fvar(11) * 20)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 6,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 76), var(36) := -45
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2
+air.velocity = -2 -2
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1053, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 12
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 80 < 7, 7, fvar(11) * 80)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,2
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 60), var(36) := -109
+air.animtype = Up
+fall.animtype = Up
+ground.type = High
+air.type = High
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2, -12
+air.velocity = -2, -12
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .4
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1053, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(13) >= 0
+movetype = I
+
+[State 1053, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Pipe Smack
+[Statedef 1070]
+type = S
+movetype = A
+physics = S
+anim = 1070
+ctrl = 0
+velset = 0,0
+poweradd = 70 * !var(20)
+sprpriority = 2
+facep2 = 1
+
+[State 0, Button Detect]
+type = VarSet
+trigger1 = !Time
+var(10) = ifElse((command = "a" || command = "rlsa"), 0, ifElse((command = "b" || command = "rlsb"), 1, 2))
+
+[State 0, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = ifElse((P2MoveType = H || PrevStateNo = 750 || Random < 333), 2, ifElse(Random < 500, 1, 0))
+
+[State 1070, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,3
+channel = 0
+
+[State 1070, Swing]
+type = PlaySnd
+trigger1 = Animelem = 6
+value = 1, 2
+channel = 1
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 1
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 1000, 1
+channel = 5
+
+[State 1070, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(1) >= 0 && AnimElemTime(5) < 0
+x = ifelse(var(10)=2,10, ifelse(var(10)=1, 7, 4))
+
+[State 1070, VelSet]
+type = VelSet
+trigger1 = Animelem = 6
+x = 0
+
+[State 1070, FX]
+type = Explod
+trigger1 = AnimElem = 6
+anim = 1071
+ID = 1071
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1070, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = !Time
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * (ifElse(var(10) = 2, 90, ifElse(var(10), 80, 70)) * (ifElse(var(20), 1.1, 1))) < 7, 7, fvar(11) * (ifElse(var(10) = 2, 90, ifElse(var(10), 80, 70)) * (ifElse(var(20), 1.1, 1))))), 7
+priority = 4, hit
+animtype = Hard
+getpower = 70 * !var(20), 30 * !var(20)
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 154), var(36) := -42
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -10
+air.velocity = -8, -4
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1070, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(8) >= 0
+movetype = I
+
+[State 1070, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Ex Pipe Smack
+[Statedef 1075]
+type = S
+movetype = A
+physics = S
+anim = 1070
+ctrl = 0
+velset = 0,0
+poweradd = ifelse(var(20) > 0, 0, -500)
+sprpriority = 2
+facep2 = 1
+
+[State 1075, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -500
+
+[State 1075, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1075, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1075, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 0, -90
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1075, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,3
+channel = 0
+
+[State 1075, Swing]
+type = PlaySnd
+trigger1 = Animelem = 6
+value = 1, 2
+channel = 1
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 1
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 1000, 1
+channel = 5
+
+[State 1075, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(1) >= 0 && AnimElemTime(5) < 0
+x = 10
+
+[State 1075, VelSet]
+type = VelSet
+trigger1 = Animelem = 6
+x = 0
+
+[State 1075, FX]
+type = Explod
+trigger1 = AnimElem = 6
+anim = 1071
+ID = 1071
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1075, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 6
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 55 < 7, 7, fvar(11) * 55)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 6,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 154), var(36) := -42
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2
+air.velocity = -2 -2
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1075, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 7
+attr = S, SA
+damage = ceil(ifElse(fvar(11) * 55 < 7, 7, fvar(11) * 55)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAF
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 154), var(36) := -42
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -4, -8
+air.velocity = -4, -8
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .4
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1075, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(8) >= 0
+movetype = I
+
+[State 1075, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;Pipe Smack Air
+[Statedef 1170]
+type = A
+physics = S
+moveType = A
+anim = 1170
+ctrl = 0
+poweradd = 70 * !var(20)
+sprpriority = 2
+facep2 = 1
+
+[State 1170, Button Detect]
+type = VarSet
+trigger1 = !Time
+var(10) = ifElse((command = "a" || command = "rlsa"), 0, ifElse((command = "b" || command = "rlsb"), 1, 2))
+
+[State 1170, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = ifElse((P2MoveType = H || PrevStateNo = 750 || Random < 333), 2, ifElse(Random < 500, 1, 0))
+
+[State 1170, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,3
+channel = 0
+
+[State 1170, Swing]
+type = PlaySnd
+trigger1 = Animelem = 4
+value = 1, 2
+channel = 1
+
+;--------------------------------------------------
+
+[State 1170, StateTypeSet: Air, No Phys]
+type = StateTypeSet
+trigger1 = AnimElem = 1
+stateType = A
+physics = N
+
+[State 1170, Gravity]
+type = Gravity
+trigger1 = 1
+
+;--------------------------------------------------
+
+[State 1170, FX]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 1171
+ID = 1171
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1170, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = !Time
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * (ifElse(var(10) = 2, 90, ifElse(var(10), 80, 70)) * (ifElse(var(20), 1.1, 1))) < 7, 7, fvar(11) * (ifElse(var(10) = 2, 90, ifElse(var(10), 80, 70)) * (ifElse(var(20), 1.1, 1))))), 7
+priority = 4, hit
+animtype = Hard
+getpower = 70 * !var(20), 30 * !var(20)
+givepower = 35, 35
+guardflag = MA
+hitflag = MAFD
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 151), var(36) := -52
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -4, 8
+air.velocity = -4, 8
+guard.velocity = -5.5
+airguard.velocity = -5.5, -5.5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1170, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(6) >= 0
+movetype = I
+
+[State 1170, End]
+type = ChangeState
+trigger1 = pos y > -vel y
+value = 47
+
+;Ex Pipe Smack Air
+[Statedef 1175]
+type = A
+physics = S
+moveType = A
+anim = 1170
+ctrl = 0
+velset = 0,0
+poweradd = ifelse(var(20) > 0, 0, -500)
+sprpriority = 2
+facep2 = 1
+
+[State 1175, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -500
+
+[State 1175, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1175, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1175, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 0, -90
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1175, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0,3
+channel = 0
+
+[State 1175, Swing]
+type = PlaySnd
+trigger1 = Animelem = 4
+value = 1, 2
+channel = 1
+
+[State 1175, StateTypeSet: Air, No Phys]
+type = StateTypeSet
+trigger1 = AnimElem = 1
+stateType = A
+physics = N
+
+[State 1075, VelSet]
+type = VelSet
+trigger1 = Animelem = 1
+x = 0
+y = 0
+
+[State 1075, Gravity/Friction]
+type = VelAdd
+trigger1 = AnimElemTime(7) > 0
+x = 0
+y = .5
+
+[State 1175, FX]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 1171
+ID = 1171
+postype = p1
+pos = 0,0
+bindtime = -1
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 0
+persistent = 0
+ontop = 0
+scale = 1,1.15
+
+[State 1175, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 4
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * 55 < 7, 7, fvar(11) * 55)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAFD
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 6,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 151), var(36) := -52
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -2
+air.velocity = -2 -2
+guard.velocity = -5
+airguard.velocity = -5, -5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 0
+fall.recover = 0
+forcestand = 1
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1175, HitDef] 
+type = HitDef
+trigger1 = !var(16) && var(15) < 4
+trigger1 = Animelem = 5
+attr = A, SA
+damage = ceil(ifElse(fvar(11) * 55 < 7, 7, fvar(11) * 55)), 8
+priority = 4, hit
+animtype = Hard
+getpower = 0
+givepower = 35, 35
+guardflag = MA
+hitflag = MAFD
+hitsound = S2,9
+guardsound = S130, 0
+pausetime = 12,12
+guard.pausetime = 10,10
+sparkNo = -1 + 0 * (var(33) := 8013)
+guard.sparkNo = -1 + 0 * (var(34) := 8001)
+sparkXY = -10 + 0 * (var(35) := 151), var(36) := -52
+air.animtype = Back
+fall.animtype = Back
+ground.type = Low
+air.type = Low
+ground.slidetime = 18
+ground.hittime  = 18
+guard.hittime = 18
+ground.velocity = -4, 8
+air.velocity = -4, 8
+guard.velocity = -5.5
+airguard.velocity = -5.5, -5.5
+airguard.ctrlTime = 16
+ground.cornerPush.velOff = 0
+guard.cornerPush.velOff = 0
+air.cornerPush.velOff = 0
+yaccel = .58
+fall = 1
+fall.recover = 0
+forcestand = 0
+envshake.time = 20
+envshake.ampl = 4
+envShake.freq = 140
+
+[State 1175, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(6) >= 0
+movetype = I
+
+[State 1175, End]
+type = ChangeState
+trigger1 = pos y > -vel y
+value = 47
+
+;Anti-Air Toss L Atempt
+[Statedef 1950]
+type = S
+movetype = A
+physics = S
+juggle  = 0
+ctrl = 0
+velset = 0,0
+anim = 1950
+facep2 = 1
+
+[State 1950, Button Detect]
+type = VarSet
+trigger1 = !Time && !AILevel
+var(10) = (command = "pp")
+
+[State 1950, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = (Random < 500)
+
+[State 1950, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 1950, Throw]
+type = HitDef
+trigger1 = !var(16) && var(15) < 10
+trigger1 = AnimElem = 4
+attr = S,NT
+hitFlag = M-
+priority = 3,Dodge
+getPower = 35 * !var(20)
+givePower = 35,35
+numhits = 0
+sparkno = -1
+p1facing = 1
+p2facing = 1
+p1stateno = 1953
+p2stateno = 1954
+p2getp1state = 1
+hitsound = s830, 0
+fall = 1
+fall.recover = 0
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 4
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000, 1
+channel = 5
+
+[State 0, Velocity]
+type = VelSet
+trigger1 = AnimElemTime(4) = 0
+x = 10
+
+[State 0, Vel Stop]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 40,0
+channel = 2
+
+[State 1950, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(5) >= 0
+moveType = I
+
+[State 1950, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss L
+[Statedef 1953]
+type    = S
+movetype= A
+physics = N
+anim = 1953
+poweradd = 0
+velset = 0,0
+sprpriority = 2
+
+[State 1953, Safety]
+type = ChangeState
+trigger1 = !Time && !NumTarget
+value = 0
+ctrl = 1
+
+[State 1953, More Safety]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1953, TargetState]
+type = TargetState
+trigger1 = !Time && NumTarget
+value = 1954
+
+[State 1953, Target Facing]
+type = TargetFacing
+trigger1 = Time <= 1
+value = -1
+
+[State 1953, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0, 2
+channel = 0
+
+[State 1953, Throw Sound]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1, 2
+channel = 1
+
+[State 1953, Bind 1]
+type = TargetBind
+trigger1 = AnimElemTime(2) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1953, Bind 2]
+type = TargetBind
+trigger1 = AnimElemTime(2) >= 0 && AnimElemTime(3) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1953, Bind 3]
+type = TargetBind
+trigger1 = AnimElem = 3
+trigger1 = NumTarget
+pos = ceil(40 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1953, Throw 3]
+type = TargetState
+trigger1 = NumTarget && AnimElem = 3
+value = 1955
+
+[State 1953, Damage 3]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 3
+value = floor(ifElse(125 * fvar(11) < 7, -7, -125 * fvar(11)))
+
+[State 0, TargetPowerAdd]
+type = TargetPowerAdd
+trigger1 = NumTarget && AnimElem = 3
+value = 35
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = NumTarget && AnimElem = 3 && !var(20)
+value = 70
+
+[State 1953, State End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss L by Throw
+[Statedef 1954]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 1954, Screenbound]
+type = ScreenBound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State 1954, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = !Time
+value = 1954
+
+[State 1954, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+trigger1 = !Time
+value = 1954
+elem = 2
+
+;In case attacker loses binding on player for any reason, this controller
+;guarantees that the player will never get stuck in this thrown state.
+[State 1954, 2]
+type = SelfState
+trigger1 = !gethitvar(isbound)
+value = 5050
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss L by Throw (Thrown into air)
+[Statedef 1955]
+type    = A
+movetype= H
+physics = N
+poweradd = 40
+velset = -1,-8
+
+[State 1955, 1] ;Gravity
+type = VelAdd
+Trigger1 = animelemTime(7) > 0
+y = .5
+
+[State 1955, 2] ; Recover near ground (use ChangeState)
+type = ChangeState
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+
+[State 1955, 3] ; Recover in mid air (use SelfState)
+type = SelfState
+triggerall = Vel Y > 0
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5010 ;HITFALL_AIRRECOVER
+
+[State 1955, 4] ;Hit ground
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 ;Hit ground
+
+;Anti-Air Toss M Atempt
+[Statedef 1960]
+type = S
+movetype = A
+physics = S
+juggle  = 0
+ctrl = 0
+velset = 0,0
+anim = 1950
+facep2 = 1
+
+[State 1960, Button Detect]
+type = VarSet
+trigger1 = !Time && !AILevel
+var(10) = (command = "pp")
+
+[State 1960, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = (Random < 500)
+
+[State 1960, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 1960, Throw]
+type = HitDef
+trigger1 = !var(16) && var(15) < 10
+trigger1 = AnimElem = 4
+attr = S,NT
+hitFlag = M-
+priority = 3,Dodge
+getPower = 35 * !var(20)
+givePower = 35,35
+numhits = 0
+sparkno = -1
+p1facing = 1
+p2facing = 1
+p1stateno = 1963
+p2stateno = 1964
+p2getp1state = 1
+hitsound = s830, 0
+fall = 1
+fall.recover = 0
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 4
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000, 1
+channel = 5
+
+[State 0, Velocity]
+type = VelSet
+trigger1 = AnimElemTime(4) = 0
+x = 15
+
+[State 0, Vel Stop]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 40,0
+channel = 2
+
+[State 1960, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(5) >= 0
+moveType = I
+
+[State 1960, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss M
+[Statedef 1963]
+type    = S
+movetype= A
+physics = N
+anim = 1953
+poweradd = 0
+velset = 0,0
+sprpriority = 2
+
+[State 1963, Safety]
+type = ChangeState
+trigger1 = !Time && !NumTarget
+value = 0
+ctrl = 1
+
+[State 1963, More Safety]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1963, TargetState]
+type = TargetState
+trigger1 = !Time && NumTarget
+value = 1964
+
+[State 1963, Target Facing]
+type = TargetFacing
+trigger1 = Time <= 1
+value = -1
+
+[State 1963, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0, 2
+channel = 0
+
+[State 1963, Throw Sound]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1, 2
+channel = 1
+
+[State 1963, Bind 1]
+type = TargetBind
+trigger1 = AnimElemTime(2) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1963, Bind 2]
+type = TargetBind
+trigger1 = AnimElemTime(2) >= 0 && AnimElemTime(3) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1963, Bind 3]
+type = TargetBind
+trigger1 = AnimElem = 3
+trigger1 = NumTarget
+pos = ceil(40 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1963, Throw 3]
+type = TargetState
+trigger1 = NumTarget && AnimElem = 3
+value = 1965
+
+[State 1963, Damage 3]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 3
+value = floor(ifElse(135 * fvar(11) < 7, -7, -135 * fvar(11)))
+
+[State 0, TargetPowerAdd]
+type = TargetPowerAdd
+trigger1 = NumTarget && AnimElem = 3
+value = 35
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = NumTarget && AnimElem = 3 && !var(20)
+value = 70
+
+[State 1963, State End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss M by Throw
+[Statedef 1964]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 1964, Screenbound]
+type = ScreenBound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State 1964, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = !Time
+value = 1954
+
+[State 1964, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+trigger1 = !Time
+value = 1954
+elem = 2
+
+;In case attacker loses binding on player for any reason, this controller
+;guarantees that the player will never get stuck in this thrown state.
+[State 1964, 2]
+type = SelfState
+trigger1 = !gethitvar(isbound)
+value = 5050
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss M by Throw (Thrown into air)
+[Statedef 1965]
+type    = A
+movetype= H
+physics = N
+poweradd = 40
+velset = -2,-8
+
+[State 1965, 1] ;Gravity
+type = VelAdd
+Trigger1 = animelemTime(7) > 0
+y = .5
+
+[State 1965, 2] ; Recover near ground (use ChangeState)
+type = ChangeState
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+
+[State 1965, 3] ; Recover in mid air (use SelfState)
+type = SelfState
+triggerall = Vel Y > 0
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5010 ;HITFALL_AIRRECOVER
+
+[State 1965, 4] ;Hit ground
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 ;Hit ground
+
+;Anti-Air Toss S Atempt
+[Statedef 1970]
+type = S
+movetype = A
+physics = S
+juggle  = 0
+ctrl = 0
+velset = 0,0
+anim = 1950
+facep2 = 1
+
+[State 1970, Button Detect]
+type = VarSet
+trigger1 = !Time && !AILevel
+var(10) = (command = "pp")
+
+[State 1970, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = (Random < 500)
+
+[State 1970, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 1970, Throw]
+type = HitDef
+trigger1 = !var(16) && var(15) < 10
+trigger1 = AnimElem = 4
+attr = S,NT
+hitFlag = M-
+priority = 3,Dodge
+getPower = 35 * !var(20)
+givePower = 35,35
+numhits = 0
+sparkno = -1
+p1facing = 1
+p2facing = 1
+p1stateno = 1973
+p2stateno = 1974
+p2getp1state = 1
+hitsound = s830, 0
+fall = 1
+fall.recover = 0
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 4
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000, 1
+channel = 5
+
+[State 0, Velocity]
+type = VelSet
+trigger1 = AnimElemTime(4) = 0
+x = 20
+
+[State 0, Vel Stop]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 40,0
+channel = 2
+
+[State 1970, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(5) >= 0
+moveType = I
+
+[State 1970, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss S
+[Statedef 1973]
+type    = S
+movetype= A
+physics = N
+anim = 1953
+poweradd = 0
+velset = 0,0
+sprpriority = 2
+
+[State 1973, Safety]
+type = ChangeState
+trigger1 = !Time && !NumTarget
+value = 0
+ctrl = 1
+
+[State 1973, More Safety]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1973, TargetState]
+type = TargetState
+trigger1 = !Time && NumTarget
+value = 1974
+
+[State 1973, Target Facing]
+type = TargetFacing
+trigger1 = Time <= 1
+value = -1
+
+[State 1973, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0, 2
+channel = 0
+
+[State 1973, Throw Sound]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1, 2
+channel = 1
+
+[State 1973, Bind 1]
+type = TargetBind
+trigger1 = AnimElemTime(2) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1973, Bind 2]
+type = TargetBind
+trigger1 = AnimElemTime(2) >= 0 && AnimElemTime(3) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1973, Bind 3]
+type = TargetBind
+trigger1 = AnimElem = 3
+trigger1 = NumTarget
+pos = ceil(40 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1973, Throw 3]
+type = TargetState
+trigger1 = NumTarget && AnimElem = 3
+value = 1975
+
+[State 1973, Damage 3]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 3
+value = floor(ifElse(145 * fvar(11) < 7, -7, -145 * fvar(11)))
+
+[State 0, TargetPowerAdd]
+type = TargetPowerAdd
+trigger1 = NumTarget && AnimElem = 3
+value = 35
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = NumTarget && AnimElem = 3 && !var(20)
+value = 70
+
+[State 1973, State End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss S by Throw
+[Statedef 1974]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 1974, Screenbound]
+type = ScreenBound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State 1974, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = !Time
+value = 1954
+
+[State 1974, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+trigger1 = !Time
+value = 1954
+elem = 2
+
+;In case attacker loses binding on player for any reason, this controller
+;guarantees that the player will never get stuck in this thrown state.
+[State 1974, 2]
+type = SelfState
+trigger1 = !gethitvar(isbound)
+value = 5050
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss S by Throw (Thrown into air)
+[Statedef 1975]
+type    = A
+movetype= H
+physics = N
+poweradd = 40
+velset = -3,-8
+
+[State 1975, 1] ;Gravity
+type = VelAdd
+Trigger1 = animelemTime(7) > 0
+y = .5
+
+[State 1975, 2] ; Recover near ground (use ChangeState)
+type = ChangeState
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+
+[State 1975, 3] ; Recover in mid air (use SelfState)
+type = SelfState
+triggerall = Vel Y > 0
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5010 ;HITFALL_AIRRECOVER
+
+[State 1975, 4] ;Hit ground
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 ;Hit ground
+
+;Anti-Air Toss Ex Atempt
+[Statedef 1980]
+type = S
+movetype = A
+physics = S
+juggle  = 0
+ctrl = 0
+velset = 0,0
+anim = 1950
+poweradd = ifelse(var(20) > 0, 0, -500)
+facep2 = 1
+
+[State 1980, MAX Timer Drain]
+type = VarAdd
+trigger1 = !Time
+trigger1 = var(20) > 0
+var(20) = -1000
+
+[State 1980, EX Sound]
+type = PlaySnd
+trigger1 = !Time
+value = 0, 1000
+channel = 10
+
+[State 1980, EX Flash]
+type = VarSet
+trigger1 = !Time
+var(25) = 30
+
+[State 1980, EX FX]
+type = Explod
+trigger1 = !Time
+anim = 8210
+sprPriority = 3
+posType = p1
+pos = 0, -60
+scale = 0.5, 0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 1980, Button Detect]
+type = VarSet
+trigger1 = !Time && !AILevel
+var(10) = (command = "pp")
+
+[State 1980, Button Detect (AI)]
+type = VarSet
+trigger1 = !Time && AILevel
+var(10) = (Random < 500)
+
+[State 1980, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 1980, Throw]
+type = HitDef
+trigger1 = !var(16) && var(15) < 2
+trigger1 = AnimElem = 4
+attr = S,NT
+hitFlag = M-
+priority = 3,Dodge
+getPower = 35 * !var(20)
+givePower = 35,35
+numhits = 0
+sparkno = -1
+p1facing = 1
+p2facing = 1
+p1stateno = 1983
+p2stateno = 1984
+p2getp1state = 1
+hitsound = s830, 0
+fall = 1
+fall.recover = 0
+
+[State 0, Dust Helper]
+type = Helper
+trigger1 = AnimElem = 4
+helperType = Normal
+stateNo = 8103
+ID = 8100
+name = "Dash Dust"
+posType = P1
+facing = 1
+pauseMoveTime = 255
+superMoveTime = 255
+ownPal = 1
+
+[State 0, snd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 1000, 1
+channel = 5
+
+[State 0, Velocity]
+type = VelSet
+trigger1 = AnimElemTime(4) = 0
+x = 20
+
+[State 0, Vel Stop]
+type = VelSet
+trigger1 = AnimElem = 7
+x = 0
+
+[State 0, Jump]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 40,0
+channel = 2
+
+[State 1980, StateTypeSet: Idle]
+type = StateTypeSet
+trigger1 = AnimElemTime(5) >= 0
+moveType = I
+
+[State 1980, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss Ex
+[Statedef 1983]
+type    = S
+movetype= A
+physics = N
+anim = 1953
+poweradd = 0
+velset = 0,0
+sprpriority = 2
+
+[State 1983, Safety]
+type = ChangeState
+trigger1 = !Time && !NumTarget
+value = 0
+ctrl = 1
+
+[State 1983, More Safety]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 1983, TargetState]
+type = TargetState
+trigger1 = !Time && NumTarget
+value = 1984
+
+[State 1983, Target Facing]
+type = TargetFacing
+trigger1 = Time <= 1
+value = -1
+
+[State 1983, Voice]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 0, 2
+channel = 0
+
+[State 1983, Throw Sound]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 1, 2
+channel = 1
+
+[State 1983, Bind 1]
+type = TargetBind
+trigger1 = AnimElemTime(2) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1983, Bind 2]
+type = TargetBind
+trigger1 = AnimElemTime(2) >= 0 && AnimElemTime(3) < 0
+trigger1 = NumTarget
+pos = ceil(0 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1983, Bind 3]
+type = TargetBind
+trigger1 = AnimElem = 3
+trigger1 = NumTarget
+pos = ceil(40 * const(size.xScale)), ceil(0 * const(size.yScale))
+
+[State 1983, Throw 3]
+type = TargetState
+trigger1 = NumTarget && AnimElem = 3
+value = 1985
+
+[State 1983, Damage 3]
+type = TargetLifeAdd
+trigger1 = NumTarget && AnimElem = 3
+value = floor(ifElse(155 * fvar(11) < 7, -7, -155 * fvar(11)))
+
+[State 0, TargetPowerAdd]
+type = TargetPowerAdd
+trigger1 = NumTarget && AnimElem = 3
+value = 35
+
+[State 1983, State End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss Ex by Throw
+[Statedef 1984]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 1984, Screenbound]
+type = ScreenBound
+Trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State 1984, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = !Time
+value = 1954
+
+[State 1984, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+trigger1 = !Time
+value = 1954
+elem = 2
+
+;In case attacker loses binding on player for any reason, this controller
+;guarantees that the player will never get stuck in this thrown state.
+[State 1984, 2]
+type = SelfState
+trigger1 = !gethitvar(isbound)
+value = 5050
+
+;---------------------------------------------------------------------------
+;Anti-Air Toss Ex by Throw (Thrown into air)
+[Statedef 1985]
+type    = A
+movetype= H
+physics = N
+poweradd = 40
+velset = -3,-8
+
+[State 1985, 1] ;Gravity
+type = VelAdd
+Trigger1 = animelemTime(7) > 0
+y = .5
+
+[State 1985, 2] ; Recover near ground (use ChangeState)
+type = ChangeState
+triggerall = Vel Y > 0
+triggerall = Pos Y >= -20
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5200 ;HITFALL_RECOVER
+
+[State 1985, 3] ; Recover in mid air (use SelfState)
+type = SelfState
+triggerall = Vel Y > 0
+triggerall = alive
+triggerall = CanRecover
+trigger1 = Command = "recovery"
+value = 5010 ;HITFALL_AIRRECOVER
+
+[State 1985, 4] ;Hit ground
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 5100 ;Hit ground
+
+;Land
+[Statedef 47]
+type = S
+movetype = I
+physics = S
+ctrl = 0
+anim = 47
+velset = 0, 0
+
+[State 0, Explod]
+type = removeExplod
+trigger1 = time = 0
+id = 1001
+
+[State 47, On Ground]
+type = Posset
+trigger1 = !Time
+Y = 0
+
+[State 47, Land Snd]
+type = PlaySnd
+trigger1 = Time = 1
+value = 52,0
+
+[State 47, Landing Dust Explod]
+type = Explod
+trigger1 = !Time
+anim = 8102
+sprpriority = -3
+postype = P1
+scale = 0.5,0.5
+pauseMoveTime = -1
+superMoveTime = -1
+ownPal = 1
+
+[State 47, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 0
+ctrl = 1

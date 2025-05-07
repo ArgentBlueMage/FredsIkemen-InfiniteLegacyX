@@ -1,0 +1,73 @@
+16/11/2021 - 30/11/2021
+=======================
++ Fixes from Akito's feedback:
+	Super Finish FX for all moves, fixed.
+	Super Finish text not appearing, fixed. 
++ fixes from SolidZone's feedback
++ Implemented damage dampener from POTS system
++ Target combos added:
+	* x, y, b (special cancel)
+	* F+x, y (special cancel)
+	* a, b, y, z
+	* D+a, b 
+	* D+a, D+y, D+z
+	* F+b, b, z
+	* b, c, z
+	* F+c, b
++ Tweaked air.animtypes for when P2 is hit in air  
++ Adjusted movement speed to feel more correct in relation to other 3S characters in POTS style 
++ scale adjusted to fit with other POTS/CvS2 characters
++ 3rd Strike anim timings for normals adapted to CvS2ish 3 star speed 
++ machinegun punch: 3rd strke referenced and pause times and hit velocities adjusted accordingly, super cancellable before last hit
++ jet upper: descending and landing anims from 3S referenced, hit velocities referenced and adapted from J-Morphman's and Extravangant's Ken and Ryu
++ ducking: hit velocities and yaccels for straight and upper adusted 
++ short swing blow: hit velocities and yaccels for straight and upper adusted
++ rocket uppercut: descending and landing anims from 3S referenced, hit velocities from J-man's and Extra's Ken and Ryu
++ corkskrew blow: hit velocities and pausetimes adjusted
++ rolling thunder: hit velocities and pausetimes adjusted, weird mid-air PosSet for enemy fixed 
++ crorkscrew cross: standing physics in custom state so that p2 slides on hit less. hit sounds and screen shakes tweaked for greater feeling of impact
+
+28/07/2020
+==========
++ Damage and dampener tweaks for specials and supers
++ Attack value in Player Data reset back to 100
++ Small jump, running small jump, running jump, neutral long jump
++ Removed extra gravity in jumping normals
++ Tweaked hit velocities for ground light attacks, specials and supers
++ Fix debug flood for supers
++ Fix wrong sprite in light ducking animation
++ Fixed missing afterimage during backwards roll/evade
++ Super cancelling
++ CvS-like sprite scaling
++ Change timing of ground hit / ground bounce animation 
+
++ Lv.3 Corkscrew Cross - hit pause times and clsn tweaks
++ Lv.1 Rolling Thunder using correct superpause fx
++ Fixed p2 alignment during punch throw
++ Machinegun punch - more rapid hitpause times
+
+29/07/2020
+==========
++ Feedback from Gui0007:
+	- Parry system not working - Fixed - caused by var(21) being reset in
+	  state -3 by (redudndant?) Super Cancel flag code? 
+	- Missing grunt sounds - Fixed
++ Throw command requires back or forward input
++ P2 alignment for back + punch throw
++ Reduced speed of EX Machinegun Blow, Dudley crosses screen in 14 ticks instead of 6!!! 
++ Damage tweaks for Lv.3 Supers
++ Damage tweak for custom combo
++ Add004 compatibility:
+	- Removed custom lie dead state 5150 causing a resurection
+	- Disabled Simul mode specific sctrls in Supers that caused Dudley
+	  to snap to far left or far right of screen
+	  
+30/07/2020
+==========
++ Fixes by Mete/Mark85
+	- implement kenmasters2812 changes to character
+	- fix error in var triggers for Lv.3 Super cancellation
+ 	- fix triggers for Lv.2 and Lv3 Supers' power usage in MAX mode
++ Fixes by Kenmasters2812
+	- max mode explods not calling anim #1 instead of anim #4
+	- Enable max mode / custom combo selection in config.txt

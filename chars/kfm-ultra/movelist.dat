@@ -1,0 +1,37 @@
+<#f0f000>:Unique Attacks:</>
+Dodge								^LP+^MP
+Counter								^MP+^HP
+Kick Throw							^LK+^MK
+Gun Throw							^MK+^HK
+Health (Crack) Pipe					^LP+^LK
+Power Charge						^MP+^MK
+Catnip								^HP+^HK
+
+--------------------------------------------------------------------------------------------------
+
+<#f0f000>:Special Moves:</>
+Kung Fu Palm						_QDF^LP
+Shotgun								_QDF^MP
+Triple Pistol Shot					_QDF^HP
+Kung Fu Upper						_DSF^P
+Kung Fu Blow(s)						_QDB^LP
+Chainsaw							_QDB^MP
+BURN!								_QDB^HP
+Kung Fu Zankou						_QDF^LK
+Kung Fu Kicking						_QDF^MK
+Dash Kick							_QDF^HK
+Kung Fu Tiger Kick					_DSF^LK
+_!Extra Kick						^LK
+Kung Fu Cutter _AIR					_DSF^MK
+Power Kick							_DSF^HK
+Kung Fu Dragon Kick _AIR			_QDB^LK
+Rising Kung Fu Dragon Kick _AIR		_QDB^MK
+Kung Fu Rollin Kick Upper _AIR		_QDB^HK
+
+--------------------------------------------------------------------------------------------------
+
+<#f0f000>:Super Moves:</>
+Triple Kung Fu Palm <#bebebe>(1000)</>		
+_QDF_QDF^P
+Smash Kung Fu Upper <#bebebe>(1000)</>		
+_QDB_QDB^P

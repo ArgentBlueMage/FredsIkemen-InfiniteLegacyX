@@ -1,0 +1,1233 @@
+[Statedef 1911 - Doctor Strange Intro Helper]
+type    = A
+movetype= H
+physics = N
+velset = 0,-2
+
+[State 806, ChangeAnim]
+type = ChangeAnim
+trigger1 = (Time = [0,10]) && (SelfAnimExist(5060))
+value = 5060
+
+[State 821, ?????????]
+type = ChangeState
+trigger1 = time = 51
+value = 1912
+
+[Statedef 1912]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 0, 1]
+type = Explod
+trigger1 = time = 0
+anim = 4053
+pos = 20,-100
+postype = p1
+bindtime = -1
+ID = 802
+sprpriority = 5
+removeongethit = 1
+ignorehitpause = 0
+ontop = 1
+ownpal = 1
+
+[State 801, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = s12,8
+
+[State 33083, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 9999
+
+[State 33083, ScreenBound]
+type = ScreenBound
+trigger1 = time < 16
+value = 0
+movecamera = 0,0
+
+[State 33083, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 5000
+ID = 330831
+pos = 0,0
+postype = p1
+bindtime = 1
+vel = 2,0
+removetime = 14
+scale = 1,1
+sprpriority = 13
+ownpal = 1
+removeongethit = 1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 330831
+scale = .95,1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 330831
+scale = .75,1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 330831
+scale = .66,1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 10
+ID = 330831
+scale = .33,1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 12
+ID = 330831
+scale = .15,1
+
+[State 33083, ModifyExplod]
+type = ModifyExplod
+trigger1 = time = 14
+ID = 330831
+scale = .05,0.33
+
+[state 33083]
+type = posSet
+trigger1 = time = 20
+y = -300
+
+[state 0]
+type = DestroySelf
+trigger1 = time >= 50
+
+[Statedef 1145 - Bolo]
+type    = U
+movetype = H
+physics = N
+sprpriority = 1
+ctrl = 0
+velset = 0,0
+
+[state changestate]
+type = changestate
+trigger1 = statetype = A
+value = 1146
+
+[state changeanim2]
+type = changeanim2
+trigger1 = time = 0
+value = 1142
+
+;---------------------[演出]
+[state selfstate]
+type = selfstate
+trigger1 = time = 80
+value = 0
+ctrl = 1
+
+
+
+;---------------------------------------------------------------------------
+; (HELPER)てゐ？
+[Statedef 1146]
+type    = A
+movetype = H
+physics = N
+sprpriority = 1
+ctrl = 0
+velset = 0,0
+
+[state changeanim2]
+type = changeanim2
+trigger1 = time = 0
+value = 1143
+
+;---------------------[速度]
+[state veladd]
+type = veladd
+trigger1 = 1
+y = 0.4
+
+;---------------------[演出]
+[state changestate]
+type = changestate
+trigger1 = vel y > 0
+trigger1 = pos y >= 0
+value = 1147
+
+;---------------------------------------------------------------------------
+; HIT_BOUNCE (hit ground)
+[Statedef 1147]
+type    = A
+movetype= H
+physics = N
+
+[State 5100, 1]
+type = VelSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(fall.yvel) = 0
+trigger1 = vel x > 1
+x = 1
+
+[State 5100, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+[State 5100, Var] ;Save fall velocity
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = floor(vel y)
+
+[State 5100, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = (anim != [5051,5059]) && (anim != [5061,5069])
+trigger2 = !SelfAnimExist(5100 + (anim % 10))
+value = 5100
+
+[State 5100, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+trigger1 = time = 0
+trigger1 = (anim = [5051,5059]) || (anim = [5061,5069])
+trigger1 = SelfAnimExist(5100 + (anim % 10))
+value = 5100 + (anim % 10)
+
+[State 5100, 4]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5100, 5]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+y = 0
+
+[State Posadd]
+type = Posadd
+trigger1 = Time = 1
+x = -8
+
+[State 5100, 7]
+type = ChangeState
+trigger1 = Time = 0
+trigger1 = GetHitVar(fall.yvel) = 0
+value = 5110 ;HIT_LIEDOWN
+
+[State 5100, 8]
+type = GameMakeAnim
+trigger1 = Time = 1
+value = 60 + (sysvar(1) > 5) + (sysvar(1) > 14)
+pos = 0, 0
+under = sysvar(1) <= 14
+
+[State 5100, 10]
+type = PlaySnd
+trigger1 = Time = 1
+value = F7, (sysvar(1) > 5) + (sysvar(1) > 14)
+
+[State 5100, 11]
+type = PosFreeze
+trigger1 = 1
+
+[State 5100, 12]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1148
+
+[State 5100, 13]
+type = ForceFeedback
+trigger1 = Time = 0
+waveform = sinesquare
+ampl = 128,-3,-.2,.005
+time = 20
+
+;---------------------------------------------------------------------------
+; HIT_BOUNCE (bounce into air)
+[Statedef 1148]
+type    = A
+movetype= H
+physics = N
+
+[State 5101, 1] ;Coming hit ground anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim != [5101,5109]
+trigger2 = !SelfAnimExist(5160 + (anim % 10))
+value = 5160
+
+[State 5101, 2] ;Coming hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = time = 0
+trigger1 = anim = [5101,5109]
+trigger1 = SelfAnimExist(5160 + (anim % 10))
+value = 5160 + (anim % 10)
+
+[State 5101, 3]
+type = HitFallVel
+trigger1 = Time = 0
+
+[State 5101, 4]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State velset]
+type = velset
+trigger1 = Time = 0
+x = 0
+y = -5
+
+[State 5101, 5] ;Acceleration
+type = VelAdd
+trigger1 = 1
+y = .23
+
+[State 5101, 6] ;Hit ground
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+type = selfstate
+value = 5110
+
+[statedef 7715]
+movetype= h
+physics = n
+velset = 0,0
+ctrl = 0
+
+[state 710,1]
+type = selfstate
+trigger1 = time = 0 && pos y >= 0 && command != "holddown"
+value = 5000
+
+[state 710,2]
+type = selfstate
+trigger1 = time = 0 && pos y >= 0 && command = "holddown"
+value = 5010
+
+[state 710,3]
+type = statetypeset
+trigger1 = time = 1
+statetype = a
+
+[state 710,4]
+type = changeanim
+trigger1 = 1
+value = 5012
+
+[state 710,5]
+type = changestate
+trigger1 = hitshakeover
+value = 7716
+;---------------------------------------------------------------------------
+; aerial raved b
+[statedef 7716]
+type    = a
+movetype= h
+physics = n
+ctrl = 0
+
+[state 711, 1]
+type = veladd
+trigger1 = 1
+y = 0.5
+
+[state 711, 2]
+type = hitvelset
+trigger1 = time = 0
+x = 1
+y = 1
+
+[state 711, 3]
+type = changestate
+trigger1 = animtime = 0 || time >= 10
+value = 7717
+
+[state 711, 4]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1,1
+
+[state 711, 2]
+type = changeanim
+trigger1 = selfanimexist(5060) && anim != 5060
+value = 5060
+
+[state 711, 6]
+type = changestate
+trigger1 = pos y >= 10 && vel y > 0
+value = 328
+;---------------------------------------------------------------------------
+; aerial raved c
+[statedef 7717]
+type    = a
+movetype= h
+physics = n
+ctrl = 0
+
+[state 712, 1]
+type = veladd
+trigger1 = 1
+y = 0.5
+
+[state 712, 2]
+type = changeanim
+trigger1 = selfanimexist(5060) && anim != 5060
+value = 5060
+
+[state 712, 3]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1,1
+
+[state 712, 3]
+type = changestate
+trigger1 = pos y >= 10 && vel y > 0
+value = 328
+
+[statedef 328]
+type    = l
+movetype= h
+physics = n
+
+[state 328, envshake]
+type = Fallenvshake
+trigger1 = time = 0
+
+[state 328, 1] ;for hit Up/Up-diag type (from state 5081)
+type = changeanim
+persistent = 0
+trigger1 = selfanimexist(5110 + (anim % 10))
+trigger1 = anim = [5081,5089]
+value = 5110 + (anim % 10)
+
+[state 328, 2] ;hit ground anim (normal)
+type = changeanim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;not already changed anim
+trigger1 = anim != [5161,5169]
+trigger2 = !selfanimexist(5170 + (anim % 10))
+value = 5170
+
+[state 328, 3] ;hit ground anim (for hit Up)
+type = changeanim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;not already changed anim
+trigger1 = anim = [5161,5169]
+trigger1 = selfanimexist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+
+[state 328, 4]
+type = hitfalldamage
+trigger1 = time = 0
+
+[state 328, 5]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[state 328, var]
+type = varset
+trigger1 = time = 0
+trigger1 = gethitvar(fall.yvel) != 0
+sysvar(1) = Floor(vel y)
+
+[state 328, 6]
+type = playsnd
+triggerall = prevstateno != [715,720]
+trigger1 = time = 0 && !sysvar(0)
+value = F7, (sysvar(1) > 5) + (sysvar(1) > 14)
+
+[state 328, 6]
+type = playsnd
+triggerall = prevstateno = 720
+trigger1 = time = 0 && !sysvar(0)
+value = s20, 7
+
+[state 328, 8]
+type = velset
+trigger1 = 1
+x = 0
+y = 0
+
+[state 328, 9] ;for hit Up type
+type = changeanim
+persistent = 0
+triggerall = anim = [5171,5179]
+triggerall = selfanimexist(5110 + (anim % 10))
+trigger1 = animtime = 0
+trigger2 = sysvar(0) ;sysvar(0) = 1 avoids hit ground anim
+value = 5110 + (anim % 10)
+
+[state 328, 10] ;for normal
+type = changeanim
+persistent = 0
+triggerall = anim != [5111,5119]
+trigger1 = animtime = 0
+trigger2 = sysvar(0) ;sysvar(0) = 1 avoids hit ground Frame
+value = 5110
+
+[state 328, 11] ;if just Died
+type = selfstate
+triggerall = !alive
+trigger1 = animtime = 0
+trigger2 = sysvar(0) ;sysvar(0) = 1 avoids hit ground Frame
+trigger3 = anim = [5110,5119]
+value = 5150
+
+[state 328, 12]
+type = varset
+trigger1 = sysvar(0)
+trigger1 = time = 0
+sysvar(0) = 0
+
+[state 328, 13] ;friction
+type = velmul
+trigger1 = 1
+x = 0.85
+
+[state 328, 14]
+type = ForcefeeDBack
+trigger1 = alive
+trigger1 = time = 0
+time = 8
+ampl = 240
+waveform = sine
+
+[state 328, 15]
+type = ForcefeeDBack
+trigger1 = !alive
+trigger1 = time = 0
+ampl = 200, 7, -.467
+time = 30
+waveform = sine
+
+[state 328,16]
+type = playerpush
+trigger1 = 1
+value = 0
+
+[state 328,17]
+type = nothitby
+trigger1 = time = 0
+value = sca, aa, ap, at, na, np, nt, sa, sp, st, ha, hp, ht
+time = 0
+ignorehitpause = 1
+
+[state 250,13]
+type = envshake
+trigger1 = time = 0 && prevstateno = 720
+persistent = 0
+time = 15
+freq = 70
+ampl = -4
+
+[state 328,18]
+type = selfstate
+trigger1 = alive && time = 60
+value = 5120
+
+[Statedef 6215]
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+
+[State 5030, 1]
+type = ChangeAnim
+trigger1 = Anim != 5030 && anim!=6215;[5000, 5199]
+trigger1 = SelfAnimExist(5030)
+value = 5030
+
+[State 5030, 1]
+type = ChangeAnim2
+trigger1 = Anim != 5030 && anim!=6215;[5000, 5199]
+trigger1 = !SelfAnimExist(5030)
+value = 6215
+
+[State 5030, 2]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5030, 3]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 5030, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = time>=5
+value = 6216 ;Air get-hit (transition)
+
+[State 5210, 3]
+type = NotHitBy
+trigger1 = vel y > 0 ;Peak of Launch
+trigger1 = alive
+value2 = SCA
+time = 21
+
+[State 5035, 3]
+type = SelfState
+;triggerall = !HitFall
+trigger1 = vel y > 0 ;Peak of Launch
+value = cond(alive=0,5050,5210)
+
+;---------------------------------------------------------------------------
+; Launcher State
+[Statedef 6216]
+type    = A
+movetype= H
+physics = N
+
+[State 5035, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5035)
+trigger1 = Anim != [5051,5059] ;Not if in hit up anim
+trigger1 = Anim != 5090 ;Not if hit off ground anim
+trigger1 = anim != 6215
+value = 5035
+
+[State 5035, 2]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5210, 3]
+type = NotHitBy
+trigger1 = vel y >= 0 ;Peak of Launch
+trigger1 = alive
+value2 = SCA
+time = 21
+
+[State 5035, 3]
+type = SelfState
+;triggerall = !HitFall
+trigger1 = vel y >= 0 ;Peak of Launch
+value = cond(alive=0,5050,5210);value = 5210 ;Air get-hit (recovering in air, not falling)
+
+[Statedef 470]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+     
+[State 5070, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 5070
+     
+[State 5070, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 471
+     
+[Statedef 6110]
+type    = L
+movetype= H
+physics = N
+
+[State 5110, EnvShake]
+type = FallEnvShake
+trigger1 = Time = 0
+
+[State 5110, 1] ;For hit up/up-diag type (from state 5081)
+type = ChangeAnim
+persistent = 0
+trigger1 = SelfAnimExist(5110 + (anim % 10))
+trigger1 = anim = [5081,5089]
+value = 5110 + (anim % 10)
+
+[State 5110, 2] ;Hit ground anim (normal)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim != [5161,5169]
+trigger2 = !SelfAnimExist(5170 + (anim % 10))
+value = 5170
+
+[State 5110, 3] ;Hit ground anim (for hit up)
+type = ChangeAnim
+triggerall = time = 0
+triggerall = anim != [5110,5119] ;Not already changed anim
+trigger1 = anim = [5161,5169]
+trigger1 = SelfAnimExist(5170 + (anim % 10))
+value = 5170 + (anim % 10)
+
+[State 5110, 4]
+type = HitFallDamage
+trigger1 = Time = 0
+
+[State 5110, 5]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, Var] ;Get fall velocity
+type = VarSet
+trigger1 = Time = 0
+trigger1 = GetHitVar(fall.yvel) != 0
+sysvar(1) = floor(vel y)
+
+[State 5110, 6]
+type = PlaySnd
+trigger1 = Time = 0
+trigger1 = !SysVar(0)
+value = F7, (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56))
+
+[State 5110, 7]
+type = Explod
+trigger1 = Time = 0
+trigger1 = !SysVar(0)
+anim = F(60 + (sysvar(1) > Const720p(20)) + (sysvar(1) > Const720p(56)))
+pos = 0, 0
+sprpriority = ifelse (sysvar(1) <= Const720p(56), -10, 10)
+postype = p1
+
+[State 5110, 8]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 5110, 9] ;For hit up type
+type = ChangeAnim
+persistent = 0
+triggerall = anim = [5171,5179]
+triggerall = SelfAnimExist(5110 + (anim % 10))
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground anim
+value = 5110 + (anim % 10)
+
+[State 5110, 10] ;For normal
+type = ChangeAnim
+persistent = 0
+triggerall = Anim != [5111,5119]
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground frame
+value = 5110
+
+[State 5110, 11] ;If just died
+type = SelfState
+triggerall = !alive
+trigger1 = AnimTime = 0
+trigger2 = SysVar(0) ;SysVar(0) = 1 avoids hit ground frame
+trigger3 = Anim = [5110,5119]
+value = 5150
+
+[State 5110, 12]
+type = VarSet
+trigger1 = SysVar(0)
+trigger1 = Time = 0
+sysvar(0) = 0
+
+[State 5110, 13] ;Friction
+type = VelMul
+trigger1 = 1
+x = 0.85
+
+[State 5110, 14] ;Friction
+type = VelSet
+trigger1 = abs(Vel x) < Const(movement.down.friction.threshold)
+persistent = 0
+x = 0
+
+[State 5110, 15]
+type = ForceFeedback
+trigger1 = alive
+trigger1 = Time = 0
+time = 8
+ampl = 240
+waveform = sine
+
+[State 5110, 16]
+type = ForceFeedback
+trigger1 = !alive
+trigger1 = Time = 0
+ampl = 200, 7, -.467
+time = 30
+waveform = sine
+
+[State 6110, SS]
+type = selfstate
+trigger1 = alive
+trigger1 = time >= 11
+value = 5120
+
+;---------------------------------------------------------------------------
+; CUSTOM TRIP2 (fall through air) (Modded)
+[Statedef 471]
+type    = A
+movetype= H
+physics = N
+     
+[State 5071, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+     
+[State 5071, 2] ;Acceleration
+type = VelAdd
+trigger1 = 1
+y = 0.7;GetHitVar(yaccel)
+     
+[State 5071, 3] ;Hit ground
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 15
+type = changestate;SelfState
+value = 6110;5110
+
+[Statedef 5085]
+type= A
+physics= N
+movetype= H
+velset= 0, 0
+facep2= 1
+
+[State 5085, P]
+type = null;pause 
+trigger1 = time = 0
+time = 120
+
+[State 5025, HFS]; Resets the fall parameter, so that the opponent will not fall on his back
+type= hitfallset
+trigger1= 1
+value= 0
+
+[State 5085, CS]
+type = changestate
+trigger1 = pos y
+value = 5086
+
+[State 5025, End]; Sends opponent back to his own states
+type= selfstate
+trigger1= pos y = 0
+value= 5000;ifelse(pos y, 5020, 5000)
+
+;---------------------------------------------------------------------------
+; CUSTOM AIR-HIT (shaking) (Modified)
+[Statedef 5086] ;Modified 5020
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 5020, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) != [3,5]
+value = ifelse((GetHitVar(airtype) = 1),5000,5010) + GetHitVar(animtype)
+
+[State 5020, 2] ;Anim for HIT_BACK
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = GetHitVar(animtype) = [3,5]
+value = 5030
+
+[State 5020, 3] ;Anim for HIT_UP/HIT_DIAGUP (only if it exists)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = (GetHitVar(animtype) = [4,5]) && (SelfAnimExist(5047 + GetHitVar(animtype)))
+value = 5047 + GetHitVar(animtype) ;5051 - 4 + type
+
+[State 5020, 4] ;Freeze anim
+type = ChangeAnim
+trigger1 = Time > 0
+value = anim
+
+[State 5020, 5]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 5087;5030
+
+[State 5020, FFB Light]
+type = ForceFeedback
+trigger1 = anim = 5000
+trigger2 = anim = 5010
+persistent = 0
+time = 6
+waveform = square
+
+[State 5020, FFB Medium]
+type = ForceFeedback
+trigger1 = anim = 5001
+trigger2 = anim = 5011
+persistent = 0
+time = 8
+waveform = sinesquare
+ampl = 110,-1,-.3
+
+[State 5020, FFB Hard]
+type = ForceFeedback
+trigger1 = anim = 5012
+trigger2 = anim = 5002
+trigger3 = anim = 5030
+trigger4 = anim = [5051,5059]
+persistent = 0
+time = 15
+waveform = sinesquare
+ampl = 140
+
+;---------------------------------------------------------------------------
+; Air get-hit (knocked away)
+[Statedef 5087];5030
+type    = A
+movetype= H
+physics = N
+ctrl = 0
+
+[State 5030, 1]
+type = ChangeAnim
+trigger1 = Anim != [5000, 5199]
+trigger1 = SelfAnimExist(5030)
+value = 5030
+
+[State 5030, 2]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5030, 3]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 5030, 4]
+type = ChangeState
+triggerall = !HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5089;40 ;HITA_RECOV
+
+[State 5030, 5]
+type = selfState
+triggerall = HitFall
+trigger1 = HitOver
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5050 ;HITA_FALL
+
+[State 5030, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 5088;5035 ;Air get-hit (transition)
+
+;---------------------------------------------------------------------------
+; Air get-hit (transition)
+[Statedef 5088]
+type    = A
+movetype= H
+physics = N
+
+[State 5035, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5035)
+trigger1 = Anim != [5051,5059] ;Not if in hit up anim
+trigger1 = Anim != 5090 ;Not if hit off ground anim
+value = 5035
+
+[State 5035, 2]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5035, CA]
+type = changeanim
+triggerall = anim!=5040
+triggerall = !hitfall
+trigger1 = anim=5035 && animtime=0
+trigger2 = time=0 && anim!=5035
+value = 5040
+
+[State 5035, 3]
+type = ChangeState
+triggerall = !HitFall
+trigger1 = HitOver  ;Hit is over
+trigger2 = Vel Y > 0    ;Hit ground
+trigger2 = Pos Y >= Const(movement.air.gethit.groundlevel)
+value = 5089 ;Air get-hit (recovering in air, not falling)
+
+[State 5035, 4]
+type = SelfState
+triggerall = HitFall
+trigger1 = HitOver  ;Hit is over
+trigger2 = AnimTime = 0 ;Anim is over
+trigger3 = Vel Y > 0    ;Hit ground
+trigger3 = Pos Y >= Const(movement.air.gethit.groundlevel)
+trigger4 = Time = 0     ;No transition anim
+trigger4 = Anim != 5035 ;.
+value = 5050 ;Air get-hit (falling)
+
+;---------------------------------------------------------------------------
+; Air get-hit (recovering in air, not falling)
+[Statedef 5089] ;Modified 5040
+type    = A
+movetype= H
+physics = N
+
+[State 5040, 1]
+type = selfState
+trigger1 = !Alive
+value = 5050
+ctrl = 0
+
+[State 5070, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 5040, 2]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim != 5040
+trigger2 = Time = 0
+trigger2 = Anim != 5035 && anim!=5040
+value = 5040
+
+[State 5040, 4]
+type = StateTypeSet
+trigger1 = HitOver
+movetype = I
+
+[State 5040, 5]
+type = VelAdd
+trigger1 = 1
+y = GetHitVar(yaccel)
+
+[State 5040, 6]
+type = SelfState
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= 0
+value = 52 ;Jump land
+ctrl = 1
+
+;-------------------------------------------------------------
+;INITIALIZE
+[Statedef 5900]
+type = S
+
+;__________________________________________________________________________
+;==========================================================================
+;__________________________________________________________________________
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+value = 0
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+fvalue = 0
+;__________________________________________________________________________
+;==========================================================================
+;__________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+___________________________________________________________________________
+;Change the value number to 0 if you do not want Palette Selector on Intro
+;Change the value number to 1 if you do want Palette Selector on Intro
+;Default value is 1.
+;===========================================================================
+; Deadpool Bullet Shell's
+[State 5900, Bullet Shell's]
+type = VarSet
+trigger1 = 1
+v = 28
+value = 1
+___________________________________________________________________________
+;Change the value number to 0 if you do not want bullet shell's
+;Change the value number to 1 if you want the bullet shell's in deadpool
+;Default value is 1.
+;===========================================================================
+; POT's Style Hitsparks
+[State 5900, POT's Style Hitsparks]
+type = VarSet
+trigger1 = 1
+v = 43
+value = 1
+___________________________________________________________________________
+;Change the value number to 0 if you do not want POT's style hitsparks
+;Change the value number to 1 if you want the POT's style hitsparks
+;Change the value number to 2 if you want multi-colored POT's style hitsparks-Only 1.0 or higher
+;Default value is 0.
+;===========================================================================
+; POT's Style Hit Sounds
+[State 5900, POT's Style Hit Sounds]
+type = VarSet
+trigger1 = 1
+v = 44
+value = 1
+___________________________________________________________________________
+;Change the value number to 0 if you do not want POT's style hitsounds
+;Change the value number to 1 if you want the POT's style hitsounds
+;Default value is 0.
+;===========================================================================
+___________________________________________________________________________
+;Change the value number to 0 if you do not want chain comboing
+;Change the value number to 1 if you want chain comboing
+;Change the value number to 2 if you want chain comboing and Air Comboing
+;Default value is 1.
+;===========================================================================
+; Deadpool 4th Wall Health Bar Code
+[State 5900, Health Bar]
+type = VarSet
+trigger1 = 1
+v = 24
+value = 4
+
+;Don't change it. I fucked up a lot here. No special Health Bar for now until updates.
+
+;===========================================================================
+
+[State 5900, Varset]
+type = Varset
+trigger1 =1
+var(29)=0
+persistent=0
+ 
+
+[State 5900, intro VS Jason Todd]
+type=changestate
+triggerall = numenemy
+triggerall = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemynear, name = "Jason Todd" && enemynear,authorname="Mr.Giang"
+value=192
+
+[State 5900, intro VS Jason Todd]
+type=changestate
+triggerall = numenemy
+triggerall = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemynear, name = "Punisher" && enemynear,authorname="Mr.Giang"
+value=19120
+
+[State 5900, Intro SF]
+type = changestate
+triggerall = numenemy
+triggerall = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Ryu" || enemy, name = "cvsryu" || enemy, name = "Evil Ryu"
+trigger2 = enemy, name = "Ken" || enemy, name = "cvsken" || enemy, name = "Ken Master" || enemy, name = "Violent Ken"
+trigger3 = enemy, name = "Akuma" || enemy, name = "Shin Akuma"
+trigger4 = enemy, name = "Gouken"
+trigger5 = enemy, name = "Vega" || enemy, name = "cvsvega"
+trigger6 = enemy, name = "M.Bison" || enemy, name = "M. Bison" || enemy, name = "CvSBison"
+trigger7 = enemy, name = "Sagat"
+trigger8 = enemy, Name = "Chun-Li" || enemy, Name = "cvschunli" || enemy, Name = "Chunli"|| enemy, Name = "Chun li"
+trigger9 = enemy, Name = "Honda" || enemy, Name = "E.Honda"
+trigger10 = enemy, Name = "Cammy" || enemy, Name = "cvscammy"
+trigger11 = enemy, Name = "Dhalsim" || enemy, Name = "RajaaDhalsim"
+trigger12 = enemy, Name = "Zangief"
+trigger13 = enemy, Name = "Balrog"
+trigger14 = enemy, Name = "Blanka"
+trigger15 = enemy, Name = "Guile"||enemy, Name = "cvsguile"
+value = 193
+
+[State 5900, intro VS Batman]
+type=changestate
+triggerall= numenemy
+trigger1 = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Batman" || enemy, name = "RajaaBatman" || partner,name = "Batman"
+value=194
+
+[State 5900, intro VS Cap]
+type=changestate
+triggerall= numenemy
+trigger1 = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Captain America"
+value=1888
+
+[State 5900, intro VS Wolverine]
+type=changestate
+triggerall= numenemy
+trigger1 = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Wolverine"
+value=197
+
+[State 5900, intro VS Strange]
+type=changestate
+triggerall= numenemy
+trigger1 = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Doctor Strange" && enemy,authorname="Mr.Giang"
+value=1910
+
+[State 5900, intro VS Hulk]
+type=changestate
+triggerall= numenemy
+trigger1 = roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1 = enemy, name = "Hulk" && enemy,authorname="Mr.Giang"
+value=1930
+
+[State 5900, intro VS Cable]
+type=changestate
+trigger1= numenemy
+trigger1= !roundsexisted && !(enemy,roundsexisted)
+trigger1= !(teammode=simul) && !(enemy,teammode=simul)
+trigger1=enemy,authorname="Infinite"&&enemy,name="Cable"
+value=198
+
+[State 5900, intro VS Magneto]
+type=changestate
+triggerall= numenemy
+trigger1= roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger1=enemy, Name="Magneto"||enemy, Name="MvC2Magneto"||enemy, Name="Magneto(MC2)"
+value=199
+
+[State 5900, intro with Colossus]
+type=changestate
+triggerall= numpartner
+trigger1= roundno = 1
+trigger1=partner, Name="Colossus" && partner,authorname = "Mr.Giang"
+value=1940
+
+[State 5900, intro with Venom]
+type=changestate
+trigger1= numpartner
+trigger1= roundno = 1
+trigger1=partner, Name="Venom"
+trigger2= numenemy
+trigger2= roundno = 1 || (!(enemy, roundsexisted) && !(teammode = simul) && !(enemy, teammode = simul))
+trigger2=enemy, Name="Venom"
+value=1888
+
+[State 5900, Turns Intro]
+type = ChangeState
+trigger1 = TeamMode = Turns
+trigger1 = !RoundsExisted && RoundNo >= 2
+value = 6900
+
+[State 5900, Intro Decider]
+type = ChangeState
+trigger1 = RoundNo = 1
+value = 190+random%2
+
+[State 5900, End]
+type = ChangeState
+trigger1 = 1
+value = 0

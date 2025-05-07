@@ -1,0 +1,960 @@
+;Oh god, oh fuck...
+
+;LH - Fatal Chungus
+[Statedef 4900]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+velset = 0,0
+anim = 3060
+ctrl = 0
+sprpriority = 2
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = AnimElem = 1
+pos = -12, -28
+anim = -1
+sound = -1
+time = 30
+movetime = 30
+poweradd = 0
+p2defmul = 1
+darken = 0
+
+[state 1000]
+type = nothitby
+trigger1 = !time
+value = SCA
+time = 38
+ignorehitpause = 1
+
+[state 1000]
+type = playsnd
+trigger1 = animelem = 1
+value = S8005,0
+volumescale = 125
+
+[State 3000, SuperPause FX]
+type = Helper
+trigger1 = animelem = 1
+helperType = Normal
+stateNo = 8503
+ID = 8502
+name = "Superpause FX"
+posType = P1
+pos = 0,-65
+superMoveTime = 255
+size.xScale = 1
+size.yScale = 1
+ownPal = 1
+persistent = 0
+
+[State 3050, 1]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = S1, 2
+
+[state 1000]
+type = velset
+trigger1 = animelem = 2 && prevstateno = 1000 || animelem = 2 && prevstateno = [200,499]
+trigger2 = animelem = 2 && prevstateno = 1001
+x = 12
+
+[State 3050, 2]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HA
+animtype  = Up               
+damage    = 100, 0
+getpower  = 0
+priority  = 5
+guardflag = MA
+pausetime = 30,30
+sparkNo = -1 + 0 * (var(33) := 8014)
+guard.sparkNo = -1 + 0 * (var(34) := 8000)
+sparkXY = -10 + 0 * (var(35) := 58), var(36):=-110
+hitsound = S2,8
+guardsound = -1
+ground.type = Low
+ground.slidetime = 26
+ground.hittime  = 28
+ground.velocity = -0,-30
+guard.velocity = -11
+air.velocity = -0,-30
+airguard.velocity = -4.5,-5
+envshake.time = 25           
+envshake.ampl = 7
+envshake.freq = 176
+p2facing = 1   
+p2stateno = 4910            
+yaccel = .7                  
+kill = 0
+snap = 50,-50
+numhits = 0
+
+[State 105, End]
+type = ChangeState
+trigger1 = movehit = 1
+value = 4901
+ctrl = 0
+
+[State 105, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;It's empty in here
+[Statedef 4901]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+velset = 0,0
+anim = 3120
+ctrl = 0
+sprpriority = 2
+
+[State 105, End]
+type = ChangeState
+trigger1 = p2stateno = 4911
+value = 4902
+ctrl = 0
+
+;Wait for it
+[Statedef 4902]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+velset = 0,0
+anim = 19999
+ctrl = 0
+sprpriority = 2
+
+[State 6034, Shieeeet]
+type=helper
+trigger1 = !time
+helpertype=normal
+stateno = 4920
+ID = 4920
+name ="Hole in one"
+postype=back
+supermovetime=99999
+pausemovetime=99999
+ownpal=1
+facing = facing
+ignorehitpause=1
+size.xscale=.51
+size.yscale=.51
+persistent = 0
+
+[State 105, End]
+type = ChangeState
+trigger1 = p2stateno = 3167
+value = 0
+ctrl = 1
+
+;P2 state - Getting offscreen vertically
+[Statedef 4910]
+type    = A
+movetype= H
+physics = N
+;velset = 0,0
+
+[state 1000]
+type = posfreeze
+trigger1 = time <= 30
+value = 1
+ignorehitpause = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 2905, HitVelSet]
+type = HitVelSet
+trigger1 = Time = 30
+x = 1
+y = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 3150
+
+[State 820, 2]
+type = changestate
+trigger1 = time = 50
+value = 4911
+ctrl = 0
+
+;Reposition this shit
+[Statedef 4911]
+type    = A
+movetype= H
+physics = N
+sprpriority = 109
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 1000]
+type = angledraw
+trigger1 = 1
+scale = 1.50,1.50
+ignorehitpause = 1
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = -1
+trigger1 =!time
+x =ceil(pos x-screenpos x+160)
+y =ceil(pos y-screenpos y-700)
+ignorehitpause=1
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = 1
+trigger1 =!time
+x =ceil(pos x-screenpos x+159)
+y =ceil(pos y-screenpos y-700)
+ignorehitpause=1
+
+;[state 1000]
+;type = posset
+;trigger1 = !time
+;x = 0
+;y = -800
+
+[state 1000]
+type = velset
+trigger1 = time = 0
+x = 0
+y = 0
+
+[state 1000]
+type = velset
+trigger1 = time = 60
+x = 0
+y = 60
+
+[state 1000]
+type = velset
+trigger1 = time = 100
+x = 0
+y = 0
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 4039
+
+[state 1000]
+type = assertspecial
+trigger1 = 1
+flag = nokoslow
+flag2 = nokosnd
+ignorehitpause = 1
+
+[state 1000]
+type = changestate
+trigger1 = time = 100
+value = 4912
+ctrl = 0
+
+;Disappear or something
+[Statedef 4912]
+type    = A
+movetype= H
+physics = N
+sprpriority = 101
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 1000]
+type = posset
+trigger1 = !time
+y = 0
+
+[state 1000]
+type = assertspecial
+trigger1 = 1
+flag = nokoslow
+flag2 = nokosnd
+ignorehitpause = 1
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 19999
+
+[state 1000]
+type = lifeadd
+trigger1 = time = 600
+value = -9999999
+
+[state 1000]
+type = changestate
+trigger1 = time = 1230
+value = 3167
+
+;LvL3 - Hard Pissing
+[Statedef 4950]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 4100
+ctrl = 0
+sprpriority = 2
+
+[state 1000]
+type = playsnd
+trigger1 = animelem = 2
+value = S4950,0
+volumescale = 200
+
+[state 1000]
+type = playsnd
+trigger1 = !time
+value = S4950,1
+volumescale = 200
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = !time
+pos = -12, -28
+anim = -1
+sound = -1
+time = 30
+movetime = 30
+poweradd = -3000
+p2defmul = 1
+darken = 0
+
+[state 1000]
+type = nothitby
+trigger1 = !time
+value = SCA
+time = 30
+ignorehitpause = 1
+
+[state 1000]
+type = playsnd
+trigger1 = !time
+value = S8005,0
+volumescale = 125
+
+[State 110, Penis]
+type = explod
+triggerall = facing = 1
+trigger1 = !time
+anim = 4102
+ID = 4102
+sprpriority = 3
+postype = p1
+pos = 17, -54
+removetime = -1
+ownpal = 1
+scale = .20,.20
+bindtime = -1
+pausemovetime = -1
+supermovetime = -1
+removeongethit = 1
+
+[State 110, Penis]
+type = explod
+triggerall = facing = -1
+trigger1 = !time
+anim = 4104
+ID = 4102
+sprpriority = 3
+postype = p1
+pos = 17, -54
+removetime = -1
+ownpal = 1
+scale = .20,.20
+bindtime = -1
+pausemovetime = -1
+supermovetime = -1
+removeongethit = 1
+
+[State 3000, SuperPause FX]
+type = Helper
+trigger1 = !time
+helperType = Normal
+stateNo = 8502
+ID = 8500
+name = "Superpause FX"
+posType = P1
+pos = 2,-54
+superMoveTime = 255
+size.xScale = 1
+size.yScale = 1
+ownPal = 1
+persistent = 0
+
+[State 2500, 0]
+type = Helper
+trigger1 = animelem = 2
+helpertype = normal
+name = "Piss"
+id = 4960
+pos = 60,60
+stateno = 4960
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[state 1000]
+type = playsnd
+trigger1 = animelem = 2
+value = S5,7
+volumescale = 150
+
+[state 1000]
+type = velset
+trigger1 = time >= 30
+x = -0.5
+
+[State 105, End]
+type = ChangeState
+trigger1 = time = 84
+value = 4951
+ctrl = 0
+
+;Done Pissing
+[Statedef 4951]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 4101
+ctrl = 0
+sprpriority = 2
+
+[State 110, Penis]
+type = explod
+triggerall = facing = 1
+trigger1 = !time
+anim = 4104
+ID = 4102
+sprpriority = 3
+postype = p1
+pos = 17, -54
+removetime = -1
+ownpal = 1
+scale = .20,.20
+bindtime = -1
+pausemovetime = -1
+supermovetime = -1
+removeongethit = 1
+
+[state 1000]
+type = removeexplod
+trigger1 = !time
+ID = 4102
+ignorehitpause = 1
+
+[State 105, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;LH - 9/12
+[Statedef 6950]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 3070
+ctrl = 0
+sprpriority = 2
+
+[State 3000, Super A]
+type = SuperPause
+trigger1 = AnimElem = 1
+pos = -12, -28
+anim = -1
+sound = -1
+time = 30
+movetime = 30
+poweradd = 0
+p2defmul = 1
+darken = 0
+
+[state 1000]
+type = nothitby
+trigger1 = 1
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[state 1000]
+type = playsnd
+trigger1 = animelem = 1
+value = S8005,0
+volumescale = 125
+
+[State 3000, SuperPause FX]
+type = Helper
+trigger1 = animelem = 1
+helperType = Normal
+stateNo = 8503
+ID = 8502
+name = "Superpause FX"
+posType = P1
+pos = 3,-60
+superMoveTime = 255
+size.xScale = 1
+size.yScale = 1
+ownPal = 1
+persistent = 0
+
+[State 3000, Sound Effect]
+type = Helper
+trigger1 = movehit
+helperType = Normal
+stateNo = 69205
+ID = 69205
+name = "Sound effect"
+posType = P2
+pos = 0,0
+superMoveTime = 255
+size.xScale = 1
+size.yScale = 1
+ownPal = 1
+persistent = 0
+
+[State 1000]
+type = explod
+trigger1 = animelem = 3
+vel = 0, 0
+anim = 7200
+ID = 7200
+sprpriority = 3
+postype = p1
+pos = 30, 0
+ownpal = 1
+scale = 0.75, 0.75
+pausemovetime = -1
+supermovetime = -1
+
+[State 1020, 1]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S1, 2
+
+[State 1020, 6]
+type = HitDef
+trigger1 = !time
+attr = S, HA
+animtype  = Hard
+damage    = 200, 5
+getpower  = 0
+priority  = 4
+guardflag = MA
+pausetime = 15,15
+sparkNo = -1 + 0 * (var(33) := 8014)
+guard.sparkNo = -1 + 0 * (var(34) := 8000)
+sparkXY = -10 + 0 * (var(35) := 58), var(36):=-60
+hitsound = S2,8
+guardsound = -1
+ground.type = Low
+ground.slidetime = 20
+ground.hittime  = 22
+ground.velocity = -12,0
+guard.velocity = -7
+air.velocity = -12,0
+airguard.velocity = -5, -4
+fall = 1
+air.fall = 1
+fall.recover = 0
+kill = 0
+envshake.time = 10
+envshake.freq = 90
+envshake.ampl = -20
+envshake.phase = 20
+p1facing = 1
+p2facing = 1
+p2stateno = 6960 
+
+[State 1020, 5]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 25
+
+[State 1020, 5]
+type = VelSet
+trigger1 = movehit
+x = 0
+
+[State 3050, 5]
+type = ChangeState
+trigger1 = movehit
+value = 69511
+ctrl = 0
+
+[State 3050, 5]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;Stop
+[Statedef 69511]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+velset = 0,0
+anim = 3071
+ctrl = 0
+sprpriority = 2
+
+[State 6034, Shieeeet]
+type=helper
+trigger1 = time = 50
+helpertype=normal
+stateno = 69200
+ID = 69200
+name ="Twin towers and super laser piss"
+postype=back
+supermovetime=99999
+pausemovetime=99999
+ownpal=1
+ignorehitpause=1
+size.xscale=.50
+size.yscale=.50
+persistent = 0
+
+[state 1000]
+type = changestate
+trigger1 = p2stateno = 3167
+value = 3152
+ctrl = 0
+
+;P2 state - Getting offscreen
+[Statedef 6960]
+type    = A
+movetype= H
+physics = N
+velset = -18,-4
+
+[state 1000]
+type = velset
+trigger1 = prevstateno != 1027 || prevstateno != 1028
+x = -18
+y = -4
+
+[state 1000]
+type = velset
+trigger1 = prevstateno = 1027
+x = 18
+y = 4
+
+[state 1000]
+type = velset
+trigger1 = prevstateno = 1028
+x = 18
+y = 4
+
+[state 1000]
+type = posfreeze
+trigger1 = time <= 15
+value = 1
+ignorehitpause = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 820, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 3080
+
+[State 820, 2]
+type = changestate
+trigger1 = time = 120
+value = 6961
+ctrl = 0
+
+;P2 state - Going towards Twin towers
+[Statedef 6961]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 51
+
+[state 1000]
+type = changeanim2
+trigger1 = !time
+value = 3083
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = -1
+trigger1 =!time
+x =ceil(pos x-screenpos x-132)
+y =ceil(pos y-screenpos y+120)
+ignorehitpause=1
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = 1
+trigger1 =!time
+x =ceil(pos x-screenpos x+453)
+y =ceil(pos y-screenpos y+120)
+ignorehitpause=1
+
+;[state 1000]
+;type = posset
+;triggerall = facing = -1
+;trigger1 = !time
+;x = -300
+;y = -50
+
+;[state 1000]
+;type = posset
+;triggerall = facing = 1
+;trigger1 = !time
+;x = 300
+;y = -50
+
+[state 1000]
+type = velset
+triggerall = facing = -1
+trigger1 = !time
+x = -7
+ignorehitpause = 1
+
+[state 1000]
+type = velset
+triggerall = facing = 1
+trigger1 = !time
+x = -7
+ignorehitpause = 1
+
+[state 1000]
+type = velset
+trigger1 = time = 208
+x = 0
+ignorehitpause = 1
+
+[state 1000]
+type = posfreeze
+trigger1 = time >= 30 && time <= 200
+value = 1
+ignorehitpause = 1
+
+[state 1000]
+type = angledraw
+trigger1 = time <= 208
+scale = 0.50,0.50
+ignorehitpause = 1
+persistent = 1
+
+[State 820, 2]
+type = changestate
+trigger1 = time = 208
+value = 6962
+ctrl = 0
+
+;Woah
+[Statedef 6962]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 51
+
+[State 0, AngleAdd]
+type = Angledraw
+trigger1 = 1
+value = Time * (20)
+ignorehitpause = 1
+persistent = 1
+scale = 0.50,0.50
+
+[state 1000]
+type = velset
+triggerall = facing = -1
+trigger1 = 1
+x = -5
+y = -1.4
+
+[state 1000]
+type = velset
+triggerall = facing = 1
+trigger1 = 1
+x = -5
+y = -1.4
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 1000]
+type = changestate
+trigger1 = time = 88
+value = 6963
+
+;P2 state - Going towards Castle
+[Statedef 6963]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 55
+
+[state 1000]
+type = changeanim2
+trigger1 = !time
+value = 3083
+
+[state 1000]
+type = angledraw
+trigger1 = 1
+value = time*(20)
+scale = 2.00-Time * (.029),2.00-Time * (.029)
+ignorehitpause = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = -1
+trigger1 =!time
+x =ceil(pos x-screenpos x-132)
+y =ceil(pos y-screenpos y+120)
+ignorehitpause=1
+
+[State 0, PosSet]
+type = PosSet
+triggerall = facing = 1
+trigger1 =!time
+x =ceil(pos x-screenpos x+453)
+y =ceil(pos y-screenpos y+120)
+ignorehitpause=1
+
+[state 1000]
+type = velset
+triggerall = facing = -1
+trigger1 = time > 1
+x = -5.1
+ignorehitpause = 1
+
+[state 1000]
+type = velset
+triggerall = facing = 1
+trigger1 = time > 1
+x = -5.1
+ignorehitpause = 1
+
+[state 1000]
+type = posfreeze
+trigger1 = time <= 12
+value = 1
+ignorehitpause = 1
+
+[State 820, 2]
+type = changestate
+trigger1 = time = 70
+value = 6964
+ctrl = 0
+
+;Ded
+[Statedef 6964]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 51
+
+[state 1000]
+type = posadd
+trigger1 = time = 0
+x = 50
+
+[state 1000]
+type = assertspecial
+trigger1 = 1
+flag = nokosnd
+ignorehitpause = 1
+
+[state 1000]
+type = assertspecial
+trigger1 = 1
+flag = nokoslow
+ignorehitpause = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[state 1000]
+type = lifeadd
+trigger1 = time = 50
+value = -9999999
+
+[state 1000]
+type = changeanim2
+trigger1 = !time
+value = 19999
+
+[state 1000]
+type = changestate
+trigger1 = time = 220
+value = 3167

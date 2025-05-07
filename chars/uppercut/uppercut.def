@@ -1,0 +1,33 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Shoryuken"        ;Name of character
+displayname = "Uppercut" ;Name of character to display
+versiondate = 01,04,2011    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "The_None"
+pal.defaults = 1
+
+; Files for the player
+[Files]
+cmd     = command.cmd   ;Command set
+cns     = state.cns   ;Constants
+st      = state.cns   ;States
+st8 = config.txt
+stcommon = common1.cns ;Common states
+sprite  = sprites.sff   ;Sprite
+anim    = animation.air   ;Animation
+sound   = sound.snd   ;Sound
+pal1    = pal1.act
+pal2    = thanos.act
+pal3    = balrog.act
+pal4    = tager.act
+pal5    = leona.act
+pal6 = albiole.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

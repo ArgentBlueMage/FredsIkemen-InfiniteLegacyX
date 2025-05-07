@@ -1,0 +1,774 @@
+; Definition of stage 0 (training stage)
+; *** denotes values you should change/check for each stage.
+; The term "background" is used to mean both backgrounds and foregrounds.
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Ultimate_Suzaku_Castle_IM"
+displayname = "Suzaku Castle CE" ;Name to display
+versiondate = 8,6,2019    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.1          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "ELECTR0"         ;Stage author name
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+boundleft = -223
+boundright = 223
+boundhigh = -250
+boundlow = 0
+verticalfollow = 1
+floortension = 85
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 0
+cutlow = 0
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 25    ;Dist from left of screen that player can move to
+screenright = 25   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;"Ground" level where players stand at, measured in pixels from the
+ ;top of the screen.
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;***
+zoffset = 214
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background reset itself between
+ ;rounds.
+resetBG = 1
+
+ ;Width and height of the local coordinate space of the stage.
+localcoord = 320, 240
+
+ ;Horizontal and vertical scaling factor for drawing.
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow darkening intensity. Valid values range from
+ ;0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 100
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 0,0,0
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = .1
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = 400,100
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for a MOD, MP3 or MIDI here, or just leave it
+ ;blank if you don't want music. If an invalid filename is
+ ;given, then no music will play. To play CD audio, put
+ ;the track number followed by ".da". Using a track number of
+ ;0 will play a random audio track. For example, to play
+ ;track 3 from a music CD, use:
+ ;  bgmusic = 3.da
+bgmusic = sound/Japan_SF2.mp3
+
+;bgmloopstart = <sample number>
+;bgmloopend = <sample number>
+
+ ;Adjust the volume. 100 is for 100%.
+bgmvolume = 100
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"add1"/"sub"" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0) - only for Normal BG
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float)
+; width = ?, ?     Top width, bottom width (int)  (use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = Ultimate_SF2_Suzaku_Castle.sff
+
+ ;Set to 1 if you want to clear the screen to magenta before
+ ;drawing layer 0 (the default background). Good for spotting "holes"
+ ;in your background.
+ ;Remember to turn this off when you are done debugging the background,
+ ;because it slows down performance.
+debugbg = 0
+
+
+;------------------------------------
+
+[BG Sky]
+type  = normal
+spriteno = 9, 0
+start = -90, 160
+delta = .4, 1
+mask = 1
+layerno = 0
+
+;------------------------------------
+
+[BG Clouds1]
+type  = normal
+spriteno = 10, 2
+start = 0, 100
+delta = .4, 1
+mask = 1
+velocity = -.1, 0
+tile = 1, 0
+tilespacing = 0, 0
+layerno = 0
+
+;------------------------------------
+
+[BG Clouds2]
+type  = normal
+spriteno = 10, 1
+start = 0, 160
+delta = .4, 1
+mask = 1
+velocity = -.2, 0
+tile = 1, 0
+tilespacing = 0, 0
+layerno = 0
+
+;------------------------------------
+
+[BG Clouds3]
+type  = normal
+spriteno = 10, 0
+start = 0, 130
+delta = .4, 1
+mask = 1
+velocity = -.22, 0
+tile = 1, 0
+tilespacing = 0, 0
+layerno = 0
+
+;------------------------------------
+
+[BG Crows1]
+type  = anim
+actionno = 1
+start = 300, 150
+delta = .6, 1
+mask = 1
+layerno = 0
+ID = 5
+
+[BGCtrlDef 5]
+looptime = 3500
+ctrlID = 5
+
+[BGCtrl 5, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 5, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 5]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 5, Visible] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 5, Crows] 
+type = anim
+time = 1000
+value = 3
+
+[BGCtrl 5]
+type = velset
+time = 1000
+x = -1.0
+y = -0.8
+
+[BGCtrl 5]
+type = velset
+time = 1900
+x = 0
+y = 0
+
+[BGCtrl 5, Invisible] 
+type = anim
+time = 1900
+value = 1
+
+[Begin Action 3]  
+7,0, 0,0, 4
+7,1, 0,0, 4
+7,2, 0,0, 4
+7,3, 0,0, 4
+
+[BGCtrl 5, Invisible] 
+type = Enable
+time = 1900
+value = 0 
+
+;------------------------------------
+
+[BG Castle]
+type  = normal
+spriteno = 12, 0
+start = 50, 130
+delta = .49, .95
+mask = 1
+layerno = 0
+
+;------------------------------------
+
+[BG Birdie1]
+type  = anim
+actionno = 1
+start = 0, 72
+delta = .5, 1
+mask = 1
+layerno = 0
+ID = 1
+
+[BGCtrlDef 1]
+looptime = 1300
+ctrlID = 1
+
+[BGCtrl 1, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 1, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 1]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 1, Birdie1] 
+type = anim
+time = 200
+value = 2
+
+[BGCtrl 1, visible] 
+type = Enable
+time = 200
+value = 1
+
+[BGCtrl 1]
+type = velset
+time = 200
+x = 0
+y = 0.7
+
+[BGCtrl 1]
+type = velset
+time = 272
+x = 0
+y = 0
+
+[BGCtrl 1]
+type = velset
+time = 400
+x = 0
+y = -0.7
+
+[BGCtrl 1]
+type = velset
+time = 466
+x = 0
+y = 0
+
+[BGCtrl 1, Invisible] 
+type = anim
+time = 466
+value = 1
+
+[Begin Action 1]
+-1,-1, 0,0, 5000
+
+[Begin Action 2]
+4,0, 0,0, 48
+4,1, 0,0, 6
+4,2, 0,0, 6
+4,1, 0,0, 6
+4,3, 0,0, 6
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,4, 0,0, 8
+4,6, 0,0, 8
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,4, 0,0, 8
+4,6, 0,0, 8
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,4, 0,0, 8
+4,6, 0,0, 8
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,4, 0,0, 8
+4,6, 0,0, 8
+4,1, 0,0, 6
+4,2, 0,0, 6
+4,1, 0,0, 6
+4,0, 0,0, 48
+-1,-1, 0,0, 5000
+
+[BGCtrl 1, Invisible] 
+type = Enable
+time = 466
+value = 0 
+
+;------------------------------------
+
+[BG Birdie2]
+type  = anim
+actionno = 1
+start = 100, 50
+delta = .5, 1
+mask = 1
+layerno = 0
+ID = 2
+
+[BGCtrlDef 2]
+looptime = 1350
+ctrlID = 2
+
+[BGCtrl 2, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 2, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 2]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 2, Birdie1] 
+type = anim
+time = 401
+value = 2
+
+[BGCtrl 2, visible] 
+type = Enable
+time = 401
+value = 1
+
+[BGCtrl 2]
+type = velset
+time = 401
+x = 0
+y = 0.7
+
+[BGCtrl 2]
+type = velset
+time = 473
+x = 0
+y = 0
+
+[BGCtrl 2]
+type = velset
+time = 601
+x = 0
+y = -0.7
+
+[BGCtrl 2]
+type = velset
+time = 667
+x = 0
+y = 0
+
+[BGCtrl 2, Invisible] 
+type = anim
+time = 667
+value = 1
+
+[BGCtrl 2, Invisible] 
+type = Enable
+time = 667
+value = 0 
+
+;------------------------------------
+
+[BG Birdie3]
+type  = anim
+actionno = 1
+start = -100, 80
+delta = .5, 1
+mask = 1
+layerno = 0
+ID = 3
+
+[BGCtrlDef 3]
+looptime = 1600
+ctrlID = 3
+
+[BGCtrl 3, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 3, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 3]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 3, Birdie1] 
+type = anim
+time = 701
+value = 2
+
+[BGCtrl 3, visible] 
+type = Enable
+time = 701
+value = 1
+
+[BGCtrl 3]
+type = velset
+time = 701
+x = 0
+y = 0.7
+
+[BGCtrl 3]
+type = velset
+time = 773
+x = 0
+y = 0
+
+[BGCtrl 3]
+type = velset
+time = 901
+x = 0
+y = -0.7
+
+[BGCtrl 3]
+type = velset
+time = 967
+x = 0
+y = 0
+
+[BGCtrl 3, Invisible] 
+type = anim
+time = 967
+value = 1
+
+[BGCtrl 3, Invisible] 
+type = Enable
+time = 967
+value = 0 
+
+;------------------------------------
+
+[BG Birdie4]
+type  = anim
+actionno = 1
+start = -140, 40
+delta = .5, 1
+mask = 1
+layerno = 0
+ID = 4
+
+[BGCtrlDef 4]
+looptime = 1450
+ctrlID = 4
+
+[BGCtrl 4, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 4, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 4]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 4, Birdie1] 
+type = anim
+time = 600
+value = 2
+
+[BGCtrl 4, visible] 
+type = Enable
+time = 600
+value = 1
+
+[BGCtrl 4]
+type = velset
+time = 600
+x = 0
+y = 0.7
+
+[BGCtrl 4]
+type = velset
+time = 672
+x = 0
+y = 0
+
+[BGCtrl 4]
+type = velset
+time = 800
+x = 0
+y = -0.7
+
+[BGCtrl 4]
+type = velset
+time = 866
+x = 0
+y = 0
+
+[BGCtrl 4, Invisible] 
+type = anim
+time = 866
+value = 1
+
+[BGCtrl 4, Invisible] 
+type = Enable
+time = 866
+value = 0 
+
+;------------------------------------
+
+[BG Wall]
+type  = normal
+spriteno = 11, 2
+start = 0, 225
+delta = .53, 1
+mask = 1
+layerno = 0
+
+;------------------------------------
+
+[BG Wall2]
+type  = normal
+spriteno = 11, 0
+start = -118, 210
+delta = .67, 1
+mask = 1
+layerno = 0
+
+;------------------------------------
+
+[BG Wall3]
+type  = normal
+spriteno = 11, 1
+start = 262, 216
+delta = .67, 1
+mask = 1
+layerno = 0
+
+;-----------------------------------
+
+[BG Floor]
+type  = parallax
+spriteno = 13, 0
+start = 0, 241
+delta = .79, 1
+mask = 1
+xscale = 1, 1.3
+layerno = 0
+
+;------------------------------------
+
+[BG FloorFront]
+type  = normal
+spriteno = 13,1
+start = 0, 241
+delta = 0.97, 1
+mask = 1
+layerno = 0
+
+;------------------------------------
+
+;[BG SignLeft]
+;type  = normal
+;spriteno = 6,0
+;start = -200, 213
+;delta = 0.88, 1
+;mask = 1
+;layerno = 0
+
+;------------------------------------
+
+;[BG SignRight]
+;type  = normal
+;spriteno = 6,0
+;start = 200, 213
+;delta = 0.88, 1
+;mask = 1
+;layerno = 0
+
+;------------------------------------
+
+[BG Crows2]
+type  = anim
+actionno = 1
+start = -350, 150
+delta = .6, 1
+mask = 1
+layerno = 1
+ID = 6
+
+[BGCtrlDef 6]
+looptime = 4000
+ctrlID = 6
+
+[BGCtrl 6, PosSet] 
+type = PosSet
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 6, Invisible] 
+type = Enable
+time = 0
+value = 0
+
+[BGCtrl 6]
+type = velset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 6, Visible] 
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 6, Crows] 
+type = anim
+time = 2000
+value = 4
+
+[BGCtrl 6]
+type = velset
+time = 2000
+x = 3.0
+y = -1.0
+
+[BGCtrl 6]
+type = velset
+time = 2900
+x = 0
+y = 0
+
+[BGCtrl 6, Invisible] 
+type = anim
+time = 2900
+value = 1
+
+[Begin Action 4]  
+8,0, 0,0, 4
+8,1, 0,0, 4
+8,2, 0,0, 4
+8,3, 0,0, 4
+8,4, 0,0, 4
+
+[BGCtrl 6, Invisible] 
+type = Enable
+time = 2900
+value = 0 

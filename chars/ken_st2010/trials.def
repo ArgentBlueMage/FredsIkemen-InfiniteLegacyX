@@ -1,0 +1,72 @@
+```
+; KEN 20XX TRIALS LIST ---------------------------
+
+[TrialDef, Ken is Spanish?]
+
+trial.dummymode = stand
+trial.guardmode = none
+trial.dummybuttonjam = none
+; trial.showforvarvalpairs = 
+
+trialstep.1.text = ¡Tiros Adelante!
+trialstep.1.glyphs = ^HK
+trialstep.1.stateno = 1000
+trialstep.1.isproj = true
+trialstep.1.hitcount = 10
+
+trialstep.2.text = ¡Tiros Adelante!
+trialstep.2.glyphs = ^HK
+trialstep.2.stateno = 1000
+trialstep.2.isproj = true
+trialstep.2.hitcount = 11
+
+trialstep.3.text = ¡Tiros Adelante!
+trialstep.3.glyphs = ^HK
+trialstep.3.stateno = 1000
+trialstep.3.isproj = true
+trialstep.3.hitcount = 11
+
+trialstep.4.text = Golpe Bajo Justo
+trialstep.4.glyphs = _D^MP
+trialstep.4.stateno = 410
+
+trialstep.5.text = ¡Tiros Arriba!
+trialstep.5.glyphs = ^HP
+trialstep.5.stateno = 1100
+trialstep.5.isproj = true
+trialstep.5.hitcount = 6
+
+; trialstep.1.animno =
+; trialstep.1.hitcount =
+; trialstep.1.isthrow =
+; trialstep.1.iscounterhit =
+; trialstep.1.ishelper =
+; trialstep.1.isproj =
+; trialstep.1.validforvarvalpairs = 
+; trialstep.1.validfortickcount = 
+
+; TrialDef Parameter Descriptions
+; ===============================
+; [TriafDef, TrialTitle] - [TrialDef] mandatory - trial title after the comma is optional.
+
+; trial.dummymode - optional - valid options are stand (default), crouch, jump, wjump. Defaults to stand if unspecified.
+; trial.guardmode - optional - valid options are none, auto. Defaults to none if unspecified.
+; trial.dummybuttonjam - optional - valid options are none, a, b, c, x, y, z, start, d, w. Defaults to none if unspecified.
+; trial.showvarvalpairs - optional - (comma-separated integers, specified in pairs, can specify 0..n pairs). Used to determine whether a trial should be displayed based on the specified variable and value pair(s) in this field. Useful if a trial should only be displayed when character has a specific variable/value pair set, such as being in a specific groove or mode. If specified, the trial will only be displayed if all variable-value pairs return true. These variable-value pairs should only be for the character (not for helpers). Finally, variables can have multiple specified values to test against, which should be separated by the "|" character (e.g. `trial.showforvarvalpairs = 12, 0|2|4` would test var(12) for values 0, 2, and 4).
+
+; dummymode, guardmode, and dummybuttonjam are defined once per trial. The other parameters can be defined for each trial step - notice the syntax, where X is the trial number.
+
+; trialstep.X.text - optional - (string). Text for trial step (only displayed in vertical trials layout).
+; trialstep.X.glyphs - optional - (string, see Glyph documentation [https://github.com/ikemen-engine/Ikemen-GO/wiki/Miscellaneous-info#movelists] for syntax). Same syntax as movelist glyphs. Glyphs are displayed in vertical and horizontal trials layouts.
+; trialstep.X.stateno - mandatory - (integer or comma-separated integers). State to be checked to pass trial. This is the state whether it's the main character, a helper, or even a projectile.
+
+; trialstep.X.animno - optional - (integer or comma-separated integers). Identifies animno to be checked to pass trial. Useful in certain cases.
+; trialstep.X.hitcount - optional - (integer or comma-separated integers), will default to 1 if not defined. In some instances, you might want to specify a trial step to meet a hit count criteria before proceeding to the next trial step. Useful for multi-hit moves, or for moves that don't hit (e.g. taunts).
+; trialstep.X.isthrow - optional - (true or false, or comma-separated true/false), will default to false if not defined. Identifies whether the trial step is a throw. Should be 'true' is trial step is a throw.
+; trialstep.X.iscounterhit - optional - (true or false, or comma-separated true/false), will default to false if not defined. Identifies whether the trial step should be a counter hit. Typically does not work with helpers or projectiles.
+; trialstep.X.ishelper - optional - (true or false, or comma-separated true/false), will default to false if not defined. Identifies whether the trial step is a helper. Should be 'true' is trial step is a hit from a helper.
+; trialstep.X.isproj - optional - (true or false, or comma-separated true/false), will default to false if not defined. Identifies whether the trial step is a projectile. Should be 'true' is trial step is a hit from a projectile.
+; trialstep.X.validforvarvalpairs - optional - (comma-separated integers, specified in pairs, can specify 0..n pairs). Sister functionality to "showforvarvalpairs". These variable-value pairs are used to optionally check a trial step. Useful if you are forcing the trial step to be completed when certain var-val pairs are met (for instance, while in a custom combo state). Variable-value pairs are considered valid for entire trial step (regardless if the trial step is specified using condensed terminology).
+; trialstep.X.validfortickcount - optional (integer, or comma-separate integers), will default to nil if not defined. Makes the trials checking logic pause until the next hit is registered for the tickcount specified.
+
+;---------------------------------------------

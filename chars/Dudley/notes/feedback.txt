@@ -1,0 +1,14 @@
+Rowen's feedback:
+
+1. I think he's missing his coat for the 'Let's fight like gentlemen' intro.
+
+2. EX Jet Upper does the same amount of damage as the normal version.
+
+3. He seems to lose health upon doing Cross Counter and lacks the guard sound. This isn't the case with the EX version.
+
+- this is how cross counter works, when boxers take a hit to give a hit but normal version is missing impact sound from p2's attack
+- EX cross counter was buffed to not absorb damage (hence armour hit sound), may be a SF4 thing		
+
+4. Corkscrew Cross still has cornerpush so all hits won't connect properly. 
+
+- the whole thing needs tweaking for more impactful feel

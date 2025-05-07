@@ -1,0 +1,56 @@
+{
+  "modes": {
+    "training": {
+      "playtime": 0
+    },
+    "arcade": {
+      "playtime": 205.4,
+      "clear": 0,
+      "clearcount": [],
+      "ranking": [
+        {
+          "score": 12700,
+          "time": 64.73,
+          "name": "DAN",
+          "chars": [
+            "kfm_zss"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 0,
+          "lose": 1,
+          "consecutive": 0
+        },
+        {
+          "score": 12101,
+          "time": 140.67,
+          "name": "DAN",
+          "chars": [
+            "kfm_zss"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 0,
+          "lose": 2,
+          "consecutive": 0
+        }
+      ]
+    },
+    "freebattle": {
+      "playtime": 668.5
+    },
+    "watch": {
+      "playtime": 54.98
+    },
+    "versus": {
+      "playtime": 302.27
+    },
+    "trials": {
+      "playtime": 0
+    },
+    "netplayversus": {
+      "playtime": 0
+    }
+  },
+  "playtime": 1231.15
+}

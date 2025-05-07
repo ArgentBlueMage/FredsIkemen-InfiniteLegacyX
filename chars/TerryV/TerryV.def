@@ -1,0 +1,55 @@
+[Info]
+name ="Terry"
+displayname ="Terry"
+versiondate =12/01/2019
+mugenversion =1.0
+author ="vyn"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+localcoord = 320,240
+
+[Palette Keymap]
+a = 4
+b = 5
+c = 6
+x = 1
+y = 2
+z = 3
+a2 = 10
+b2 = 11
+c2 = 12
+x2 = 7
+y2 = 8
+z2 = 9
+
+[Files]
+sprite =sprites.sff
+anim =animations.air
+sound =sound.snd
+cmd =commands.cmd
+cns =constants.cns
+stcommon =common1.cns
+
+st=idle.st
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=8.act
+pal9=9.act
+pal10=10.act
+pal11=11.act
+pal12=12.act
+st1=normal.st
+st2=special.st
+st3=ex.st
+st4=ultra.st
+st5=v-system.st
+st6=helpers.st
+st7=systemhelpers.st
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,118 @@
+;Mr. A Dampener
+
+;[State -2, Damage based on Move hits]
+;type=varset
+;trigger1 = (stateno=[200,2999])
+;trigger1= numenemy
+;fvar(12)=ifelse(enemynear,gethitvar(hitcount)<10, 24, ifelse(enemynear,gethitvar(hitcount)>=12, 2, 24-enemynear,gethitvar(hitcount))) / 24.0
+;ignorehitpause=1
+
+;Combo Counter
+;[State -2, Damage based on Combo Count];;;
+;type=varset
+;trigger1 = (stateno=[200,2999])
+;trigger1= numenemy
+;fvar(12)=ifelse(var(14)<8, 24, ifelse(var(14)>=8, 2, 24-var(14))) / 24.0
+;ignorehitpause=1
+
+;=========================================
+;Richie Dampener
+
+[State -2, POTS Combo Count Dampener]
+type = VarSet
+trigger1 = 1
+fvar(12) = ifElse(var(14) < 12, 24, ifElse(var(14) >= 23, 1, 29 - var(14))) / 24.0
+ignoreHitPause = 1
+
+[state -2, Normal Combo]
+type = varset
+trigger1 = (stateno=[200,999]) && time=1 && var(14); && !var(20) 
+fvar(12) = 0.85 * (Ifelse(var(14)<5,1.0,(1.00-(var(14)*.1))))
+ignorehitpause = 1
+
+[state -2, Special Combo]
+type = varset
+trigger1 = (stateno=[1000,2999]) && time=1 && var(14) 
+fvar(10) = 0.75 * (Ifelse(var(14)<5,1.0,(1.00-(var(14)*.05))))
+ignorehitpause = 1
+
+[state -2, Super Combo]
+type = varset
+trigger1 = (stateno=[3000,4999]) && time=1 && var(14) 
+;fvar(10) = ifelse(var(23), 0.6, ifelse(var(22), 0.8, Ifelse((prevstateno=[200,999]),0.875,.9)));* (Ifelse(fvar(11)<4,1.0,(1.00-(var(13)*.07))))
+fvar(10) = ifElse(var(23), 0.6, ifElse(var(22), 0.8, 1.0))
+ignorehitpause = 1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(12)=1;;;
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(10)=1;;;
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value=fvar(12) * fvar(10); * ifelse(var(20)>0,0.75,1)
+ignorehitpause=1
+
+
+;=============================
+;hitdef damage template
+;@@ = damage (multiple of 7)
+;## = block damage (default = 7)
+
+damage = ceil(ifElse(fvar(11) * @@ < 7, 7, fvar(11) * @@)), ##
+
+;============================================================================
+;DW's Dampener adapted to Mr.A's Vars
+
+;var(14) - Combo Count
+;var(22) - Super Cancel status
+;var(23) - Hyper Cancel status
+;var(29) - Counter Hit Flag
+;fvar(10) - Damage multiplier for Combo Count and Super/Hyper Cancel status
+;fvar(11) - The dampener itself applied via AttackMulSet(Infinite Style) or in HitDefs(POTS style)
+
+[State -2, Dampener - Combo Count]
+type = VarSet
+trigger1 = 1
+fvar(10) = ifElse(var(14) < 6, 24, ifElse(var(14) >= 23, 1, 29 - var(14))) / 24.0
+ignoreHitPause = 1
+
+[State -2, Dampener - Supers]
+type = VarSet
+trigger1 = (StateNo = [3000,4999])
+fvar(10) = ifElse(var(23), 0.6, ifElse(var(22), 0.8, 1.0))
+ignoreHitPause = 1
+
+[state -2, Dampener - Specials]
+type = varset
+trigger1 = (stateno=[1000,2999]) && time=1 && var(14) 
+fvar(10) = 0.75 * (Ifelse(var(14)<5,1.0,(1.00-(var(14)*.05))))
+ignorehitpause = 1
+
+[State -2, Dampener Limit]
+type = VarSet
+trigger1 = fvar(10) < 0
+fvar(10) = 0
+ignoreHitPause = 1
+
+[State -2, Root Dampener]
+type = VarSet
+trigger1 = 1
+fvar(11) = fvar(10) * ifElse(var(29), 1.2, 1)
+ignoreHitPause = 1
+
+;[State -2, Dampener Test]
+;type=attackmulset
+;trigger1= 1
+;value=fvar(11)
+;ignorehitpause=1
