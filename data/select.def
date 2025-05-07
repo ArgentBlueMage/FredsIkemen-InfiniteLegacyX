@@ -334,8 +334,6 @@ stages/3d/HyruleCastleCourtyard/HyruleCastleCourtyard.def
 stages/3d/Dream/Dream.def
 stages/3d/SM64BowserInTheDarkWorld/SM64BowserInTheDarkWorld.def
 stages/3d/mvc2-circus/mvc2-circus.def, music=sound/stage_music/MarvelVsCapcom2_Airship.ogg, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg
-stages/3d/gm_construct/stage3d.def
-stages/3d/Prison Tower - Hall/Prison Tower - Hall.def, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg
 stages/3d/mvc2-abysstemple/mvc2-abysstemple.def, music=sound/stage_music/MarvelVsCapcom2_Airship.ogg, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg
 stages/3d/KamiLookout/KamiLookout.def
 stages/3d/mvc2-river/mvc2-river.def, music=sound/stage_music/MarvelVsCapcom2_Airship.ogg, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg
