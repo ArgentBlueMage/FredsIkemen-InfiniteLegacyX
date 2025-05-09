@@ -3280,21 +3280,6 @@ trigger1 = command = "ƒŒƒoƒKƒ`ƒƒ"
 fvar(22) = 1
 ignorehitpause = 1
 
-[state -2, helper]
-type = helper
-trigger1 = !numhelper(8550)
-trigger1 = time = 0
-ID = 8550
-pos = 0,0
-postype = p1
-stateno = 8550
-helpertype = normal
-name = "Stun"
-sprpriority = -5
-ownpal = 1
-keyctrl = 0
-ignorehitpause = 1
-
 [State 5300, ChangeState]
 type = ChangeState
 trigger1 = fvar(20)

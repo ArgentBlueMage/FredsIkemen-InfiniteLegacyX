@@ -1,0 +1,47 @@
+
+[Info]
+name ="Hugo Andore"
+displayname ="Hugo"
+versiondate =05,8,2025
+mugenversion =1.0
+author ="GM"
+;editor ="2Dee4ever, gui0007, Reddbrink & Fred McFrizzle"
+;Removed custom combo as it made too many bugs, updated pal to fix poison, and updated moves to match sf3. 
+;Also removed palette select because its unnessary and I hate them >:(
+pal.defaults =1,2,3,4,5,6
+localcoord   = 320, 240
+
+[Files]
+sprite =Hugo.sff
+anim =Hugo.air
+sound =Hugo.snd
+cmd =Hugo.cmd
+cns =Constants.cns
+stcommon =common1.cns
+st =States\System.cns
+st1=States\Normal.cns
+st2=States\Specials.cns
+st3=States\Supers.cns
+st4=States\Helpers.cns
+st5=States\Customs.cns
+st6=config.txt
+movelist=movelist.dat
+;trials=trials.def
+
+[Palette Keymap]
+a  = 2
+b  = 4
+c  = 6
+x  = 1
+y  = 3
+z  = 5
+a2 = 8
+b2 = 10
+c2 = 12
+x2 = 7
+y2 = 9
+z2 = 11
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

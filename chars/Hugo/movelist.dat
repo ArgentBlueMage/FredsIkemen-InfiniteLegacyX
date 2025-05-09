@@ -1,0 +1,21 @@
+<#f0f000>:Normals:</>
+Body Slam										[_F/_B]^2P
+Neck Hanging Three								[_F/_B]^2K
+Parry											_TAP_F/_TAP_D
+Dodge											^LP+^LK
+Charge											^MP+^MK
+Hammer Hook										_F^HP
+Body Press										_AIR_D^HP
+
+<#F0F000>:Special Moves:</>
+Giant Palm Bomber_EX							_QDB^P
+Monster Lariat_EX								_QDF^K
+Ultra Throw_EX									_HCB^K
+Shootdown Backbreaker_EX						_DSF^K
+Moonsault Press_EX								_FUF^P
+Meat Squasher_EX								_FUF^K
+
+<#F0F000>:Super Moves:</>
+<#00FFFF>(1000)</>Hammer Frenzy					_QDF_QDF^P
+<#00FFFF>(2000)</>Megaton Press					_AIR_QDF_QDF^K
+<#00FFFF>(3000)</>Gigas Breaker					_FUF_FUF^P

@@ -202,11 +202,17 @@ slot = {
 randomselect,
 randomselect,
 randomselect,
-Grand Dad_14thDoc,
-DeadpoolAI,
+randomselect,
+;Joke Characters
+slot = {
+	Grand Dad_14thDoc, stages/kfm.def, previous=d, next=w
+	shaq, previous=d, next=w
+	Jailbot, previous=d, next=w
+}
+;Original Characters
 undyne,
-Jailbot,
-shaq,
+randomselect,
+DeadpoolAI,
 
 ;Street Fighter Characters
 slot = {
@@ -230,7 +236,8 @@ dan_pots,
 nash_pots,
 Alex,
 Dudley,
-Haggar,
+Hugo,
+Mike Haggar,
 honda_pots,
 
 ;Ect Capcom Characters

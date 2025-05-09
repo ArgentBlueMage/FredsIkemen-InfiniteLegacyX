@@ -104,8 +104,8 @@
 ;基本データ部分
 [Data]
 life              = 1000    ;体力ゲージの最大値を決めます
-power             = 2560    ;パワーゲージ最大値（デフォルトは 3000 = Lv.3 になります・オプション）
-attack            = 87      ;攻撃力パーセンテージ（デフォルトは 100% になります）
+power             = 3000    ;パワーゲージ最大値（デフォルトは 3000 = Lv.3 になります・オプション）
+attack            = 67      ;攻撃力パーセンテージ（デフォルトは 100% になります）
 defence           = 100     ;防御力パーセンテージ（デフォルトは 100% になります）
 fall.defence_up   = 50      ;一時的に上昇するダウン時の防御力パーセンテージ
 liedown.time      = 60      ;倒れてから起き上がるまでの時間
@@ -120,8 +120,8 @@ IntPersistIndex   = 0       ;Varを次のラウンドへ持ち越しが可能 (最小=0, 最大=59)
 ;△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△
 ;サイズ設定
 [Size]
-xscale           = 0.90     ;キャラ画像の横のスケール
-yscale           = 1.05     ;キャラ画像の縦のスケール
+xscale           = 0.9     ;キャラ画像の横のスケール
+yscale           = 1.0     ;キャラ画像の縦のスケール
 ground.back      = 22       ;キャラの幅（地上後方）
 ground.front     = 22       ;キャラの幅（地上前方）
 air.back         = 18       ;キャラの幅（空中後方）
@@ -2943,173 +2943,8 @@ trigger3 = root,movetype = H
 
 ;☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 ;スタンゲージ
-[Statedef 25000]
-type = S
-anim = 9999
-ctrl = 0
-velset = 0,0
 
 ;スタンゲージ(１Ｐ側)
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25000) = 0
-trigger1 = root,Var(1) = 1
-anim = 25000
-ID = 25000
-pos = helper(30000),var(22),helper(30000),var(23)
-postype = left
-pausemovetime = -1
-supermovetime = -1
-supermove = 1
-bindtime = -1
-sprpriority = -10
-ownpal = 1
-ignorehitpause = 1
-scale = 0.5,0.5
-
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25002) = 0
-trigger1 = root,Var(1) = 1
-anim = 25002
-ID = 25002
-pos = helper(30000),var(22),helper(30000),var(23)
-postype = left
-pausemovetime = -1
-supermovetime = -1
-bindtime = -1
-sprpriority = -9
-ownpal = 1
-ignorehitpause = 1
-
-[State -2, ModifyExplod]
-type = ModifyExplod
-trigger1 = numexplod(25002)
-id = 25002
-scale = root,fvar(2)*0.5,0.5
-ignorehitpause = 1
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = roundstate > 2
-ID = 25000
-ignorehitpause = 1
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = root,fvar(2) <= 0
-trigger2 = roundstate > 2
-ID = 25002
-ignorehitpause = 1
-
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25003) = 0
-trigger1 = root,fvar(2) = 64
-trigger1 = root,Var(1) = 1
-anim = 25003
-ID = 25003
-pos = helper(30000),var(22),helper(30000),var(23)
-postype = left
-pausemovetime = 99999999999999
-supermovetime = 99999999999999
-supermove = 1
-bindtime = -1
-sprpriority = -9
-ownpal = 1
-ignorehitpause = 1
-scale = 0.5,0.5
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = root,fvar(2) < 64
-trigger2 = roundstate > 2
-ID = 25003
-ignorehitpause = 1
-
-;スタンゲージ(２Ｐ側)
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25001) = 0
-trigger1 = root,Var(1) = 2
-anim = 25001
-ID = 25001
-pos = -helper(30000),var(22),helper(30000),var(23)
-postype = right
-pausemovetime = -1
-supermovetime = -1
-supermove = 1
-bindtime = -1
-sprpriority = -10
-ownpal = 1
-ignorehitpause = 1
-scale = 0.5,0.5
-
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25004) = 0
-trigger1 = root,Var(1) = 2
-anim = 25004
-ID = 25004
-pos = -helper(30000),var(22),helper(30000),var(23)
-postype = right
-pausemovetime = -1
-supermovetime = -1
-bindtime = -1
-sprpriority = -9
-ownpal = 1
-ignorehitpause = 1
-
-[State -2, ModifyExplod]
-type = ModifyExplod
-trigger1 = numexplod(25004)
-id = 25004
-scale = root,fvar(2)*0.5,0.5
-ignorehitpause = 1
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = roundstate > 2
-ID = 25001
-ignorehitpause = 1
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = root,fvar(2) <= 0
-trigger2 = roundstate > 2
-ID = 25004
-ignorehitpause = 1
-
-[State -2, Explod]
-type = Explod
-trigger1 = roundstate = 2
-trigger1 = numexplod(25005) = 0
-trigger1 = root,fvar(2) = 64
-trigger1 = root,Var(1) = 2
-anim = 25005
-ID = 25005
-pos = -helper(30000),var(22),helper(30000),var(23)
-postype = right
-pausemovetime = 99999999999999
-supermovetime = 99999999999999
-supermove = 1
-bindtime = -1
-sprpriority = -9
-ownpal = 1
-ignorehitpause = 1
-scale = 0.5,0.5
-
-[State -2, RemoveExplod]
-type = RemoveExplod
-trigger1 = root,fvar(2) < 64
-trigger2 = roundstate > 2
-ID = 25005
-ignorehitpause = 1
 
 
 ;△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△△

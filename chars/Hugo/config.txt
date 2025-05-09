@@ -1,0 +1,105 @@
+;===============< INITIALIZE >===================
+;Initialize Start Round
+[Statedef 5900]
+type = S
+
+;__________________________________________________________________________
+;==========================================================================
+;__________________________________________________________________________
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+value = 0
+[state 5900, Reset Variables]
+type = varrangeset
+trigger1 = !roundsexisted && matchno = 1
+fvalue = 0
+;__________________________________________________________________________
+;==========================================================================
+;__________________________________________________________________________
+
+
+;==========================================================================
+;Customizable Configuartion 
+;==========================================================================
+; POT's Style Hitsparks
+[State 5900, POT's Style Hitsparks]
+type = VarSet
+trigger1 = 1
+v = 43
+value = 2
+;___________________________________________________________________________
+;Change the value number to 0 if you do not want POT's style hitsparks
+;Change the value number to 1 if you want the POT's style hitsparks
+;Change the value number to 2 if you want multi-colored POT's style hitsparks-Only 1.0 or higher
+;Default value is 0.
+;===========================================================================
+; POT's Style Hit Sounds
+[State 5900, POT's Style Hit Sounds]
+type = VarSet
+trigger1 = 1
+v = 44
+value = 0
+;___________________________________________________________________________
+;Change the value number to 0 if you do not want POT's style hitsounds
+;Change the value number to 1 if you want the POT's style hitsounds
+;Default value is 0.
+;===========================================================================
+; Chain Combos/Air Combos
+[State 5900, Chain Combos/Air Combos]
+type = VarSet
+trigger1 = 1
+v = 55
+value = 0
+;___________________________________________________________________________
+;Change the value number to 0 if you do not want chain comboing
+;Change the value number to 1 if you want chain comboing
+;Change the value number to 2 if you want chain comboing and Air Comboing
+;Default value is 0.
+;===========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[state 5900, No Palette selector]
+type = remappal
+trigger1 = 1
+source = 1, 1
+dest = 1, palno
+ignorehitpause = 1
+
+[State 5900, Intro VS]
+type=changestate
+triggerall=numenemy
+triggerall=roundno=1 || (!(enemy, roundsexisted) && !(teammode=simul) && !(enemy, teammode=simul))
+trigger1=enemy, name="Alex" 
+trigger2=Enemy, AuthorName = "PotS" && enemy, name="Alex" 
+value=193
+
+[State 5900, Turns Intro]
+type = ChangeState
+trigger1 = TeamMode = Turns
+trigger1 = !RoundsExisted && RoundNo >= 2
+value = 6900
+
+[State 5900, Intro Decider]
+type = ChangeState
+trigger1 = RoundNo = 1
+value = 190+random%3
+
+[State 5900, End]
+type = ChangeState
+trigger1 = 1
+value = 0
