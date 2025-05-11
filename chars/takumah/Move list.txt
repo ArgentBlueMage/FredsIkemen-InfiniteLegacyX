@@ -1,0 +1,47 @@
+                                Takuma Sakazaki                               
+                               update = 9/3/2017
+((Basic Moves)) 
+
+x - light punch 
+y - heavy punch  
+z - special 
+
+a - light kick 
+b - heavy kick
+
+
+Roll fwd - c + fwd
+Roll bck - c + bck
+
+(close) Forward + y - throw
+
+
+((Special moves)) 
+
+Kohou - F,D,DF, y
+
+Ko ou ken - D,F, x
+
+Ko ou ken fast - F,D,B, x
+
+Hien shippuu kyaku - B,D,F, b
+
+Zanretsuken - F,B,F, x
+
+press start to add power to super bar 
+
+Hien shippuu kyaku  EX - B,D,F, z [power = 1000]
+
+
+((Supers))   
+ 
+Haoh shikou ken - F,D,B, y [power = 1500] 
+ 
+Kyokugen kohou - F,D,B, z [power = 4000]
+
+
+
+((Hypers))
+
+Ryuuko ranbu - F,D,B, b [power = 2000]
+  

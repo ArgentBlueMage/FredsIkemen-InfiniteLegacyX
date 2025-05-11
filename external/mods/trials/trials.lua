@@ -98,9 +98,7 @@ main.t_itemname.trials = function()
 	setHomeTeam(1)
 	main.f_playerInput(main.playerInput, 1)
 	main.t_pIn[2] = 1
-	if main.t_charDef[gameOption('Config.TrainingChar'):lower()] ~= nil then
-		main.forceChar[2] = {main.t_charDef[gameOption('Config.TrainingChar'):lower()]}
-  	end
+	main.forceChar[2] = {main.t_charDef["kfm_zss"]}
 	--main.lifebar.p1score = false
 	--main.lifebar.p2aiLevel = true
 	main.roundTime = -1

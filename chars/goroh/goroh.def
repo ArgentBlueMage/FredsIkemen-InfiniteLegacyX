@@ -1,0 +1,52 @@
+[Info]
+name="Goro Daimon"
+displayname="Daimon"
+versiondate=05,11,2025      
+mugenversion=01,18,2011
+author="EKEN55"
+;Edited by "Fred McFrizzle"
+pal.defaults=1,2,3,4,5,6
+
+localcoord = 320,240
+
+[Files]
+sprite=goro.sff      
+sound=goro.snd      
+anim=goro.air      
+cmd=gorohard.cmd
+cns=goro.cns
+st=goro.cns
+stcommon=fty.cns
+pal1=palettes/1.act
+pal2=palettes/2.act
+pal3=palettes/3.act
+pal4=palettes/4.act
+pal5=palettes/5.act
+pal6=palettes/brad.act
+pal7=palettes/dan.act
+pal8=palettes/hakan.act
+pal9=palettes/goku.act
+pal10=palettes/zombie.act
+pal11=palettes/daimond.act
+pal12=palettes/6.act
+st1=fiftyfiveai.cns
+st2=judo.cns
+
+
+[Palette Keymap]
+x = 1 ;Press button X to select palette 1, etc.
+a = 2
+y = 3
+b = 4
+z = 5
+c = 6
+x2 = 7
+a2 = 8
+y2 = 9
+b2 = 10
+z2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard=      
+ending.storyboard=    

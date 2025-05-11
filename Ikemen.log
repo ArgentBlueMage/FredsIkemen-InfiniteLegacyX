@@ -1,10 +1,7 @@
-external/script/main.lua:752: <game end>
+external/script/main.lua:1537: chars\ffs_0/judo.cns:1208:
+Missing trigger1
 stack traceback:
-	[G]: in function 'refresh'
-	external/script/main.lua:752: in function 'f_refresh'
-	.\external\script\start.lua:2300: in function 'f_selectScreen'
-	.\external\script\start.lua:1475: in function 'f'
-	external/script/main.lua:3181: in function 'loop'
-	external/script/main.lua:3266: in function 'loop'
-	external/script/main.lua:4227: in main chunk
+	[G]: in function 'game'
+	external/script/main.lua:1537: in function 'f_commandLine'
+	external/script/main.lua:1546: in main chunk
 	[G]: ?

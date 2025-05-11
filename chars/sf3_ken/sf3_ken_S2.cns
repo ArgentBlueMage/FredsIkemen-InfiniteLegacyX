@@ -955,7 +955,7 @@ physics = S
 anim = 1240
 juggle = 0
 ctrl = 0
-poweradd = -400
+poweradd = -500
 velset = 0,0
 facep2 = 1
 
@@ -2028,7 +2028,7 @@ physics = N
 anim = 1340
 juggle = 0
 ctrl = 0
-poweradd = -400
+poweradd = -500
 
 [State -2, Varset]
 type = Varset
@@ -3051,7 +3051,7 @@ physics = S
 anim = 1400
 juggle = 0
 ctrl = 0
-poweradd = -400
+poweradd = -500
 velset = 0,0
 facep2 = 1
 

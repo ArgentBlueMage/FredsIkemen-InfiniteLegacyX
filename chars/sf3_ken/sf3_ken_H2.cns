@@ -1,4 +1,4 @@
-;¸—´—ô”j(n“®)
+;Shoryureppa
 [Statedef 3100]
 type    = S
 movetype = A
@@ -7,7 +7,7 @@ anim = 3100+helper(30000),var(13)
 juggle = 0
 ctrl = 0
 velset = 0,0
-poweradd = -ifelse(var(2)=0,1280,1120)
+poweradd = -1000
 facep2 = 1
 sprpriority = 2
 

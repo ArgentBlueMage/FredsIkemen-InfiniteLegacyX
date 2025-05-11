@@ -1,0 +1,20 @@
+<#f0f000>:Normals:</>
+Hizageri										_MASH^LP^LK
+Straight Hit									^MP^MK
+Seoi Nage										_F^LP^LK
+Jigoku Kuruma									_B^LP^LK
+Parry											_TAP_F/_TAP_D
+Inazuma Kakato Wari (Short)						_B^MK
+Inazuma Kakato Wari (Long)						_HOLD^MK
+Fumikomi Maegeri								_F^MK
+Shiden Kakato Otoshi							_F^HK
+
+<#F0F000>:Special Moves:</>
+Hadoken_EX										_QDF^P
+Shoryuken_EX									_DSF^P
+Tatsumaki Senpukyaku_EX_AIROK					_QDB^K
+
+<#F0F000>:Super Moves:</>
+<#00FFFF>(1000)</>Shoryureppa					_QDF_QDF^P
+<#00FFFF>(1000)</>Shinryuken					_MASH_QDF_QDF^K
+<#00FFFF>(1000)</>Shippu Jinraikyaku			_QDB_QDB^K

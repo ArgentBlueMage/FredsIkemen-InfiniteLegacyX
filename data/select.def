@@ -195,23 +195,25 @@
 
 ;Original Characters
 slot = {
-	kfm_zss, stages/kfm.def, previous=d, next=w
+	kfm_zss, stages/kfm.def, arcadepath=arcade/kfm_zss.lua, previous=d, next=w
 	kfm-ultra, previous=d, next=w
 	ekfm2009, previous=d, next=w
+	suave, previous=d, next=w, hidden=2, unlock=stats.modes.arcade.clearcount.kfm_zss >= 3
 }
 randomselect,
 randomselect,
 randomselect,
+;Character Select Point
 randomselect,
 ;Joke Characters
 slot = {
-	Grand Dad_14thDoc, stages/kfm.def, previous=d, next=w
+	Grand Dad_14thDoc, previous=d, next=w
 	shaq, previous=d, next=w
 	Jailbot, previous=d, next=w
 }
 ;Original Characters
-undyne,
 randomselect,
+undyne,
 DeadpoolAI,
 
 ;Street Fighter Characters
@@ -251,9 +253,9 @@ MaiShiranui.XIII[P-Tan],
 RYO_XIII,
 King_13,
 LeonaHeidern.XIII[P-Tan],
-gorol,
+Goroh,
 slot = {
-	takumal, previous=d, next=w
+	takumah, previous=d, next=w
 	Mr.KARATEXIII, previous=d, next=w
 }
 H-DuoLon,
@@ -337,7 +339,7 @@ stages/kfm.def, music=sound/stage_music/MarvelVsCapcom2_Training.ogg
 stages/3d/PitBottom/PitBottom.def
 stages/3d/GoldenEyeDam/007GoldenEyeDam.def
 stages/3d/OutsideMariosHouse/OutsideMariosHouse.def
-stages/3d/HyruleCastleCourtyard/HyruleCastleCourtyard.def
+stages/3d/HyruleCastleCourtyard/HyruleCastleCourtyard.def, music=sound/stage_music/MarvelVsCapcom2_Airship.ogg, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg
 stages/3d/Dream/Dream.def
 stages/3d/SM64BowserInTheDarkWorld/SM64BowserInTheDarkWorld.def
 stages/3d/mvc2-circus/mvc2-circus.def, music=sound/stage_music/MarvelVsCapcom2_Airship.ogg, music=sound/stage_music/MarvelVsCapcom2_ClockTower.ogg, music=sound/stage_music/MarvelVsCapcom2_Desert.ogg, music=sound/stage_music/MarvelVsCapcom2_River.ogg, music=sound/stage_music/mvc2-circus.ogg

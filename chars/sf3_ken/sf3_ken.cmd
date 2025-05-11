@@ -254,92 +254,92 @@ time = 1
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, a
-time = 24
+time = 32
 
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, ~a
-time = 24
+time = 32
 
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, b
-time = 24
+time = 32
 
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, ~b
-time = 24
+time = 32
 
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, c
-time = 24
+time = 32
 
 [Command]
 name = "_—´Œ"
 command = ~D, DF, F, D, DF, ~c
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, x
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, ~x
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, y
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, ~y
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, z
-time = 24
+time = 32
 
 [Command]
 name = "¸—´—ô”j"
 command = ~D, DF, F, D, DF, ~z
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, a
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, ~a
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, b
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, ~b
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, c
-time = 24
+time = 32
 
 [Command]
 name = "¾•—v—‹‹r"
 command = ~D, DB, B, D, DB, ~c
-time = 24
+time = 32
 
 ;™™•KE‹Z™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™™
 [Command]
@@ -1090,7 +1090,7 @@ ignorehitpause = 1
 [State -1, Varset]
 type = Varset
 triggerall = Command = "¸—´ŒEX"
-triggerall = Power >= 400
+triggerall = Power >= 500
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)
 trigger2 = var(58):= 1140
@@ -1119,7 +1119,7 @@ ignorehitpause = 1
 ;—³Šªù•—‹r(EX)
 [State -1, Varset]
 type = Varset
-triggerall = Power >= 400
+triggerall = Power >= 500
 triggerall = Command = "—³Šªù•—‹rEX"
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)
@@ -1129,7 +1129,7 @@ ignorehitpause = 1
 
 [State -1, Varset]
 type = Varset
-triggerall = Power >= 400
+triggerall = Power >= 500
 triggerall = Command = "—³Šªù•—‹rEX"
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)
@@ -1152,7 +1152,7 @@ ignorehitpause = 1
 ;—´‘M‹r(EX)
 [State -1, Varset]
 type = Varset
-triggerall = Power >= 400
+triggerall = Power >= 500
 triggerall = numhelper(30000)
 triggerall = helper(30000),var(14) = 1
 triggerall = Command = "—´‘M‹rEX"
@@ -1162,11 +1162,11 @@ trigger2 = var(58):= 1440
 var(55) = 1440
 ignorehitpause = 1
 
-;¾•—v—‹‹r
+;Shippu Jinraikyaku
 [State -1, Varset]
 type = Varset
 triggerall = var(2) = 0 || var(2) = 3
-triggerall = Power >= ifelse(var(2)=0,1280,800)
+triggerall = Power >= 1000
 triggerall = ifelse(var(2)=0,Command="¾•—v—‹‹r",Command="_—´Œ")
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)
@@ -1174,11 +1174,11 @@ trigger2 = var(58):= 3200
 var(55) = 3200
 ignorehitpause = 1
 
-;_—´Œ
+;Shinryuken
 [State -1, Varset]
 type = Varset
 triggerall = var(2) = 0 || var(2) = 2
-triggerall = Power >= ifelse(var(2)=0,1280,1040)
+triggerall = Power >= 1000
 triggerall = Command = "_—´Œ"
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)
@@ -1186,11 +1186,11 @@ trigger2 = var(58):= 3000
 var(55) = 3000
 ignorehitpause = 1
 
-;¸—´—ô”j
+;Shoryureppa
 [State -1, Varset]
 type = Varset
 triggerall = var(2) = 0 || var(2) = 1
-triggerall = Power >= ifelse(var(2)=0,1280,1120)
+triggerall = Power >= 1000
 triggerall = Command = "¸—´—ô”j"
 trigger1 = !var(38) && fvar(31)<2
 trigger2 = var(38)

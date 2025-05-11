@@ -1,4 +1,4 @@
-;¾•—v—‹‹r(n“®)
+;Shippu Jinraikyaku
 [Statedef 3200]
 type    = S
 movetype = A
@@ -7,7 +7,7 @@ anim = 3200
 juggle = 0
 ctrl = 0
 velset = 0,0
-poweradd = -ifelse(var(2)=0,1280,800) 
+poweradd = -1000
 facep2 = 1
 sprpriority = 2
 

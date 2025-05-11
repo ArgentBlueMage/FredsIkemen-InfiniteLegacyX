@@ -1,19 +1,19 @@
 <#f0f000>:Normals:</>
-Body Slam										[_F/_B]+[^2P/^2K]
+Body Slam										_THROW[_F/_B]+[^2P/^2K]
 Parry											_TAP_F/_TAP_D
 Dodge											^LP+^LK
 Charge											^MP+^MK
 Chop											_F^MP
 Lariat											_F^HP
 Head Stamp										_F^MK
-Headbutt										(near) _B^HP
-Sleeper Hold									(near, behind) _B^HP
+Headbutt										_CLOSE_B^HP
+Sleeper Hold									_CLOSE_B^HP
 
 <#F0F000>:Special Moves:</>
 Flash Chop_EX									_QDF^P
 Slash Elbow_EX									~B,_F^K
-Power Bomb_EX									(near) _HCB^P
-Power Drop_EX									(near, behind) _HCB^P
+Power Bomb_EX									_CLOSE_HCB^P
+Power Drop_EX									_CLOSE_HCB^P
 Air Knee Smash_EX								_DSF^K
 Air Stampede_EX									~D_U^K
 Spiral DDT_EX									_HCB^K
@@ -23,4 +23,4 @@ Spiral DDT_EX									_HCB^K
 <#00FFFF>(1000)</>Boomerang Raid				_QDF_QDF^P
  _!<#00FFFF>(2000)</>_MAX						^2P
 <#00FFFF>(2000)</>Stun Gun Headbutt				_QDB_QDB^2P
-<#00FFFF>(3000)</>Hyper Bomb					(near) _FUF^2P
+<#00FFFF>(3000)</>Hyper Bomb					_CLOSE_FUF^2P

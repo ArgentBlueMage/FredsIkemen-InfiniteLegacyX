@@ -35,3 +35,19 @@ st1=Coding/Normals.cns
 st2=Coding/Specials.cns
 st3=Coding/Supers.cns
 st4=Coding/Helpers.cns
+movelist=movelist.dat
+;trials=trials.def
+
+[Palette Keymap]
+a  = 2
+b  = 4
+c  = 6
+x  = 1
+y  = 3
+z  = 5
+a2 = 8
+b2 = 10
+c2 = 12
+x2 = 7
+y2 = 9
+z2 = 11

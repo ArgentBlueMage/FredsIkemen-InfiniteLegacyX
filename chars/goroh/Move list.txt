@@ -1,0 +1,42 @@
+                                 Goro Daimon                            
+                               update = 5/28/2017
+
+((Basic Moves)) 
+
+x - light punch 
+y - medium punch  
+z - special
+
+a - light kick 
+b - heavy kick
+
+
+Roll fwd - c + fwd
+Roll bck - c + bck
+
+(close) hold forward + y - Chou Oosoto Gari
+
+
+((Special moves))   
+
+tenchi Gaeshi - D,DB,B, x
+
+Kumo Tsukami nage - B,DB,D, b
+
+Jiraishin - F,D,DF, x
+
+Jiraishin [long] - F,D,DF, y
+
+Kirikabu Gaeshi - D,DF,F, a (opponent must be lying down)
+ 
+press start to add power to super bar 
+
+Kumo Tsukami nage EX - F,D,DF, z [power = 1000]
+
+
+((Supers))      
+ 
+Jigoku Gokuraku Otoshi - D,DB,B,D,DB,B, y [power = 2200] 
+ 
+Kyoutendouchi - D,DF,F,D,DF,F, z [power = 4000] 
+

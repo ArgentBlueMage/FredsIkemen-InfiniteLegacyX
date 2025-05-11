@@ -74,9 +74,9 @@ intensity = 0
 
 ;--------------------------------------------------------
 [Music]
-;bgmusic =HyruleCastleCourtyard.mp3
-bgmusic = HyruleCastleCourtyardOG.mp3
-bgmvolume = 100
+bgmusic = sound/stage_music/MarvelVsCapcom2_AbyssTemple.ogg
+bgmloopstart = 99000
+bgmloopend = 1245275
 
 ;========================================================
 [BGdef]

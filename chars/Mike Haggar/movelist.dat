@@ -1,0 +1,22 @@
+<#f0f000>:Normals:</>
+Heave ho!										[_F/_B]^2P
+Suplex											[_F/_B]^2K
+Parry											_TAP_F/_TAP_D
+Dodge											^LP+^LK
+Charge											^MP+^MK
+Steel Pipe_AIROK								_F^HP
+Clothesline										_XFF^HP
+
+<#F0F000>:Special Moves:</>
+Violent Axe_EX									_QDF^P
+Hoodlum Launcher								_DSF^P
+Sky-High Backdrop_EX							_AIR_DSF^K
+Lariat											^3P/^3K
+Flying Piledriver_EX							_HCB^P
+
+<#F0F000>:Super Moves:</>
+<#00FFFF>(1000)</>Rapid Fire Fist				_QDF_QDF^P
+ _!<#00FFFF>(2000)</>_MAX						^2P
+<#00FFFF>(1000)</>Giant Haggar Press			_QDF_QDF^K
+ _!<#00FFFF>(2000)</>_MAX						^2K
+<#00FFFF>(3000)</>Final Haggar Buster			_CLOSE_FUF^2P

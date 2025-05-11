@@ -8,7 +8,7 @@
 ;Amount of life to start with
 life = 1000
 ;attack power (more is stronger)
-attack = 100
+attack = 114
 ;defensive power (more is stronger)
 defence = 100
 ;Percentage to increase defense everytime player is knocked down

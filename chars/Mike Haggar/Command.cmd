@@ -358,6 +358,103 @@ name = "b+c"
 command = b+c
 time = 1
 
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $D, $F, $U, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $F, $U, $B, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $U, $B, $D, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $B, $D, $F, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $D, $B, $U, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $B, $U, $F, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $U, $F, $D, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $F, $D, $B, x+y
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $D, $F, $U, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $F, $U, $B, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $U, $B, $D, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $B, $D, $F, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $D, $B, $U, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $B, $U, $F, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $U, $F, $D, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $F, $D, $B, y+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $D, $F, $U, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $F, $U, $B, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $U, $B, $D, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $B, $D, $F, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$F, $D, $B, $U, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$D, $B, $U, $F, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$B, $U, $F, $D, x+z
+time = 32
+[Command]
+name = "Final Haggar Buster"
+command = ~$U, $F, $D, $B, x+z
+time = 32
+
 [Statedef -1]
 ;==============================================================================================
 ;==============================================================================================
@@ -371,6 +468,8 @@ time = 1
 ;over how the commands of their character should work. It is designed to be easy to use, understand,
 ;and install. For more information, including instructions on how to add this to a character, as
 ;well as how to customize it and add new commands, please visit http://mugenguild.com/forum/msg.2366951
+
+;This is stupidly complicated for what seems like a small issue. im not using it.
 
 ;==============================================================================================
 ;========================<QUICK REFERENCE GUIDE TO THE EXPLOD ID #'s>==========================
@@ -2795,14 +2894,11 @@ trigger1 = !(HitDefAttr = SCA, AT)
 var(15) = 1
 
 [State -1, Final Haggar Buster]
-type = ChangeState
-value = 3400
-triggerAll = (ifElse(P2dist x < 0, Facing = -1, Facing = 1) && NumExplod(90030514)) || (ifElse(P2dist x < 0, Facing = 1, Facing = -1) && NumExplod(90030416))
-triggerall = (ifElse(NumExplod(90000200), 1, 0) + ifElse(NumExplod(90000210), 1, 0) + ifElse(NumExplod(90000220), 1, 0) >= 2) || (ifElse(NumExplod(90000205), 1, 0) + ifElse(NumExplod(90000215), 1, 0) + ifElse(NumExplod(90000225), 1, 0) >= 2)
-triggerall = RoundState = 2 && StateType != A  && NumHelper(1400) = 0
-triggerall = ifelse(var(20) <= 0, power >= 3000, power >= 1000)
-trigger1 = ctrl || StateNo = 40 || StateNo = 52 || (StateNo = [100,101])
-trigger2 = var(6)
+type=ChangeState
+value=3400
+triggerall=!AILevel && RoundState=2 && StateType != A && power >= 3000&&var(20) <= 60&&command ="Final Haggar Buster"
+trigger1=ctrl || StateNo=40 || StateNo=52 || (StateNo=[100,101])
+trigger2=var(6)
 
 ;MAX Giant Haggar Press
 [State -1, MAX Giant Haggar Press]
@@ -3053,14 +3149,6 @@ trigger1 = RoundState = 2 && StateType != A
 trigger1 = power >= 1000 && !var(20)
 
 ;---------------------------------------------------------------------------
-[State -1, MAX Mode]
-type = ChangeState
-value = 770
-triggerall = NumExplod(90000250) && NumExplod(90000220)
-triggerall = RoundState = 2 && StateType != A
-triggerall = var(20) <= 0 && Power >= 1000
-trigger1 = ctrl || (Stateno = [100,101])
-;---------------------------------------------------------------------------
 
 [State -1, Roll Forward]
 type = ChangeState
@@ -3143,7 +3231,7 @@ Trigger2 = var(4)
 [State -1, Dat Pipe!!]
 type = ChangeState
 value = 615
-triggerall = NumExplod(90000002)
+triggerall = NumExplod(90000006)
 triggerall = NumExplod(90000220)
 trigger1 = statetype = A
 trigger1 = ctrl
@@ -3441,15 +3529,6 @@ trigger1 = RoundState = 2 && StateType != A
 trigger1 = Power < const(data.power) && !var(20)
 trigger1 = ctrl && Power < const(data.power) && Power < PowerMax && !var(20)
 trigger1 = !InGuardDist && P2BodyDist x >= 160 && Random < (50 * (AILevel ** 3 / 64.0))
-
-[State -1, MAX Mode]
-type = ChangeState
-value = 770
-triggerAll = AILevel && NumEnemy
-triggerAll = RoundState = 2 && StateType != A
-triggerAll = var(20) <= 0 && Power >= 1000
-triggerAll = ((P2BodyDist x >= 150) && (EnemyNear, MoveType = A)) || P2StateType = L
-trigger1 = (ctrl || (StateNo = [100, 101])) && Random < (125 * (AILevel ** 2 / 64.0))
 
 [State -1, Throw]
 type = ChangeState

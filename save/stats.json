@@ -4,46 +4,74 @@
       "playtime": 0
     },
     "arcade": {
-      "playtime": 205.4,
-      "clear": 0,
-      "clearcount": [],
+      "playtime": 440.6,
+      "clear": 2,
+      "clearcount": {
+        "kfm_zss": 2
+      },
       "ranking": [
         {
-          "score": 12700,
+          "score": 292900,
+          "time": 373.8,
+          "name": "FRD",
+          "chars": [
+            "kfm_zss"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 5,
+          "lose": 0,
+          "consecutive": 3
+        },
+        {
+          "score": 206700,
+          "time": 106.83,
+          "name": "A",
+          "chars": [
+            "kfm_zss"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 2,
+          "lose": 0,
+          "consecutive": 2
+        },
+        {
+          "score": 8202,
+          "time": 333.77,
+          "name": "A",
+          "chars": [
+            "kfm_zss"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 1,
+          "lose": 3,
+          "consecutive": 1
+        },
+        {
+          "score": 1,
           "time": 64.73,
           "name": "DAN",
           "chars": [
-            "kfm_zss"
+            "dan_pots"
           ],
           "tmode": 0,
           "ailevel": 5,
           "win": 0,
           "lose": 1,
           "consecutive": 0
-        },
-        {
-          "score": 12101,
-          "time": 140.67,
-          "name": "DAN",
-          "chars": [
-            "kfm_zss"
-          ],
-          "tmode": 0,
-          "ailevel": 5,
-          "win": 0,
-          "lose": 2,
-          "consecutive": 0
         }
       ]
     },
     "freebattle": {
-      "playtime": 668.5
+      "playtime": 0
     },
     "watch": {
-      "playtime": 54.98
+      "playtime": 0
     },
     "versus": {
-      "playtime": 302.27
+      "playtime": 0
     },
     "trials": {
       "playtime": 0
@@ -52,5 +80,5 @@
       "playtime": 0
     }
   },
-  "playtime": 1231.15
+  "playtime": 440.6
 }
