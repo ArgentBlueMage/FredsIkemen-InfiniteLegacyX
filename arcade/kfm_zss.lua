@@ -12,9 +12,27 @@ if matchno() == 1 then
 end
 if matchno() == 2 then
 	local ok = launchFight{
-		p2char = {"takumal", "gorol"},
+		p2char = {"takumah", "goroh"},
 		p2teammode = "simul",
 		ai = 4
+	}
+	if not ok then return end
+end
+
+if matchno() == 3 then
+	local ok = launchFight{
+		p2char = {"ryu_pots"},
+		p2teammode = "single",
+		ai = 1
+	}
+	if not ok then return end
+end
+
+if matchno() == 4 then
+	local ok = launchFight{
+		p2char = {"shingouki_pots"},
+		p2teammode = "single",
+		ai = 1
 	}
 	if not ok then return end
 end

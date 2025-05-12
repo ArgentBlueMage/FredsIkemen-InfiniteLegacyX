@@ -124,252 +124,188 @@ name = "recovery2"
 command = x+y
 time = 1
 
-;-| Super Motions |--------------------------------------------------------
-
-[command]
-name = "kdouchi"
-command = ~D,F,D,F, z
-time = 25
-
-[command]
-name = "kdouchi"
-command = ~D,DF,F,D,DF,F, z
-time = 20
-
-[command]
-name = "jgotoshi"
-command = ~D,DB,B,D,DB,B, y
-time = 20
-
-[command]
-name = "jgotoshi"
-command = ~D,B,D,B, y
-time = 25
-
-[command]
-name = "kumonexx"
-command = ~B,D, z
-time = 25
-
-[command]
-name = "kumonexx"
-command = ~B,DB,D, z
-time = 15
-
-;-| Special Motions |------------------------------------------------------
-
-[command]
-name = "jshintwo"
-command = ~F,D,F, y
-time = 20
-
-[command]
-name = "jshintwo"
-command = ~F,DF,F, y
-time = 12
-
-[command]
-name = "jshin"
-command = ~F,D,F, x
-time = 20
-
-[command]
-name = "jshin"
-command = ~F,D,DF, x
-time = 12
-
-
-[command]
-name = "kgaeshi"
-command = ~D,DF,F, a
-time = 12
-
-[command]
-name = "kgaeshi"
-command = ~D,F, a
-time = 20
-
-[command]
-name = "kumotnage"
-command = ~B,DB,D, b
-time = 12
-
-[command]
-name = "kumotnage"
-command = ~B,D, b
-time = 20
-
-[command]
-name = "tenchig"
-command = ~D,DB,B, x
-time = 12
-
-[command]
-name = "tenchig"
-command = ~D,B, x
-time = 20
-
-[command]
-name = "roll f"
-command = F,c
-time = 5
-
-[command]
-name = "roll f"
-command = DF,c
-time = 5
-
-[command]
-name = "roll b"
-command = DB,c
-time = 5
-
-[command]
-name = "roll b"
-command = B,c
-time = 5
-
-;-| Double Tap |-----------------------------------------------------------
+;=======================< COMMANDS >========================
 
 [Command]
-name = "FF"     ;Required (do not remove)
-command = F, F
-time = 20
-
-[Command]
-name = "BB"     ;Required (do not remove)
-command = B, B
-time = 20
-
-;-| 2/3 Button Combination |-----------------------------------------------
-
-[Command]
-name = "recovery" ;Required (do not remove)
-command = x+y
-time = 6
-
-;-| Dir + Button |---------------------------------------------------------
-[Command]
-name = "back_x"
-command = /$B,x
+name = "D"
+command = D
 time = 1
 
 [Command]
-name = "back_y"
-command = /$B,y
+name = "DF"
+command = DF
 time = 1
 
 [Command]
-name = "back_z"
-command = /$B,z
+name = "F"
+command = F
 time = 1
 
 [Command]
-name = "down_x"
-command = /$D,x
+name = "UF"
+command = UF
 time = 1
 
 [Command]
-name = "down_y"
-command = /$D,y
+name = "U"
+command = U
 time = 1
 
 [Command]
-name = "down_z"
-command = /$D,z
+name = "UB"
+command = UB
 time = 1
 
 [Command]
-name = "fwd_x"
-command = /$F,x
+name = "B"
+command = B
 time = 1
 
 [Command]
-name = "fwd_y"
-command = /$F,y
+name = "DB"
+command = DB
 time = 1
 
 [Command]
-name = "fwd_z"
-command = /$F,z
+name = "$D"
+command = $D
 time = 1
 
 [Command]
-name = "up_x"
-command = /$U,x
+name = "$F"
+command = $F
 time = 1
 
 [Command]
-name = "up_y"
-command = /$U,y
+name = "$U"
+command = $U
 time = 1
 
 [Command]
-name = "up_z"
-command = /$U,z
+name = "$B"
+command = $B
 time = 1
 
 [Command]
-name = "back_a"
-command = /$B,a
+name = "/D"
+command = /D
 time = 1
 
 [Command]
-name = "back_b"
-command = /$B,b
+name = "/DF"
+command = /DF
 time = 1
 
 [Command]
-name = "back_c"
-command = /$B,c
+name = "/F"
+command = /F
 time = 1
 
 [Command]
-name = "down_a"
-command = /$D,a
+name = "/UF"
+command = /UF
 time = 1
 
 [Command]
-name = "down_b"
-command = /$D,b
+name = "/U"
+command = /U
 time = 1
 
 [Command]
-name = "down_c"
-command = /$D,c
+name = "/UB"
+command = /UB
 time = 1
 
 [Command]
-name = "fwd_a"
-command = /$F,a
+name = "/B"
+command = /B
 time = 1
 
 [Command]
-name = "fwd_b"
-command = /$F,b
+name = "/DB"
+command = /DB
 time = 1
 
 [Command]
-name = "fwd_c"
-command = /$F,c
+name = "/$D"
+command = /$D
 time = 1
 
 [Command]
-name = "up_a"
-command = /$U,a
+name = "/$F"
+command = /$F
 time = 1
 
 [Command]
-name = "up_b"
-command = /$U,b
+name = "/$U"
+command = /$U
 time = 1
 
 [Command]
-name = "up_c"
-command = /$U,c
+name = "/$B"
+command = /$B
 time = 1
 
-;-| Single Button |---------------------------------------------------------
+[Command]
+name = "~D"
+command = ~D
+time = 1
+
+[Command]
+name = "~DF"
+command = ~DF
+time = 1
+
+[Command]
+name = "~F"
+command = ~F
+time = 1
+
+[Command]
+name = "~UF"
+command = ~UF
+time = 1
+
+[Command]
+name = "~U"
+command = ~U
+time = 1
+
+[Command]
+name = "~UB"
+command = ~UB
+time = 1
+
+[Command]
+name = "~B"
+command = ~B
+time = 1
+
+[Command]
+name = "~DB"
+command = ~DB
+time = 1
+
+[Command]
+name = "~$D"
+command = ~$D
+time = 1
+
+[Command]
+name = "~$F"
+command = ~$F
+time = 1
+
+[Command]
+name = "~$U"
+command = ~$U
+time = 1
+
+[Command]
+name = "~$B"
+command = ~$B
+time = 1
+
 [Command]
 name = "a"
 command = a
@@ -405,123 +341,206 @@ name = "s"
 command = s
 time = 1
 
-;-| Single Dir |------------------------------------------------------------
 [Command]
-name = "fwd" ;Required (do not remove)
-command = $F
-time = 1
-
-[Command]
-name = "downfwd"
-command = $DF
-time = 1
-
-[Command]
-name = "down" ;Required (do not remove)
-command = $D
-time = 1
-
-[Command]
-name = "downback"
-command = $DB
-time = 1
-
-[Command]
-name = "back" ;Required (do not remove)
-command = $B
-time = 1
-
-[Command]
-name = "upback"
-command = $UB
-time = 1
-
-[Command]
-name = "up" ;Required (do not remove)
-command = $U
-time = 1
-
-[Command]
-name = "upfwd"
-command = $UF
-time = 1
-
-;-| Hold Button |--------------------------------------------------------------
-[Command]
-name = "hold_x"
-command = /x
-time = 1
-
-[Command]
-name = "hold_y"
-command = /y
-time = 1
-
-[Command]
-name = "hold_z"
-command = /z
-time = 1
-
-[Command]
-name = "hold_a"
+name = "/a"
 command = /a
 time = 1
 
 [Command]
-name = "hold_b"
+name = "/b"
 command = /b
 time = 1
 
 [Command]
-name = "hold_c"
+name = "/c"
 command = /c
 time = 1
 
 [Command]
-name = "hold_s"
+name = "/x"
+command = /x
+time = 1
+
+[Command]
+name = "/y"
+command = /y
+time = 1
+
+[Command]
+name = "/z"
+command = /z
+time = 1
+
+[Command]
+name = "/s"
 command = /s
 time = 1
 
-;-| Hold Dir |--------------------------------------------------------------
 [Command]
-name = "holdfwd" ;Required (do not remove)
+name = "~a"
+command = ~a
+time = 1
+
+[Command]
+name = "~b"
+command = ~b
+time = 1
+
+[Command]
+name = "~c"
+command = ~c
+time = 1
+
+[Command]
+name = "~x"
+command = ~x
+time = 1
+
+[Command]
+name = "~y"
+command = ~y
+time = 1
+
+[Command]
+name = "~z"
+command = ~z
+time = 1
+
+[Command]
+name = "~s"
+command = ~s
+time = 1
+
+
+;=======================< REQUIRED >========================
+
+[Command]
+name = "holdfwd"
 command = /$F
 time = 1
 
 [Command]
-name = "holddownfwd"
-command = /$DF
-time = 1
-
-[Command]
-name = "holddown" ;Required (do not remove)
-command = /$D
-time = 1
-
-[Command]
-name = "holddownback"
-command = /$DB
-time = 1
-
-[Command]
-name = "holdback" ;Required (do not remove)
+name = "holdback"
 command = /$B
 time = 1
 
 [Command]
-name = "holdupback"
-command = /$UB
-time = 1
-
-[Command]
-name = "holdup" ;Required (do not remove)
+name = "holdup"
 command = /$U
 time = 1
 
 [Command]
-name = "holdupfwd"
-command = /$UF
+name = "holddown"
+command = /$D
 time = 1
+
+[Command]
+name = "FF"
+command = F, F
+time = 10
+
+[Command]
+name = "BB"
+command = B, B
+time = 10
+
+[Command]
+name = "recovery"
+command = a
+time = 1
+
+[Command]
+name = "recovery"
+command = b
+time = 1
+
+[Command]
+name = "recovery"
+command = c
+time = 1
+
+[Command]
+name = "recovery"
+command = x
+time = 1
+
+[Command]
+name = "recovery"
+command = y
+time = 1
+
+[Command]
+name = "recovery"
+command = z
+time = 1
+
+
+;=======================< CHECKS >========================
+
+[Command]
+name = "rlsdir"
+command = ~$F
+time = 1
+
+[Command]
+name = "rlsdir"
+command = ~$B
+time = 1
+
+[Command]
+name = "rlsdir"
+command = ~$U
+time = 1
+
+[Command]
+name = "rlsdir"
+command = ~$D
+time = 1
+
+
+;=======================< OTHER >========================
+
+[Command]
+name = "counter_F"
+command = $F
+time = 1
+buffer.time = 5
+
+[Command]
+name = "counter_a"
+command = a
+time = 1
+buffer.time = 2
+
+[Command]
+name = "counter_b"
+command = b
+time = 1
+buffer.time = 2
+
+[Command]
+name = "counter_c"
+command = c
+time = 1
+buffer.time = 2
+
+[Command]
+name = "counter_x"
+command = x
+time = 1
+buffer.time = 2
+
+[Command]
+name = "counter_y"
+command = y
+time = 1
+buffer.time = 2
+
+[Command]
+name = "counter_z"
+command = z
+time = 1
+buffer.time = 2
 
 ;---------------------------------------------------------------------------
 ; Don't remove the following line. It's required by the CMD standard.

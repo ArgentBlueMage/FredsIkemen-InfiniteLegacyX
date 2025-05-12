@@ -1,4 +1,4 @@
-;Command File created by "EKEN55"
+;Command File created by "EKEN55" and edited by "Fred McFrizzle"
 ;-| Button Remapping |-----------------------------------------------------
 ; This section lets you remap the player's buttons (to easily change the
 ; button configuration). The format is:
@@ -12,6 +12,143 @@ a = a
 b = b
 c = c
 s = s
+
+;=======================< DEFAULT VALUES >========================
+
+[Defaults]
+command.time = 12
+command.buffer.time = 1
+
+;=======================< SUPER INPUTS >========================
+
+[Command]
+name = "super1"
+command = ~D,DB,B,D,DB,B, x
+time = 32
+
+[Command]
+name = "super1"
+command = ~D,DB,B,D,DB,B, y
+time = 32
+
+[Command]
+name = "super1"
+command = ~D,DB,B,D,DB,B, z
+time = 32
+
+[Command]
+name = "super3"
+command = ~D,DF,F,D,DF,F, x
+time = 32
+
+[Command]
+name = "super3"
+command = ~D,DF,F,D,DF,F, y
+time = 32
+
+[Command]
+name = "super3"
+command = ~D,DF,F,D,DF,F, z
+time = 32
+
+;=======================< SPECIAL INPUTS >========================
+
+[Command]
+name = "throwslam_L"
+command = ~F,DF,D,DB,B, x
+time = 16
+
+[Command]
+name = "throwslam_M"
+command = ~F,DF,D,DB,B, y
+time = 16
+
+[Command]
+name = "throwslam_H"
+command = ~F,DF,D,DB,B, z
+time = 16
+
+[Command]
+name = "antiair/ground_throw"
+command = ~B,DB,D,DF,F, x
+time = 16
+
+[Command]
+name = "antiair/ground_throw"
+command = ~B,DB,D,DF,F, y
+time = 16
+
+[Command]
+name = "antiair/ground_throw"
+command = ~B,DB,D,DF,F, z
+time = 16
+
+;=======================< REQUIRED >========================
+
+[Command]
+name = "s"
+command = s
+time = 1
+
+[Command]
+name = "holdfwd"
+command = /$F
+time = 1
+
+[Command]
+name = "holdback"
+command = /$B
+time = 1
+
+[Command]
+name = "holdup"
+command = /$U
+time = 1
+
+[Command]
+name = "holddown"
+command = /$D
+time = 1
+
+[Command]
+name = "FF"
+command = F, F
+time = 10
+
+[Command]
+name = "BB"
+command = B, B
+time = 10
+
+[Command]
+name = "recovery"
+command = a
+time = 1
+
+[Command]
+name = "recovery"
+command = b
+time = 1
+
+[Command]
+name = "recovery"
+command = c
+time = 1
+
+[Command]
+name = "recovery"
+command = x
+time = 1
+
+[Command]
+name = "recovery"
+command = y
+time = 1
+
+[Command]
+name = "recovery"
+command = z
+time = 1
 
 ;-| CPU |--------------------------------------------------------------
 [Command]
@@ -70,8 +207,18 @@ command = /$D
 time = 1
 
 [Command]
+name = "hold_a"
+command = /a
+time = 1
+
+[Command]
 name = "hold_a2"
 command = /a
+time = 1
+
+[Command]
+name = "hold_b"
+command = /b
 time = 1
 
 [Command]
@@ -80,8 +227,18 @@ command = /b
 time = 1
 
 [Command]
+name = "hold_c"
+command = /c
+time = 1
+
+[Command]
 name = "hold_c2"
 command = /c
+time = 1
+
+[Command]
+name = "hold_x"
+command = /x
 time = 1
 
 [Command]
@@ -90,13 +247,28 @@ command = /x
 time = 1
 
 [Command]
+name = "hold_y"
+command = /y
+time = 1
+
+[Command]
 name = "hold_y2"
 command = /y
 time = 1
 
 [Command]
+name = "hold_z"
+command = /z
+time = 1
+
+[Command]
 name = "hold_z2"
 command = /z
+time = 1
+
+[Command]
+name = "hold_s"
+command = /s
 time = 1
 
 [Command]
@@ -124,446 +296,6 @@ name = "recovery2"
 command = x+y
 time = 1
 
-;-| Super Motions |--------------------------------------------------------
-
-[command]
-name = "kdouchi"
-command = ~D,F,D,F, z
-time = 25
-
-[command]
-name = "kdouchi"
-command = ~D,DF,F,D,DF,F, z
-time = 20
-
-[command]
-name = "jgotoshi"
-command = ~D,DB,B,D,DB,B, y
-time = 20
-
-[command]
-name = "jgotoshi"
-command = ~D,B,D,B, y
-time = 25
-
-[command]
-name = "kumonexx"
-command = ~B,D, z
-time = 25
-
-[command]
-name = "kumonexx"
-command = ~B,DB,D, z
-time = 15
-
-;-| Special Motions |------------------------------------------------------
-
-[command]
-name = "jshintwo"
-command = ~F,D,F, y
-time = 20
-
-[command]
-name = "jshintwo"
-command = ~F,DF,F, y
-time = 12
-
-[command]
-name = "jshin"
-command = ~F,D,F, x
-time = 20
-
-[command]
-name = "jshin"
-command = ~F,D,DF, x
-time = 12
-
-
-[command]
-name = "kgaeshi"
-command = ~D,DF,F, a
-time = 12
-
-[command]
-name = "kgaeshi"
-command = ~D,F, a
-time = 20
-
-[command]
-name = "kumotnage"
-command = ~F,DF,D,DB,B, a
-time = 12
-
-[command]
-name = "kumotnage"
-command = ~F,D,B, a
-time = 20
-
-[command]
-name = "kumotnage"
-command = ~F,DF,D,DB,B, b
-time = 12
-
-[command]
-name = "kumotnage"
-command = ~F,D,B, b
-time = 20
-
-[command]
-name = "kumotnage"
-command = ~F,DF,D,DB,B, c
-time = 12
-
-[command]
-name = "kumotnage"
-command = ~F,D,B, c
-time = 20
-
-
-[command]
-name = "tenchig1"
-command = ~F,DF,D,DB,B, x
-time = 12
-
-[command]
-name = "tenchig1"
-command = ~F,D,B, x
-time = 20
-
-[command]
-name = "tenchig2"
-command = ~F,DF,D,DB,B, y
-time = 12
-
-[command]
-name = "tenchig2"
-command = ~F,D,B, y
-time = 20
-
-[command]
-name = "tenchig3"
-command = ~F,DF,D,DB,B, z
-time = 12
-
-[command]
-name = "tenchig3"
-command = ~F,D,B, z
-time = 20
-
-[command]
-name = "roll f"
-command = F, b+y 
-time = 5
-
-[command]
-name = "roll f"
-command = ~F, b+y 
-time = 5
-
-[command]
-name = "roll b"
-command = B, b+y 
-time = 5
-
-[command]
-name = "roll b"
-command = ~B, b+y 
-time = 5
-
-;-| Double Tap |-----------------------------------------------------------
-
-[Command]
-name = "FF"     ;Required (do not remove)
-command = F, F
-time = 20
-
-[Command]
-name = "BB"     ;Required (do not remove)
-command = B, B
-time = 20
-
-;-| 2/3 Button Combination |-----------------------------------------------
-
-[Command]
-name = "recovery" ;Required (do not remove)
-command = x+y
-time = 6
-
-;-| Dir + Button |---------------------------------------------------------
-[Command]
-name = "back_x"
-command = /$B,x
-time = 1
-
-[Command]
-name = "back_y"
-command = /$B,y
-time = 1
-
-[Command]
-name = "back_z"
-command = /$B,z
-time = 1
-
-[Command]
-name = "down_x"
-command = /$D,x
-time = 1
-
-[Command]
-name = "down_y"
-command = /$D,y
-time = 1
-
-[Command]
-name = "down_z"
-command = /$D,z
-time = 1
-
-[Command]
-name = "fwd_x"
-command = /$F,x
-time = 1
-
-[Command]
-name = "fwd_y"
-command = /$F,y
-time = 1
-
-[Command]
-name = "fwd_z"
-command = /$F,z
-time = 1
-
-[Command]
-name = "up_x"
-command = /$U,x
-time = 1
-
-[Command]
-name = "up_y"
-command = /$U,y
-time = 1
-
-[Command]
-name = "up_z"
-command = /$U,z
-time = 1
-
-[Command]
-name = "back_a"
-command = /$B,a
-time = 1
-
-[Command]
-name = "back_b"
-command = /$B,b
-time = 1
-
-[Command]
-name = "back_c"
-command = /$B,c
-time = 1
-
-[Command]
-name = "down_a"
-command = /$D,a
-time = 1
-
-[Command]
-name = "down_b"
-command = /$D,b
-time = 1
-
-[Command]
-name = "down_c"
-command = /$D,c
-time = 1
-
-[Command]
-name = "fwd_a"
-command = /$F,a
-time = 1
-
-[Command]
-name = "fwd_b"
-command = /$F,b
-time = 1
-
-[Command]
-name = "fwd_c"
-command = /$F,c
-time = 1
-
-[Command]
-name = "up_a"
-command = /$U,a
-time = 1
-
-[Command]
-name = "up_b"
-command = /$U,b
-time = 1
-
-[Command]
-name = "up_c"
-command = /$U,c
-time = 1
-
-;-| Single Button |---------------------------------------------------------
-[Command]
-name = "a"
-command = a
-time = 1
-
-[Command]
-name = "b"
-command = b
-time = 1
-
-[Command]
-name = "c"
-command = c
-time = 1
-
-[Command]
-name = "x"
-command = x
-time = 1
-
-[Command]
-name = "y"
-command = y
-time = 1
-
-[Command]
-name = "z"
-command = z
-time = 1
-
-[Command]
-name = "s"
-command = s
-time = 1
-
-;-| Single Dir |------------------------------------------------------------
-[Command]
-name = "fwd" ;Required (do not remove)
-command = $F
-time = 1
-
-[Command]
-name = "downfwd"
-command = $DF
-time = 1
-
-[Command]
-name = "down" ;Required (do not remove)
-command = $D
-time = 1
-
-[Command]
-name = "downback"
-command = $DB
-time = 1
-
-[Command]
-name = "back" ;Required (do not remove)
-command = $B
-time = 1
-
-[Command]
-name = "upback"
-command = $UB
-time = 1
-
-[Command]
-name = "up" ;Required (do not remove)
-command = $U
-time = 1
-
-[Command]
-name = "upfwd"
-command = $UF
-time = 1
-
-;-| Hold Button |--------------------------------------------------------------
-[Command]
-name = "hold_x"
-command = /x
-time = 1
-
-[Command]
-name = "hold_y"
-command = /y
-time = 1
-
-[Command]
-name = "hold_z"
-command = /z
-time = 1
-
-[Command]
-name = "hold_a"
-command = /a
-time = 1
-
-[Command]
-name = "hold_b"
-command = /b
-time = 1
-
-[Command]
-name = "hold_c"
-command = /c
-time = 1
-
-[Command]
-name = "hold_s"
-command = /s
-time = 1
-
-;-| Hold Dir |--------------------------------------------------------------
-[Command]
-name = "holdfwd" ;Required (do not remove)
-command = /$F
-time = 1
-
-[Command]
-name = "holddownfwd"
-command = /$DF
-time = 1
-
-[Command]
-name = "holddown" ;Required (do not remove)
-command = /$D
-time = 1
-
-[Command]
-name = "holddownback"
-command = /$DB
-time = 1
-
-[Command]
-name = "holdback" ;Required (do not remove)
-command = /$B
-time = 1
-
-[Command]
-name = "holdupback"
-command = /$UB
-time = 1
-
-[Command]
-name = "holdup" ;Required (do not remove)
-command = /$U
-time = 1
-
-[Command]
-name = "holdupfwd"
-command = /$UF
-time = 1
-
 ;---------------------------------------------------------------------------
 ; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
@@ -580,124 +312,110 @@ var(59) = 1
 type = ChangeState
 value = 477
 triggerall = var(59) < 1
-triggerall = command = "roll f"
+triggerall = map(cmd_214k)
 trigger1 = statetype = S
 trigger1 = ctrl
 trigger2 = statetype = C
 trigger2 = ctrl
 
-[State -1, DodgeB]
-type = ChangeState
-value = 478
-triggerall = var(59) < 1
-triggerall = command = "roll b"
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = statetype = C
-trigger2 = ctrl
-
-[state -1, HCB LP] 
-type = ChangeState
-value = 16166
-triggerall = var(59) < 1
-triggerall = command = "tenchig1"
-triggerall = statetype != A
-triggerall = p2statetype != A
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = stateno = 250
-trigger2 = stateno = 200
-trigger2 = stateno = 210
-trigger2 = stateno = 220
-
-[state -1, HCB MP]
-type = ChangeState
-value = 16167
-triggerall = var(59) < 1
-triggerall = command = "tenchig2"
-triggerall = statetype != A
-triggerall = p2statetype != A
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = stateno = 250
-
-[state -1, HCB HP]
-type = ChangeState
-value = 16168
-triggerall = var(59) < 1
-triggerall = command = "tenchig3"
-triggerall = statetype != A
-triggerall = p2statetype != A
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = stateno = 250
-
-[state -1, changetsate]
-type = ChangeState
-value = 16177
-triggerall = var(59) < 1
-triggerall = command = "kumotnage"
-triggerall = statetype != A
-triggerall = p2statetype != C
-trigger1 = statetype = S
-trigger1 = ctrl
-
-[state -1, changetsate]
-type = ChangeState
-value = 16185
-triggerall = var(59) < 1
-triggerall = command = "kgaeshi"
-triggerall = statetype != A
-triggerall = p2statetype != S
-triggerall = p2statetype != C
-trigger1 = statetype = S
-trigger1 = ctrl
-
-[state -1, changetsate]
-type = ChangeState
-value = 16195
-triggerall = var(59) < 1
-triggerall = command = "jshin"
-triggerall = statetype != A
-trigger1 = statetype = S
-trigger1 = ctrl
-
-[state -1, changetsate]
-type = ChangeState
-value = 16200
-triggerall = var(59) < 1
-triggerall = command = "jshintwo"
-triggerall = statetype != A
-trigger1 = statetype = S
-trigger1 = ctrl
-
-[state -1, changetsate]
+[state -1, super1_throwslam3]
 type = ChangeState
 value = 16207
 triggerall = var(59) < 1
-triggerall = command = "jgotoshi"
+triggerall = command = "super1"
 triggerall = statetype != A
 triggerall = power >= 1000
 trigger1 = statetype = S
 trigger1 = ctrl
 
-[state -1, changetsate]
+[state -1, Super3_groundslaphard]
 type = ChangeState
 value = 16224
 triggerall = var(59) < 1
-triggerall = command = "kdouchi"
+triggerall = command = "super3"
 triggerall = statetype != A
-triggerall = power >= 3000
+triggerall = power >= 2000
+trigger1 = statetype = S
+trigger1 = ctrl || ((stateno = 16169 || stateno = 16170 || stateno = 16171) && time >= 120)
+
+[state -1, throwslam LP] 
+type = ChangeState
+value = 16166
+triggerall = var(59) < 1
+triggerall = command = "throwslam_L"
+triggerall = statetype != A
+triggerall = p2statetype != A
+trigger1 = statetype = S
+trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+
+[state -1, throwslam MP] 
+type = ChangeState
+value = 16167
+triggerall = var(59) < 1
+triggerall = command = "throwslam_M"
+triggerall = statetype != A
+triggerall = p2statetype != A
+trigger1 = statetype = S
+trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+
+[state -1, throwslam HP] 
+type = ChangeState
+value = 16168
+triggerall = var(59) < 1
+triggerall = command = "throwslam_H"
+triggerall = statetype != A
+triggerall = p2statetype != A
+trigger1 = statetype = S
+trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+
+[state -1, antiair_throw]
+type = ChangeState
+value = 16177
+triggerall = var(59) < 1
+triggerall = command = "antiair/ground_throw"
+triggerall = statetype != A
+triggerall = p2statetype != L
 trigger1 = statetype = S
 trigger1 = ctrl
 
-[state -1, changetsate]
+[state -1, antiair_throw_EX]
 type = ChangeState
 value = 16274
 triggerall = var(59) < 1
-triggerall = command = "kumonexx"
+triggerall = map(cmd_41236pp)
 triggerall = statetype != A
+triggerall = p2statetype != L
 triggerall = power >= 500
+trigger1 = statetype = S
+trigger1 = ctrl
+
+[state -1, ground_throw]
+type = ChangeState
+value = 16185
+triggerall = var(59) < 1
+triggerall = command = "antiair/ground_throw"
+triggerall = statetype != A
+triggerall = p2statetype != A
+triggerall = p2statetype != S
+triggerall = p2statetype != C
+trigger1 = statetype = S
+trigger1 = ctrl
+
+[State -1, groundslap]
+type = changestate
+value = 16195
+triggerall = !AIlevel
+triggerall = map(cmd_623p)
+triggerall = roundstate = 2 && statetype != A
+trigger1 = ctrl || stateno = 200 || stateno = 210 || stateno = 230 || stateno = 240 || stateno = 250
+trigger2 = map(specialcancel)
+
+[state -1, groundslap_ex]
+type = ChangeState
+value = 16200
+triggerall = var(59) < 1
+triggerall = map(cmd_623pp)
+triggerall = statetype != A
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -1166,7 +884,7 @@ trigger1 = ctrl
 [State -1, Guard]
 type = ChangeState
 value = 120
-triggerall = command = "back"
+triggerall = command = "holdback"
 triggerall = ctrl && stateno != 120
 trigger1 = inguarddist
 trigger1 = !enemy, MoveGuarded
