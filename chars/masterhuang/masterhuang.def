@@ -1,0 +1,38 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Master Huang"
+displayname = "Master Huang"
+versiondate = 8/06/06
+mugenversion = 04,14,2001
+author = "KenshinHimura"
+pal.defaults = 1,2,3,4,5,6
+localcoord=320,240
+
+[Files]
+sprite = masterhuang.sff
+anim = masterhuang.air
+sound = masterhuang.snd
+cmd = masterhuang.cmd
+cns = masterhuang.cns
+stcommon = common1.cns
+st = masterhuang.cns
+st1 = throws.cns
+st2 = common.cns
+st3 = specials.cns
+st4 = supers.cns
+st5 = misc.cns
+st6 = helpers.cns
+pal1 = masterhuang.act
+pal2 = masterhuang2.act
+pal3 = masterhuang3.act
+pal4 = masterhuang4.act
+pal5 = masterhuang5.act
+pal6 = masterhuang6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

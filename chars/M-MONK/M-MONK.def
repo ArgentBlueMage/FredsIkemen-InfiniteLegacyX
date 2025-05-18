@@ -1,0 +1,33 @@
+; Definition file for M-MONK
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="M-MONK"
+displayname ="Monk"
+versiondate =05,05,2008
+mugenversion =04,14,2002
+author ="MADRE"
+pal.defaults =1,2,3,4,5,6
+
+; Files for the player
+[Files]
+cmd     =M-MONK.cmd
+cns     =MMONK.cns
+st      =MMONK.cns
+stcommon =common1.cns
+sprite  =M-MONK.sff
+anim    =M-MONK.air
+sound   =M-MONK.snd
+pal1=monk1.act
+pal2=monk2.act
+pal3=monk3.act
+pal4=monk4.act
+pal5=monk5.act
+pal6=monk6.act
+st1=override.cns
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=monkend.def

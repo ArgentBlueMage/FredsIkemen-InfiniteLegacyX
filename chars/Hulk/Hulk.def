@@ -1,0 +1,37 @@
+; Definition file for Hulk
+; Contains all the filenames needed for the character
+
+; Hulk information
+[Info]
+name ="Hulk"
+displayname ="Hulk"
+versiondate =2006,08,27
+mugenversion =1.0
+author ="One Winged Angel"
+pal.defaults =4,1
+
+; Files for the Hulk
+[Files]
+cmd     =Hulk.cmd
+cns     =Hulk.cns
+st      =Hulk.cns
+stcommon =common1.cns
+sprite  =Hulk.sff
+anim    =Hulk.air
+sound  =Hulk.snd
+pal1=Normal.act
+pal2=Gray2.act
+pal3=Gray.act
+pal4=Blue.act
+pal5=Red.act
+pal6=Brown.act
+pal7=Extra1.act
+pal8=Extra2.act
+pal9=Extra3.act
+pal10=Extra4.act
+pal11=Extra5.act
+pal12=Extra6.act
+st1=VS_Engine.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

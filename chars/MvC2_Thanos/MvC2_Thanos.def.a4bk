@@ -1,0 +1,55 @@
+; Definition file for player
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name         = "MvC2_Thanos"
+displayname  = "Thanos"
+versiondate  = 05/05/2020
+mugenversion = 1.0
+author       = "087-B" ;DarkWolf13-MvC2/Edited by JJkoolaid Template Used
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+; Files for the player
+[Files]
+cmd      = MvC2_Thanos.cmd
+cns      = MvC2_Thanos.cns
+st       = MvC2_Thanos.cns
+st1      = config.txt
+st2      = MvC2Tag.st
+st3      = SnapBackCounter.cns
+st4      = X-OverCombination.cns
+stcommon = common1.cns
+sprite   = MvC2_Thanos.sff
+anim     = MvC2_Thanos.air
+sound    = MvC2_Thanos.snd
+pal1     = thanos.act
+pal2     = thanos2.act 
+pal3     = thanos3.act 
+pal4     = thanos4.act 
+pal5     = thanos5.act 
+pal6     = thanos6.act 
+;pal7     = 7.act 
+;pal8     = 8.act 
+;pal9     = 9.act 
+;pal10    = 10.act 
+;pal11    = 11.act 
+;pal12    = 12.act
+
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

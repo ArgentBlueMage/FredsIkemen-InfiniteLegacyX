@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "MVCRCyclops"
+displayname = "Cyclops"
+versiondate = 7/12/2009
+mugenversion = 06,14,2003
+author = "Reza"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10
+
+[Files]
+sprite = mvcrcyclops.sff
+anim = mvcrcyclops.air
+sound = mvcrcyclops.snd
+cmd = mvcrcyclops.cmd
+cns = mvcrcyclops.cns
+stcommon = common1.cns
+st = mvcrcyclops.cns
+pal1 = original.act
+pal2 = xmvsf.act
+pal3 = custom1.act
+pal4 = MSHVSF.act
+pal5 = MSHVSF.act
+pal6 = mvc2a.act
+pal7 = custom1.act
+pal8 = custom2.act
+pal9 = evil.act
+pal10 = golden.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -18,19 +18,6 @@ cns=goro.cns
 st1=goro.cns
 st2=judo.cns
 stcommon=fty.cns
-pal1=palettes/1.act
-pal2=palettes/2.act
-pal3=palettes/3.act
-pal4=palettes/4.act
-pal5=palettes/5.act
-pal6=palettes/6.act
-pal7=palettes/dan.act
-pal8=palettes/hakan.act
-pal9=palettes/goku.act
-pal10=palettes/zombie.act
-pal11=palettes/daimond.act
-pal12=palettes/golem.act
-
 
 [Palette Keymap]
 x = 1 ;Press button X to select palette 1, etc.

@@ -1,0 +1,265 @@
+------------------------
+ PRE-FINAL VERSION 10/3/2009 
+------------------------
+
+Character Name: "Scott Summers"
+
+In Game Name: "Cyclops"  
+
+Original Games: XMVSF + MSHVSF + MVC2 + XMMA2 + XMND + XML2 + MUA
+
+Game Play Style: Versus Series Remix 
+
+Author: Reza
+
+Emails: Mvs1986@aol.com and m_vs_1986@hotmail.com
+
+For Windows and Linux M.U.G.E.N
+
+--------------------- 
+ CHARACTER BIOGRAPHY 
+---------------------
+
+Cyclops (Scott Summers) is a fictional character, a superhero that is the field leader of the X-Men in the Marvel Comics Universe. Created by writer Stan Lee and artist/co-writer Jack Kirby, he first appeared in The X-Men #1 (September 1963) and was originally dubbed Slim Summers. By #3, his name was changed to Scott and Slim was referred as a nickname. A mutant, Cyclops produces powerful "optic blasts" from his eyes, forcing him to wear specialized glasses at all times and a specialized visor in combat. His powers may have led to his inhibited, meticulous character. These same qualities, however, have made him an ideal leader for the X-Men. He is the son of Corsair, the brother of Havok and Vulcan, the father of Cable, Marvel Girl, and X-Man, and the widower of Jean Grey.
+
+The first student recruited by Charles Xavier and one of the original five X-Men, Cyclops has had a large presence in X-Men-related comics since their inception. He has also been featured in almost every adaptation of the team in other media.
+
+In 2006, IGN.com rated Cyclops #1 on their list of Top 25 X-Men from the past forty years.[1]
+
+In practically every incarnation of the character, he has almost always been shown to be not only Charles Xavier's most loyal student, but also the one who most believes in his dream of mutant and human equality. His loyalty to Xavier has cost him dearly from time to time, yet the character remains by Xavier's side. In turn, Xavier is known to view Scott as one of his most (if not the most) prized pupils, and looks upon Scott not as a mentor to mentee, but rather as a father to a son.
+
+---------------------------------- 
+ CHARACTER INFORMATION AND SYSTEM 
+----------------------------------
+
+Cyclops is based off of his VS Series and Co-op Appearance from the games listed at the top. He has a 6 button layout LP, MP, HP, LK, MK, HK and is custom made with the Moves from the MUA and XML2 games, meaning he has some stuff that he didn't originaly have in the VS Series that i thought would be a great addition to his gameplay. Speaking of gameplay he is MVC2 Style but has all of the MVC2, MUA and XML2 System works, which includes:
+
+6 Button Layout
+LP, MP, HP (X, Y, Z)
+LK, MK, HK (A, B, C)
+
+Guard
+
+Chain Combo
+
+Air Chain Combo
+
+Hyper Combo Cancel
+
+Cancel Any Move
+
+Dash 
+
+Run 
+
+Rolling 
+
+Dodge (Not Implanted)
+
+Counter Attack
+
+Counter Movement (Not Implanted)
+
+Air Guard
+
+Tactical Recovery
+
+Safe Fall
+
+Super/Long Jump 
+
+Advance Guard
+
+Tech Hit
+
+Air Dash 
+
+Snapback Attack (Not Implanted)
+
+Double/Triple Jump
+
+Wall Jump (Not Implanted)
+
+Tag Team (Not Implanted) 
+
+Dizzy (Not Implanted)
+
+Damage Dampener 
+
+Flying/Float (Not Implanted)
+
+Wall Hit
+
+Automatic Recovery 
+
+Launchers
+
+---------
+ CREDITS 
+---------
+
+Marvel - for creating my favorite character Cyclops and the X-Men
+
+Capcom - for creating the VS Series
+
+Elecbyte - for creating M.U.G.E.N
+
+Winkawaks - for Ripping
+
+Recruta42 - Cyclops Sprites
+
+GinoBuffyGuy - Palettes, Portraits and being a friend
+
+Light Yagami aka Daimond aka alot of other names - Palettes and being a friend
+
+Alchemist - some Sprites, Codes and being a friend
+
+Ken34 - Codes and being a friend
+
+Ninja_Naturo aka K.O.D -  Codes and being a friend
+
+ITorres - Hyper Combo Finish BG edits and being a friend
+
+Kung Fu Man - Cable Sprites
+
+P.O.T.S. - God Rugal Sounds
+
+The DreamSlayer - God Rugal Genoside Cutter Sprites
+
+Cloudius - Cable Sprites and Sounds 
+
+Betochac - some Cyclops Sounds
+
+Kamekaze - Codes and being a friend
+
+RedHot - Codes, MVC2 Hit Sparks, BG's...etc
+
+Supermystery - fixing bugs, redoing some stuff, added hard AI and being a friend (In my Beta 8 Version)
+
+VADM Omega aka Omega_Black1990 - Hyper Portraits and being a friend
+
+Kamek - MVC2 Announcer Sounds and Sprites
+
+Anjel, Trasgo7 and Buyog - helping me Code the Announcer Sounds
+
+Scar - MVC2 Announcer and Effect Sounds 
+
+Sasuke-kun and Thrasherpunk - for their awesome XML2 Sound rips that quickly replaced mine
+
+Rikku - For his TVC Glass Shatter Background
+
+Reza - for creating this Character and ripping needed Sprites and Sounds
+
+I Hope i didn't miss anyone :) :P
+
+-----------
+ WIN POSES
+-----------
+
+Press and Hold any one button for a Win Pose or just don't Hold any for Random Win Poses 
+
+--------
+ TAUNT
+--------
+
+Funny Taunt - Press Start 
+
+--------
+ THROWS
+--------
+
+Standing Throws - Hold Forward + MP, HP or HK (While Close to Opponent)
+
+Crouching throws - Hold Down Forward + HK (While Close to Opponent)
+
+Air Throws - Hold Forward + HP (While Close to Opponent) 
+
+--------------------
+ CUSTOM VERSUS SYSTEM
+--------------------
+
+Rolling Forward - F + LP and LK (While Grounded)
+
+Rolling Backward - B + LP and LK (While Grounded)
+
+Alpha Counter - MP + MK (While Guarding requires 1 Level)
+
+Air Dash Forward - F,F (While Airborne) 
+
+Air Dash Backward - B,B (While Airborne)
+
+Advance Guard - HP + HK (While Guarding)
+
+Super Jump - D,U (While Grounded)
+
+Air Combo Dash-In - (Executed automatically after Air Combo) 
+
+---------------
+ SPECIAL MOVES 
+---------------
+
+Optic Blast - D,DF,F + Any Punch (Can be executed both Grounded and Airborne)
+
+Optic Sweep - F,DF,D + Any Punch (Can only be executed while Grounded)
+
+Cyclone Kick - D,DB,B + Any Kick (Can only be executed while Grounded)
+
+Slice Kick - F,D,DF + Any Kick (Can only be executed while Grounded)
+
+Gene Slice - F,D,DF + Any Punch (Can only be executed while Grounded)
+
+Rushing Combo - Charge Back for 3 seconds then release and press F + Any Punch (Can only be executed while Grounded)
+
+Rushing Slam - Charge B for 3 seconds then release and press F + Any Kick (Can only be executed while Grounded)
+
+Optic Slam - D,DF,F + Any Kick (Can only be executed while Grounded)
+
+-------------------
+ HYPER/SUPER MOVES 
+-------------------
+
+Mega Optic Blast - D,DF,F + Any 2 Punches (Can be executed both Grounded, Airborne and requires 1 Level)
+
+Optic Rage - D,DB,B + Any 2 Punches (Can only be executed while Grounded and requires 3 Levels)
+
+Hyper Optic Slam - D,DB,B + Any 2 Kicks (Can only be executed while Grounded and requires 1 Level)
+
+Super Optic Blast - D,DF,F + Any 2 Kicks (Can be executed both Grounded, Airborne and requires 1 Level)
+
+NOTE: Super Optic Blast has been disabled because Cyclops gets stuck in an infinite loop with the starting animation.
+
+-----------------------
+ UPDATES 10/3/2009 
+-----------------------
+
+- Deleted his secondary standing and jumping punches and kicks because its not in MVC2
+- Added FX Sprites to match that of my Terry and Ken
+- Deleted old Palettes and made new ones
+- Fixed Forward Dash (No need to hold Forward to keep running)
+- Cleaned up Definition file
+- Deleted unnecessary Sprites,Sounds and Moves
+- Tweaked all animations
+- Toned down speed and damage
+- Deleted old Collisions and made new ones
+- Tweaked and cleaned up coding
+- Added TVC Glass Shatter BG
+- Tweaked all Commands
+
+------------
+ TO DO LIST 
+------------
+
+- Add AI
+- Fix Super Optic Blast
+- Fix whatever bugs that may arise
+- Update SND file
+
+ENJOY!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+

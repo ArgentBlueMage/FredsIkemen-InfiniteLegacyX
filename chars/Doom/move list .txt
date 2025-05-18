@@ -1,0 +1,36 @@
+                               Dr.Doom
+                          by Infinite and K99
+
+============================== MOVELIST ====================================
+
+Super Jump: D, U or 3 Kicks [Only "U" after you hit a launcher]
+Dash/Hop Backward/Air Dash: FF/BB or 3 punches 
+Advancing Guard: 2 Punches in Guard
+
+Unique combos
+
+Hidden Missiles - B + SP ( press SP to shot 8 missiles)
+
+Foot Dive - F+SK
+
+Supers combos
+
+Plasma Beam - D,DF, F + punch ( AIR OK )
+
+Molecular Shield - D, DF, F + kick
+
+Photon SHot - D,DB,B + punch ( AIR OK )
+
+Flight - D, DB, B + kick ( AIR OK )
+
+
+HYPER COMBOS:
+
+
+Electric Cage: D, DF, F 2 punches 
+
+Photon Array: D, DB, B 2 punches ( AIR OK )
+
+Sphere Flame: F, D ,DF 2 punches
+
+Doom Time: D, DF, F 2 kickes (LV3)

@@ -1,0 +1,76 @@
+"LET'S ROCK!" - Hulk
+
+For the first time in VS. Style Debuts story: A MARVEL CHARACTER! And it's our favorite Green Giant hero!
+
+================================= Why HULK? =================================
+
+Since the Marvel VS. Capcom 1 game, I always liked to throw Gamma Slams and Gamma Waves at the opponent. Also because Hulk is one of my favorite heroes from Marvel Comics(And also one of my favorite characters in UCM)
+
+==================================== HULK STORY ====================================
+
+Read Marvel comics, especially Hulk's ones. Or search for some resumes of his story in official wikias.
+
+=============================== MOVELIST =====================================================
+
+[X-Ability]:
+
+"Godlike Gamma Warrior"
+
+BASIC SYSTEM:
+
+
+======[SYSTEM MOVES]:
+
+Super Jump: D, U [Only "U" after you hit a launcher]
+Dash/Hop Backward: FF/BB
+Advancing Guard: 2 PUNCHES in Guard
+Overwhelming Landing(Also called: AERIAL RAVE FINISHER): MP(H)/HP/HK after a Weak-to-Strong chain
+COUNTER-ATTACK(Finally I can put a decent and easy Counter-Attack on characters): F, LP+LK/MP+MK when in defense (Power Cost = 1000)
+
+(H) - Exclusively for Hulk, he have three aerial finishers. The basic HK and HP after a aerial rave, and MP. This was a common thing on Marvel VS Capcom old games.
+
+======[BASICS]:
+
+Avalanche Leap: At corner wall, press Forward. He will do a aerial dash, like in Marvel VS. Capcom: INFINITE.
+
+=======[SPECIAL MOVES]:
+
+- Gamma Slam: D,DF,F + Punch
+- Throw Gamma Tornado: F,DF,D,DB,B + Kick
+- Gamma Charge(Direct Rush): [c]B,F + Kick
+- Gamma Charge(Anti-Air Impact): [c]D,U + Kick
+  * Gamma Charge Rampages: Press any direction + Kick during Gamma Charges.
+
+
+
+==============[HYPER COMBOS]:
+
+- Gamma Wave: D,DF,F + 2 Punches
+- Gamma Crush: D,DB,B + 2 Punches 
+- Gamma Quake: D,DF, F + 2 Kickes 
+
+* = Level 3
+** = Level 3 "Ômega Combo"
+
+
+
+NOTE: Originally I was planning to put the "Focus Attack" move from MvCI and a brand new level 3. But later I'll decide that
+
+Trivia: Honestly, Gamma Wave sounds better than Gamma Tsunami. 
+
+========================================= CREDITS SECTION ==================================================
+
+- GOD: For Keeping me alive!
+- MOTHER AND FATHER: Unnecessary to explain :)
+- VS STYLE DEBUTS TEAM: For helped me much![But in this case like Maki and some other chars, I worked alone, I want to give to you guys a break, you deserve this, you guys deserve a vacations(Especially Gknux19, he work hard on real life :P] XD]
+- WILLIANS "MR KARATE JKA" CHICO: My Sensei on MUGEN! 
+- BEXIMUS: For the FX and some codes from his old releases!
+- ONE WINGED ANGEL and REDHOT: OWA for Hulk's basis, and REDHOT for spinning sprites and some codes! 
+- MUGEN FIGHTERS GUILD: For feedbacks!
+- ELECBYTE: For MUGEN
+- CAPCOM®: For Darkstalkers®/Vampire® Franchise.
+- YOU: For downloaded this! :D
+
+
+= AND A VERY SPECIAL THANKS FOR "LUISDUDE4/WALRUSLUI" FOR HIS ENCOURAGMENT, MOTIVATING ME(Spriting or Coding) AND ESSENTIAL SUPPORT ON MY PROJECT! YOU ROCK MAN! WROTE MY WORDS, YOU WILL MAKE A EXCEPTIONAL WORK ON CAPCOM UNIVERSE FULLGAME CHARACTERS MAN! YOSHA! :D =
+

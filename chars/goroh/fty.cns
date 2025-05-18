@@ -132,12 +132,40 @@ trigger1 = Anim != 20 && Anim != 5
 trigger2 = Anim = 5 && AnimTime = 0
 value = 20
 
-[State 20, 4]
+[State 20, 4 PlaySnd]
+type = PlaySnd
+trigger1 = vel x > 0 && AnimElemTime(3) = 0
+value = S40,0
+freqmul = 1
+volume = -100
+
+[State 20, 4 PlaySnd]
+type = PlaySnd
+trigger1 = vel x > 0 && AnimElemTime(9) = 0
+value = S40,0
+freqmul = 0.8
+volume = -100
+
+[State 20, 5]
 type = ChangeAnim
 triggerall = vel x < 0
 trigger1 = Anim != 21 && Anim != 5
 trigger2 = Anim = 5 && AnimTime = 0
 value = 21
+
+[State 20, 4 PlaySnd]
+type = PlaySnd
+trigger1 = vel x < 0 && AnimElemTime(4) = 0
+value = S40,0
+freqmul = 1
+volume = -100
+
+[State 20, 4 PlaySnd]
+type = PlaySnd
+trigger1 = vel x < 0 && AnimElemTime(10) = 0
+value = S40,0
+freqmul = 0.8
+volume = -100
 
 ;---------------------------------------------------------------------------
 ; Jump Start
@@ -267,7 +295,8 @@ trigger1 = 1
 [Statedef 52]
 type    = S
 physics = S
-ctrl = 0
+anim = 10
+ctrl = 1
 anim = 47
 
 [State 52, 1]
@@ -292,7 +321,7 @@ x = 0
 
 [State 52, 5]
 type = ChangeState
-trigger1 = AnimTime = 0
+trigger1 = AnimTime = 4
 value = 0
 ctrl = 1
 
@@ -2051,3 +2080,90 @@ value = 190
 type = ChangeState
 trigger1 = 1
 value = 0
+
+;----------------------------------------------------------------------------
+;Damage Scaling System
+[Statedef -3]
+
+;100% Damage on Normals
+[state 0, Scaling 100%]
+type = VarSet
+trigger1 = ComboCount = [0,2]
+fv = 15
+value = 1.0
+
+;75% Damage on Normals
+[state 0, Scaling 75%]
+type = VarSet
+trigger1 = ComboCount = [3,4]
+fv = 15
+value = 0.75
+
+;75% Damage on Normals
+[state 0, Scaling 50%]
+type = VarSet
+trigger1 = ComboCount = [5,8]
+fv = 15
+value = 0.50
+
+;40% Damage on Normals
+[state 0, Scaling 20%]
+type = VarSet
+trigger1 = ComboCount >= 9
+fv = 15
+value = 0.20
+
+;100% Damage on Specials
+[state 0, Scaling 100%]
+type = VarSet
+trigger1 = ComboCount = [0,1]
+fv = 16
+value = 1.0
+
+;75% Damage on Specials
+[state 0, Scaling 60%]
+type = VarSet
+trigger1 = ComboCount = [2,4]
+fv = 16
+value = 0.60
+
+;75% Damage on Specials
+[state 0, Scaling 30%]
+type = VarSet
+trigger1 = ComboCount = [5,8]
+fv = 16
+value = 0.30
+
+;40% Damage on Specials
+[state 0, Scaling 10%]
+type = VarSet
+trigger1 = ComboCount >= 9
+fv = 16
+value = 0.10
+
+;100% Damage on Supers
+[state 0, Scaling 100%]
+type = VarSet
+trigger1 = ComboCount = [0,1]
+fv = 17
+value = 1.0
+
+;75% Damage on Supers
+[state 0, Scaling 60%]
+type = VarSet
+trigger1 = ComboCount = [2,4]
+fv = 17
+value = 0.66
+
+;75% Damage on Supers
+[state 0, Scaling 30%]
+type = VarSet
+trigger1 = ComboCount >= 5
+fv = 17
+value = 0.30
+
+[state 0, Display to Clipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "Dmg Scale = %f | SpecDmg Scale = %f | SupDmg Scale = %f"
+params = fvar(15),fvar(16),fvar(17)

@@ -69,6 +69,22 @@ command = ~F,DF,D,DB,B, z
 time = 16
 
 [Command]
+name = "antiair/ground_throw EX"
+command = ~B,DB,D,DF,F, x+y
+time = 16
+
+[Command]
+name = "antiair/ground_throw EX"
+command = ~B,DB,D,DF,F, x+z
+time = 16
+
+[Command]
+name = "antiair/ground_throw EX"
+command = ~B,DB,D,DF,F, z+y
+time = 16
+
+
+[Command]
 name = "antiair/ground_throw"
 command = ~B,DB,D,DF,F, x
 time = 16
@@ -83,7 +99,73 @@ name = "antiair/ground_throw"
 command = ~B,DB,D,DF,F, z
 time = 16
 
+[Command]
+name = "groundslap_EX"
+command = ~F,D,DF, x+y
+time = 16
+
+[Command]
+name = "groundslap_EX"
+command = ~F,D,DF, x+z
+time = 16
+
+[Command]
+name = "groundslap_EX"
+command = ~F,D,DF, y+z
+time = 16
+
+[Command]
+name = "groundslap_L"
+command = ~F,D,DF, x
+time = 16
+
+[Command]
+name = "groundslap_M"
+command = ~F,D,DF, y
+time = 16
+
+[Command]
+name = "groundslap_H"
+command = ~F,D,DF, z
+time = 16
+
+[Command]
+command = ~B,D,DB, a
+name = "Roll"
+time = 16
+[Command]
+command = ~B,D,DB, b
+name = "Roll"
+time = 16
+[Command]
+command = ~B,D,DB, c
+name = "Roll"
+time = 16
+
 ;=======================< REQUIRED >========================
+
+[Command]
+name="fwd" ;Required (do not remove)
+command=$F
+time=1
+[Command]
+name="down" ;Required (do not remove)
+command=$D
+time=1
+[Command]
+name="back" ;Required (do not remove)
+command=$B
+time=1
+[Command]
+name="up" ;Required (do not remove)
+command=$U
+time=1
+
+
+[Command]
+command = /DF, y
+name = "Armbash"
+time = 1
 
 [Command]
 name = "s"
@@ -296,9 +378,51 @@ name = "recovery2"
 command = x+y
 time = 1
 
+[Command]
+name = "throw"
+command = x+a
+time = 1
+
+[Command]
+name = "z+c"
+command = z+c
+time = 1
+
 ;---------------------------------------------------------------------------
 ; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
+
+;-----------------------------------------------------------------
+[State -1, Parry Stand]
+type=HitOverride
+triggerall =!AILevel
+triggerall=command="fwd" && command!= "back" && command != "up" && command != "down"
+trigger1=Ctrl
+attr=SA,AA,AP
+stateno=6080
+slot=0
+time=5
+;------------------------------------------------------------------
+[State -1, Crouching Parry]
+type=HitOverride
+triggerall =!AILevel
+triggerall=(statetype=S && command="down")|| (statetype=C && command="fwd") && command != "back" && command != "up"
+trigger1=Ctrl
+attr=C,AA,AP
+stateno=6081
+slot=0
+time =5
+;-------------------------------------------------------------------
+[State -1, Aerial Parry]
+type= HitOverride
+triggerall =!AILevel
+triggerall=(statetype= A && command="fwd") && command != "back" && command != "up" && command != "down"
+trigger1=Ctrl
+attr=SA,AA,AP
+stateno=6082
+forceair=1
+slot=0
+time=5
 
 [State -1, SetAI]
 type = VarSet
@@ -308,15 +432,13 @@ trigger1 = (TeamSide = 2)
 trigger2 = (MatchNo > 1)
 var(59) = 1
 
-[State -1, DodgeF]
+[State -1, Roll]
 type = ChangeState
-value = 477
+value = 16000
 triggerall = var(59) < 1
-triggerall = map(cmd_214k)
-trigger1 = statetype = S
-trigger1 = ctrl
-trigger2 = statetype = C
-trigger2 = ctrl
+triggerall = Command = "Roll"
+trigger1 = statetype = S || statetype = C
+trigger1 = ctrl || (stateno = [200,250] || stateno = [400,450]) && MoveHit >= 1
 
 [state -1, super1_throwslam3]
 type = ChangeState
@@ -326,7 +448,7 @@ triggerall = command = "super1"
 triggerall = statetype != A
 triggerall = power >= 1000
 trigger1 = statetype = S
-trigger1 = ctrl
+trigger1 = ctrl || (stateno = [200,250] || stateno = [400,450]) && MoveHit >= 1
 
 [state -1, Super3_groundslaphard]
 type = ChangeState
@@ -336,7 +458,7 @@ triggerall = command = "super3"
 triggerall = statetype != A
 triggerall = power >= 2000
 trigger1 = statetype = S
-trigger1 = ctrl || ((stateno = 16169 || stateno = 16170 || stateno = 16171) && time >= 120)
+trigger1 = ctrl || (stateno = [16169,16171] && time >= 120) || (stateno = 16187 && time >= 50)
 
 [state -1, throwslam LP] 
 type = ChangeState
@@ -346,7 +468,7 @@ triggerall = command = "throwslam_L"
 triggerall = statetype != A
 triggerall = p2statetype != A
 trigger1 = statetype = S
-trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+trigger1 = ctrl ||  stateno = [200,250] && MoveHit >= 1
 
 [state -1, throwslam MP] 
 type = ChangeState
@@ -356,7 +478,7 @@ triggerall = command = "throwslam_M"
 triggerall = statetype != A
 triggerall = p2statetype != A
 trigger1 = statetype = S
-trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+trigger1 = ctrl ||  stateno = [200,250] && MoveHit >= 1
 
 [state -1, throwslam HP] 
 type = ChangeState
@@ -366,7 +488,18 @@ triggerall = command = "throwslam_H"
 triggerall = statetype != A
 triggerall = p2statetype != A
 trigger1 = statetype = S
-trigger1 = ctrl || stateno = 250 || stateno = 200 || stateno = 210 || stateno = 220
+trigger1 = ctrl || stateno = [200,250] && MoveHit >= 1
+
+[state -1, antiair_throw_EX]
+type = ChangeState
+value = 16274
+triggerall = var(59) < 1
+triggerall = command = "antiair/ground_throw EX"
+triggerall = statetype != A
+triggerall = p2statetype != L
+triggerall = power >= 500
+trigger1 = statetype = S
+trigger1 = ctrl
 
 [state -1, antiair_throw]
 type = ChangeState
@@ -375,17 +508,6 @@ triggerall = var(59) < 1
 triggerall = command = "antiair/ground_throw"
 triggerall = statetype != A
 triggerall = p2statetype != L
-trigger1 = statetype = S
-trigger1 = ctrl
-
-[state -1, antiair_throw_EX]
-type = ChangeState
-value = 16274
-triggerall = var(59) < 1
-triggerall = map(cmd_41236pp)
-triggerall = statetype != A
-triggerall = p2statetype != L
-triggerall = power >= 500
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -401,22 +523,38 @@ triggerall = p2statetype != C
 trigger1 = statetype = S
 trigger1 = ctrl
 
-[State -1, groundslap]
-type = changestate
-value = 16195
-triggerall = !AIlevel
-triggerall = map(cmd_623p)
-triggerall = roundstate = 2 && statetype != A
-trigger1 = ctrl || stateno = 200 || stateno = 210 || stateno = 230 || stateno = 240 || stateno = 250
-trigger2 = map(specialcancel)
-
-[state -1, groundslap_ex]
+[state -1, groundslap_EX]
 type = ChangeState
 value = 16200
 triggerall = var(59) < 1
-triggerall = map(cmd_623pp)
+triggerall = command = "groundslap_EX"
 triggerall = statetype != A
+triggerall = power >= 500
 trigger1 = statetype = S
+trigger1 = ctrl || (stateno = [200,210] || stateno = [230,250]) && MoveHit >= 1
+
+[State -1, groundslap LP]
+type = changestate
+value = 16195
+triggerall = !AIlevel
+triggerall = command = "groundslap_L"
+triggerall = roundstate = 2 && statetype != A
+trigger1 = ctrl || (stateno = [200,210] || stateno = [230,250]) && MoveHit >= 1
+
+[State -1, groundslap MP]
+type = changestate
+value = 16196
+triggerall = !AIlevel
+triggerall = command = "groundslap_M"
+triggerall = roundstate = 2 && statetype != A
+trigger1 = ctrl || (stateno = [200,210] || stateno = [230,250]) && MoveHit >= 1
+
+[State -1, groundslap HP]
+type = changestate
+value = 16197
+triggerall = !AIlevel
+triggerall = command = "groundslap_H"
+triggerall = roundstate = 2 && statetype != A
 trigger1 = ctrl
 
 [State -1, changestate]
@@ -669,19 +807,29 @@ trigger1 = statetype = S
 trigger1 = ctrl
 trigger1 = var(9)<=0
 
+;Blowback Attack
+[State -1, Stand Strong Punch]
+type = ChangeState
+value = 260
+triggerall = var(59) < 1
+triggerall = command = "z+c"
+triggerall = command != "holddown"
+TriggerAll = statetype != A
+trigger1 = statetype = S
+trigger1 = ctrl
+trigger2 = stateno = 210
+trigger2 = movecontact
+
 ;---------------------------------------------------------------------------
 ;suplex
 [State -1, Throw]
 type = ChangeState
 value = 815
 triggerall = var(59) < 1
-triggerall = command = "y"
+triggerall = command = "throw"
 triggerall = statetype = S
-triggerall = ctrl
 triggerall = stateno != 100
-trigger1 = command = "holdfwd"
-trigger1 = p2bodydist X < 9
-trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ;Taunt
@@ -787,6 +935,16 @@ TriggerAll = statetype != A
 trigger1 = statetype = C
 trigger1 = ctrl
 
+;---------------------------------------------------------------------------
+; Arm Bash
+[State -1, Armbash]
+type = ChangeState
+value = 425
+triggerall = var(59) < 1
+triggerall = command = "Armbash"
+TriggerAll = statetype != A
+trigger1 = statetype = C
+trigger1 = ctrl || (stateno = 410 && time >= 19)
 
 ;---------------------------------------------------------------------------
 ; Crouching Medium Punch
@@ -795,6 +953,18 @@ type = ChangeState
 value = 410
 triggerall = var(59) < 1
 triggerall = command = "y"
+triggerall = command = "holddown"
+TriggerAll = statetype != A
+trigger1 = statetype = C
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Crouching Strong Punch
+[State -1, Crouching Strong Punch]
+type = ChangeState
+value = 420
+triggerall = var(59) < 1
+triggerall = command = "z"
 triggerall = command = "holddown"
 TriggerAll = statetype != A
 trigger1 = statetype = C
@@ -828,6 +998,18 @@ trigger1 = statetype = C
 trigger1 = ctrl
 trigger2 = stateno = 430
 trigger2 = movecontact
+
+;---------------------------------------------------------------------------
+; Crouching Strong Kick
+[State -1, Crouching Strong Kick]
+type = ChangeState
+value = 450
+triggerall = var(59) < 1
+triggerall = command = "c"
+triggerall = command = "holddown"
+TriggerAll = statetype != A
+trigger1 = statetype = C
+trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Jump Light Punch
@@ -880,13 +1062,15 @@ trigger1 = statetype = A
 trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
-
-[State -1, Guard]
+; Jump Strong Kick
+[State -1, Jump Strong Kick]
 type = ChangeState
-value = 120
-triggerall = command = "holdback"
-triggerall = ctrl && stateno != 120
-trigger1 = inguarddist
-trigger1 = !enemy, MoveGuarded
-trigger1 = var(9)<=0
+value = 650
+triggerall = var(59) < 1
+triggerall = command = "c"
+trigger1 = statetype = A
+trigger1 = ctrl
+
+
+;---------------------------------------------------------------------------
 

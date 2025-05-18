@@ -214,7 +214,7 @@ slot = {
 ;Original Characters
 randomselect,
 undyne,
-DeadpoolAI,
+randomselect,
 
 ;Street Fighter Characters
 slot = {
@@ -232,36 +232,71 @@ slot = {
 }
 vega_pots,
 cammy_pots,
-karin_pots,
 sakura_pots,
 dan_pots,
 nash_pots,
 Alex,
 Dudley,
 Hugo,
-Mike Haggar,
 honda_pots,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
 
-;Ect Capcom Characters
+;MVC (CAPCOM SIDE) Characters 1
+Mike Haggar,
 morrigan_pots,
 lei-lei_pots,
+randomselect,
+randomselect,
+
+MVC2_Amingo, ;Middle 1
+
+;MVC (MARVEL SIDE) Characters 1
+DeadpoolAI,
+Hulk,
+randomselect,
+Doom,
+MvC2_Thanos,
+
+;MVC (CAPCOM SIDE) Characters 2
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+
+randomselect, ;Middle 2
+
+;MVC (MARVEL SIDE) Characters 2
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
 
 ;KOF/Fatal Fury Characters
 TerryV,
 geese_pots,
-MaiShiranui.XIII[P-Tan],
-RYO_XIII,
-King_13,
-LeonaHeidern.XIII[P-Tan],
 Goroh,
-slot = {
-	takumah, previous=d, next=w
-	Mr.KARATEXIII, previous=d, next=w
-}
-H-DuoLon,
 randomselect,
 randomselect,
 randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+randomselect,
+
+DivineSkullo,
+masterhuang,
+M-MONK,
+Lotus Master,
+Drunken Master,
+Scorpion,
 randomselect,
 randomselect,
 randomselect,
